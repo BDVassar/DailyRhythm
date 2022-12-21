@@ -6,6 +6,6 @@ export const AppState = reactive({
   user: {},
   /** @type {import('./models/Account.js').Account} */
   account: {},
-  /** @type {import('./models/BgImage').BgImage[]} */
-  BgImages: [],
+  /** @type {import('./models/BgImage.js').BgImage{}} */
+  BgImage: {},
 })

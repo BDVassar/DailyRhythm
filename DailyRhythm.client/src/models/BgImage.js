@@ -3,7 +3,7 @@ export class BgImage {
     this.id = data.id
     this.likes = data.likes
     this.imgLink = data.links.html
-    this.url = data.urls.full
+    this.imgUrl = data.urls.full
     this.author = data.user.name
   }
 }
