@@ -9,9 +9,6 @@ export const GoalSchema = new Schema({
     accomplished: { type: Boolean, required: true, default: false },
     archived: { type: Boolean, required: true, default: false },
     progress: { type: Number, required: true, default: 0 },
-    color: { type: String, default: '#0CC0D4' },
+    color: { type: String, default: '#0cc0d4' },
     icon: { type: String, required: true, enum: [], }
-})
-
-
-
+}, {timestamps: true, toJSON: {virtuals: true}})

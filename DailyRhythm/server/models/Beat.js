@@ -10,6 +10,6 @@ export const BeatSchema = new Schema({
     priority: { type: String, required: false, enum: ['high', 'medium', 'low',], default: '', lowercase: true },
     accomplished: { type: Boolean, required: true, default: false },
     archived: { type: Boolean, required: true, default: false },
-    color: { type: String, default: '#0CC0D4' },
+    color: { type: String, default: '#ffaf87' },
     icon: { type: String, required: true }
 })
