@@ -23,9 +23,9 @@
     </div>
 
     <!-- SECTION Photographer Name -->
-    <div class="row my-5 align-content-end">
+    <div class="row my-5 d-flex align-content-end opaqueBG">
       <div class="col-3">
-        <h5>Photographer Name</h5>
+        <h5>&COPY{{ BgImage.author }}</h5>
       </div>
     </div>
   </div>
@@ -38,6 +38,7 @@ import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop.js";
 import { AppState } from '../AppState'
 import { quoteService } from "../services/QuoteService.js";
+import { BgImage } from "../models/BgImage";
 
 export default {
   setup() {
@@ -76,5 +77,13 @@ export default {
   height: 100vh;
   background-position: center;
   background-size: cover;
+}
+
+.opaqueBG {
+  height: fit-content;
+  width: fit-content;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, .5);
 }
 </style>
