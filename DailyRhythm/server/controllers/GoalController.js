@@ -7,20 +7,13 @@ export class GoalController extends BaseController {
         super('api/goals')
         this.router
             .use(Auth0Provider.getAuthorizedUserInfo)
-            .get(':creatorId', this.getMyGoals)
+            
             .post('', this.createGoal)
             .get('/:id', this.getOneGoal)
             .put(':id', this.updateGoal)
     }
 
-    async getMyGoals(req, res, next) {
-        try {
-            const goals = await goalService.getMyGoals()
-            return res.send(goals)
-        } catch (error) {
-            next('failed to get goals via GoalController', error)
-        }
-    }
+    
     async createGoal(req, res, next) {
         try {
             req.body.creatorId = req.userInfo.id

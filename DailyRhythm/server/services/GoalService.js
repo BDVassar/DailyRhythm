@@ -8,8 +8,8 @@ class GoalService {
         return goal
     }
 
-    async getMyGoals() {
-        const goals = await dbContext.Goals.find()
+    async getMyGoals(creatorId) {
+        const goals = await dbContext.Goals.find({creatorId})
         return goals
     }
 
