@@ -28,7 +28,7 @@ export class GoalController extends BaseController {
             const goal = await goalService.getOneGoal(req.params.id)
             return res.send(goal)
         } catch (error) {
-            next('failed to getOneGoal via controller', error)
+            next(error)
         }
     }
 
@@ -38,7 +38,16 @@ export class GoalController extends BaseController {
             const updatedGoal = await goalService.updateGoal(req.params.id, req.body, req.userInfo.id)
             return res.send(updatedGoal)
         } catch (error) {
-            next('error updating goal', error)
+            next(error)
+        }
+    }
+
+    async archiveGoal(req, res, next) {
+        try {
+            const message = await goalService.archiveGoal(req.params.id, req.userInfo.id)
+            return res.send(message)
+        } catch(error){
+            next(error)
         }
     }
 

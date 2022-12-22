@@ -24,7 +24,7 @@ class GoalService {
         const original = await dbContext.Goals.findById(goalId)
     }
 
-    async archiveGoal(goalId) {
+    async archiveGoal(goalId, accountId) {
         const goal = await this.getOneGoal(goalId)
         await goal.save()
         return `archived ${goal.name}`
