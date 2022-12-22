@@ -11,14 +11,11 @@ export const UnsplashApi = Axios.create({
   timeout: 8000,
   params: {
     client_id: 'Nn9OBE0iNJvFJop3A8lI8DACrD-Pmqk3OUqabk1tEx8'
-    
+
   }
 })
 
-export const zenQuoteAPI = Axios.create({
-  baseURL: 'https://zenquotes.io/api ',
+export const ZenQuoteApi = Axios.create({
+  baseURL: 'https://zenquotes.io/api/quotes/',
   timeout: 8000,
-  params: {
-
-  }
 })
