@@ -1,31 +1,40 @@
 <template>
-  <div class="container-fluid bgImage" v-if="BgImage" :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
+  <div class="container-fluid bgImage text-shadow" v-if="BgImage"
+    :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
 
     <!-- SECTION Time and Weather -->
-    <div class="row mb-5 p-2 justify-content-between">
-      <h2 class="col-2">7:00 PM</h2>
+    <div class="row mb-5 p-2 justify-content-between text-white">
+      <Clock />
       <div class="col-2 d-flex justify-content-end">
         <h2>5 deg. F</h2>
       </div>
     </div>
 
     <!-- SECTION Greeting -->
-    <div class="row">
+    <div class="row text-white">
       <h1 class="text-center my-5">Good <span id="greeting-by-time"> Morning</span>, <span>User</span> </h1>
     </div>
 
     <!-- SECTION Quote and author -->
-    <div class="row my-5">
-      <div class="col-12">
+    <div class="row my-5 py-5 text-white justify-content-center">
+      <div class="col-10">
         <h3 class="text-center quote-content">{{ Quote.text }}</h3>
-        <h5 class="text-center quote-author">-{{ Quote.author }}</h5>
+        <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
       </div>
     </div>
 
+    <!-- SECTION Option Modal -->
+    <div class="row align-content-end justify-content-center py-5 sticky-bottom">
+      <h1 class="col-1 mdi mdi-chevron-up-circle-outline d-flex justify-content-center text-white selectable">
+      </h1>
+    </div>
+
     <!-- SECTION Photographer Name -->
-    <div class="row my-5 opaqueBG justify-content-end">
-      <div class="col-12 justify-content-end">
-        <h5>&COPY{{ BgImage.author }}</h5>
+    <div class="row position pt-5">
+      <div class="col-12 d-flex opaqueBG photographer-position justify-content-end">
+        <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer" class="">&COPY{{
+            BgImage.author
+        }}</a>
       </div>
     </div>
   </div>
@@ -78,6 +87,7 @@ export default {
   height: 100vh;
   background-position: center;
   background-size: cover;
+  // overflow: hidden;
 }
 
 .opaqueBG {
@@ -85,7 +95,13 @@ export default {
   width: fit-content;
   font-size: 1.5rem;
   border-radius: 50px;
-  background-color: rgba(0, 0, 0, .5);
+  color: whitesmoke;
+  background-color: #ffaf8788;
+}
+
+a {
+  color: rgb(254, 254, 254);
+  font-size: 16px;
 }
 
 .quote-author {
@@ -97,5 +113,15 @@ export default {
 .quote-content:hover+.quote-author {
   visibility: visible;
   opacity: 1;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.photographer-position {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 </style>
