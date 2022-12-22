@@ -1,10 +1,11 @@
 import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
+import { logger } from '../utils/Logger.js'
+
 class GoalService {
     async createGoal(body) {
         const goal = await dbContext.Goals.create(body)
-        //TODO - Add Schema populate here
-        await goal.populate(`our schema here`)
+        logger.log(goal)
         return goal
     }
 

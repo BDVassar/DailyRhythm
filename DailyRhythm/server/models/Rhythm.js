@@ -13,5 +13,5 @@ export const RhythmSchema = new Schema({
     accomplished: { type: Boolean, required: true, default: false },
     archived: { type: Boolean, required: true, default: false },
     color: { type: String, default: '#99c2ac' },
-    icon: { type: String, required: true }
+    icon: { type: String, required: true, enum: ['mdi-weight-lifter', 'mdi-leaf', 'mdi-book-open-page-variant', 'mdi-food-apple', 'mdi-heart', 'mdi-lead-pencil', 'mdi-music-clef-treble', 'mdi-music', 'mdi-music-note', 'mdi-palette', 'mdi-paw', 'mdi-currency-usd', 'mdi-home', 'mdi-comment-text-outline', 'mdi-plus-thick', 'mdi-silverware', 'mdi-meditation', 'mdi-beach', 'mdi-power-sleep', 'mdi-star', 'mdi-cup-water', 'mdi-laptop', 'mdi-flower-tulip'], default: 'mdi-music' }
 })
