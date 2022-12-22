@@ -17,14 +17,14 @@
     <!-- SECTION Quote and author -->
     <div class="row my-5">
       <div class="col-12">
-        <h3 class="text-center">Quote</h3>
-        <h5 class="text-center">- Author</h5>
+        <h3 class="text-center">{{ Quote.text }}</h3>
+        <h5 class="text-center">-{{ Quote.author }}</h5>
       </div>
     </div>
 
     <!-- SECTION Photographer Name -->
-    <div class="row my-5 d-flex align-content-end opaqueBG">
-      <div class="col-3">
+    <div class="row my-5 opaqueBG">
+      <div class="col-12 justify-content-end">
         <h5>&COPY{{ BgImage.author }}</h5>
       </div>
     </div>
@@ -36,9 +36,10 @@ import { onMounted, computed } from "vue";
 import { bgImageService } from "../services/BgImageService.js";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop.js";
-import { AppState } from '../AppState'
+import { AppState } from '../AppState.js'
 import { quoteService } from "../services/QuoteService.js";
-import { BgImage } from "../models/BgImage";
+import { BgImage } from "../models/BgImage.js";
+import { Quote } from "../models/Quote.js";
 
 export default {
   setup() {

@@ -8,6 +8,6 @@ export const AppState = reactive({
   account: {},
   /** @type {import('./models/BgImage.js').BgImage{}} */
   BgImage: {},
-  /** @type {import('./models/Quote.js').Quote[]} */
-  Quote: [],
+  /** @type {import('./models/Quote.js').Quote{}} */
+  Quote: {},
 })

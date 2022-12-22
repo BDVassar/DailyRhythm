@@ -5,8 +5,8 @@
   <main>
     <router-view />
   </main>
-  <footer class="bg-dark text-light">
-    Made with 💖 by Brian, Jordan, Kayla, and Rachel
+  <footer>
+
   </footer>
 </template>
 

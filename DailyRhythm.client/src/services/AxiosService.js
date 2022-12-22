@@ -15,7 +15,7 @@ export const UnsplashApi = Axios.create({
   }
 })
 
-export const ZenQuoteApi = Axios.create({
-  baseURL: 'https://zenquotes.io/api/quotes/',
+export const TypeFitApi = Axios.create({
+  baseURL: 'https://type.fit/api/quotes',
   timeout: 8000,
 })
