@@ -9,7 +9,7 @@ export class GoalController extends BaseController {
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createGoal)
             .get('/:id', this.getOneGoal)
-            .put(':id', this.updateGoal)
+            .put('/:id', this.updateGoal)
     }
 
 
@@ -46,7 +46,7 @@ export class GoalController extends BaseController {
         try {
             const message = await goalService.archiveGoal(req.params.id, req.userInfo.id)
             return res.send(message)
-        } catch(error){
+        } catch (error) {
             next(error)
         }
     }
