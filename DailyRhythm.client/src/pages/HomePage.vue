@@ -17,8 +17,8 @@
     <!-- SECTION Quote and author -->
     <div class="row my-5">
       <div class="col-12">
-        <h3 class="text-center">{{ Quote.text }}</h3>
-        <h5 class="text-center">-{{ Quote.author }}</h5>
+        <h3 class="text-center quote-content">{{ Quote.text }}</h3>
+        <h5 class="text-center quote-author">-{{ Quote.author }}</h5>
       </div>
     </div>
 
@@ -86,5 +86,16 @@ export default {
   font-size: 1.5rem;
   border-radius: 50px;
   background-color: rgba(0, 0, 0, .5);
+}
+
+.quote-author {
+  visibility: hidden;
+  opacity: 0;
+  transition: ease 2s;
+}
+
+.quote-content:hover+.quote-author {
+  visibility: visible;
+  opacity: 1;
 }
 </style>
