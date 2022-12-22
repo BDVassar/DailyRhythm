@@ -23,7 +23,7 @@
     </div>
 
     <!-- SECTION Photographer Name -->
-    <div class="row my-5 opaqueBG">
+    <div class="row my-5 opaqueBG justify-content-end">
       <div class="col-12 justify-content-end">
         <h5>&COPY{{ BgImage.author }}</h5>
       </div>
