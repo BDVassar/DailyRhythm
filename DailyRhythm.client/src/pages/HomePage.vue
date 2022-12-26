@@ -33,8 +33,8 @@
     <div class="row position pt-5">
       <div class="col-12 d-flex opaqueBG photographer-position justify-content-end">
         <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer" class="">&COPY{{
-            BgImage.author
-        }}</a>
+    BgImage.author
+          }}</a>
       </div>
     </div>
   </div>
@@ -49,36 +49,38 @@ import { AppState } from '../AppState.js'
 import { quoteService } from "../services/QuoteService.js";
 import { BgImage } from "../models/BgImage.js";
 import { Quote } from "../models/Quote.js";
+import Clock from "../components/Clock.vue";
 
 export default {
   setup() {
     onMounted(() => {
-      getRandomPicture()
-      getRandomQuote()
-    })
-
+      getRandomPicture();
+      getRandomQuote();
+    });
     async function getRandomPicture() {
       try {
-        await bgImageService.getRandomPicture()
-      } catch (error) {
-        logger.error(error)
-        Pop.error(error)
+        await bgImageService.getRandomPicture();
+      }
+      catch (error) {
+        logger.error(error);
+        Pop.error(error);
       }
     }
-
     async function getRandomQuote() {
       try {
-        await quoteService.getRandomQuote()
-      } catch (error) {
-        logger.error(error)
-        Pop.error(error.message)
+        await quoteService.getRandomQuote();
+      }
+      catch (error) {
+        logger.error(error);
+        Pop.error(error.message);
       }
     }
     return {
       BgImage: computed(() => AppState.BgImage),
       Quote: computed(() => AppState.Quote)
-    }
-  }
+    };
+  },
+  components: { Clock }
 }
 </script>
 
