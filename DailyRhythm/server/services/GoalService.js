@@ -38,7 +38,7 @@ class GoalService {
     }
 
     async archiveGoal(goalId, accountId) {
-        const currentGoal = await dbContext.Goals.findById(goalId)
+        const currentGoal = await this.getOneGoal(goalId)
         if (accountId != currentGoal.creatorId) throw new Forbidden('You cannot archive someone elses goal.')
         currentGoal.archived = !currentGoal.archived
         await currentGoal.save()

@@ -33,6 +33,17 @@ class RhythmService {
         await currentRhythm.save()
         return currentRhythm
     }
+    async archiveRhythm(rhythmId, accountId) {
+        const currentRhythm = await this.getOneRhythm(rhythmId)
+        if (accountId != currentRhythm.creatorId) throw new Forbidden('You cannot edit someone elses rhythm.')
+        currentRhythm.archived = !currentRhythm.archived
+        await currentRhythm.save()
+        if (currentRhythm.archived == true) {
+            return `archived ${currentRhythm.name}`
+        } else {
+            return `restored ${currentRhythm.name}`
+        }
+    }
 }
 
 export const rhythmService = new RhythmService

@@ -10,6 +10,7 @@ export class RhythmController extends BaseController {
             .post('', this.createRhythm)
             .get('/:id', this.getOneRhythm)
             .put('/:id', this.updateRhythm)
+            .delete('/:id', this.archiveRhythm)
     }
 
     async createRhythm(req, res, next) {
@@ -40,7 +41,14 @@ export class RhythmController extends BaseController {
         }
     }
 
-
+    async archiveRhythm(req, res, next) {
+        try {
+            const rhythm = await rhythmService.archiveRhythm(req.params.id, req.userInfo.id)
+            return res.send(rhythm)
+        } catch (error) {
+            next(error)
+        }
+    }
 
 
 }
