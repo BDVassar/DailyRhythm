@@ -1,4 +1,4 @@
-<template>
+<template class="appvue">
   <header>
     <Navbar />
   </header>
@@ -24,14 +24,7 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
-:root {
-  --main-height: calc(100vh - 32px - 64px);
-}
-
-
-footer {
-  display: grid;
-  place-content: center;
-  height: 32px;
+.appvue {
+  height: 100vh;
 }
 </style>

@@ -34,8 +34,8 @@
     <div class="row">
       <div class="col-5 d-flex opaqueBG p-1 m-2">
         <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer" class="">&COPY{{
-    BgImage.author
-          }}</a>
+            BgImage.author
+        }}</a>
       </div>
       <div class="col-1 text-white selectable option-position">
         <h1 class="mdi mdi-chevron-up-circle-outline d-flex justify-content-end"></h1>
@@ -91,7 +91,7 @@ export default {
 
 <style scoped lang="scss">
 .bgImage {
-  height: 110vh;
+  height: 100vh;
   background-position: center;
   background-size: cover;
   // overflow: hidden;
