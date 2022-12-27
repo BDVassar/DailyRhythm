@@ -1,48 +1,48 @@
 <template>
-  <div class="container-fluid bgImage text-shadow" v-if="BgImage"
-    :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
+  <!-- <div class="container-fluid bgImage text-shadow" v-if="BgImage"
+    :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }"> -->
 
-    <!-- SECTION Time and Weather -->
-    <div class="row mb-5 p-2 justify-content-between text-white">
-      <div class="col-3 d-flex justify-content-start">
-        <Clock />
-      </div>
-      <div class="col-3 d-flex justify-content-end">
-        <h3>5 <span class="mdi mdi-temperature-fahrenheit"></span></h3>
-      </div>
+  <!-- SECTION Time and Weather -->
+  <div class="row mb-5 p-2 justify-content-between text-white">
+    <div class="col-3 d-flex justify-content-start">
+      <Clock />
     </div>
-
-    <!-- SECTION Greeting -->
-    <div class="row text-white">
-      <h1 class="text-center my-5">Good <span> Morning</span>, <span>User</span> </h1>
-    </div>
-
-    <!-- SECTION Quote and author -->
-    <div class="row my-5 py-5 text-white justify-content-center">
-      <div class="col-10">
-        <h3 class="text-center quote-content">{{ Quote.text }}</h3>
-        <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
-      </div>
-    </div>
-
-    <!-- SECTION Option Modal -->
-    <div class="row align-content-end justify-content-center">
-
-    </div>
-
-    <!-- SECTION Photographer Name and Option Modal -->
-    <div class="row">
-      <div class="col-5 d-flex opaqueBG p-1 m-2">
-        <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer" class="">&COPY{{
-            BgImage.author
-        }}</a>
-      </div>
-      <div class="col-1 text-white selectable option-position">
-        <h1 class="mdi mdi-chevron-up-circle-outline d-flex justify-content-end"></h1>
-      </div>
-      <div class="col-5"></div>
+    <div class="col-3 d-flex justify-content-end">
+      <h3>5 <span class="mdi mdi-temperature-fahrenheit"></span></h3>
     </div>
   </div>
+
+  <!-- SECTION Greeting -->
+  <div class="row text-white">
+    <h1 class="text-center my-5">Good <span> Morning</span>, <span>User</span> </h1>
+  </div>
+
+  <!-- SECTION Quote and author -->
+  <div class="row my-5 py-5 text-white justify-content-center">
+    <div class="col-10">
+      <h3 class="text-center quote-content">{{ Quote.text }}</h3>
+      <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
+    </div>
+  </div>
+
+  <!-- SECTION Option Modal -->
+  <div class="row align-content-end justify-content-center">
+
+  </div>
+
+  <!-- SECTION Photographer Name and Option Modal -->
+  <div class="row">
+    <!-- <div class="col-5 d-flex opaqueBG p-1 m-2">
+      <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer" class="">&COPY{{
+    BgImage.author
+        }}</a>
+    </div> -->
+    <div class="col-1 text-white selectable option-position">
+      <h1 class="mdi mdi-chevron-up-circle-outline d-flex justify-content-end"></h1>
+    </div>
+    <div class="col-5"></div>
+  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -59,18 +59,9 @@ import Clock from "../components/Clock.vue";
 export default {
   setup() {
     onMounted(() => {
-      getRandomPicture();
+      // getRandomPicture();
       getRandomQuote();
     });
-    async function getRandomPicture() {
-      try {
-        await bgImageService.getRandomPicture();
-      }
-      catch (error) {
-        logger.error(error);
-        Pop.error(error);
-      }
-    }
     async function getRandomQuote() {
       try {
         await quoteService.getRandomQuote();
@@ -90,12 +81,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.bgImage {
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  // overflow: hidden;
-}
+// .bgImage {
+//   height: 100vh;
+//   background-position: center;
+//   background-size: cover;
+//   // overflow: hidden;
+// }
 
 .opaqueBG {
   height: fit-content;
