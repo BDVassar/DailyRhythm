@@ -9,6 +9,7 @@ export class RhythmController extends BaseController {
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createRhythm)
             .get('/:id', this.getOneRhythm)
+            .put('/:id', this.updateRhythm)
     }
 
     async createRhythm(req, res, next) {
@@ -25,6 +26,15 @@ export class RhythmController extends BaseController {
         try {
             const rhythm = await rhythmService.getOneRhythm(req.params.id)
             return res.send(rhythm)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async updateRhythm(req, res, next) {
+        try {
+            const updatedRhythm = await rhythmService.updateRhythm(req.params.id, req.body, req.userInfo.id)
+            return res.send(updatedRhythm)
         } catch (error) {
             next(error)
         }

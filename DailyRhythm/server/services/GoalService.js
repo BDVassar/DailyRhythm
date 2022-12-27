@@ -21,7 +21,7 @@ class GoalService {
     }
 
     async updateGoal(goalId, body, accountId) {
-        const currentGoal = await dbContext.Goals.findById(goalId)
+        const currentGoal = await this.getOneGoal(goalId)
         if (currentGoal.archived) throw new BadRequest('You cannot edit an archived goal.')
         if (accountId != currentGoal.creatorId) throw new Forbidden('You cannot edit someone elses goal.')
 
