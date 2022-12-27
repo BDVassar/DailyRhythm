@@ -1,4 +1,4 @@
-<template class="appvue">
+<template>
   <header>
     <Navbar />
   </header>
@@ -23,8 +23,4 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
-
-.appvue {
-  height: 100vh;
-}
 </style>
