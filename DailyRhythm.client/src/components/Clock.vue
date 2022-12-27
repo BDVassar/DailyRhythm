@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <h3>
     {{ currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }}
-  </div>
+  </h3>
 </template>
 
 <script>

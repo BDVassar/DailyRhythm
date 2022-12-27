@@ -4,15 +4,17 @@
 
     <!-- SECTION Time and Weather -->
     <div class="row mb-5 p-2 justify-content-between text-white">
-      <Clock />
-      <div class="col-2 d-flex justify-content-end">
-        <h2>5 deg. F</h2>
+      <div class="col-3 d-flex justify-content-start">
+        <Clock />
+      </div>
+      <div class="col-3 d-flex justify-content-end">
+        <h3>5 <span class="mdi mdi-temperature-fahrenheit"></span></h3>
       </div>
     </div>
 
     <!-- SECTION Greeting -->
     <div class="row text-white">
-      <h1 class="text-center my-5">Good <span id="greeting-by-time"> Morning</span>, <span>User</span> </h1>
+      <h1 class="text-center my-5">Good <span> Morning</span>, <span>User</span> </h1>
     </div>
 
     <!-- SECTION Quote and author -->
@@ -24,18 +26,21 @@
     </div>
 
     <!-- SECTION Option Modal -->
-    <div class="row align-content-end justify-content-center py-5 sticky-bottom">
-      <h1 class="col-1 mdi mdi-chevron-up-circle-outline d-flex justify-content-center text-white selectable">
-      </h1>
+    <div class="row align-content-end justify-content-center">
+
     </div>
 
-    <!-- SECTION Photographer Name -->
-    <div class="row position pt-5">
-      <div class="col-12 d-flex opaqueBG photographer-position justify-content-end">
+    <!-- SECTION Photographer Name and Option Modal -->
+    <div class="row">
+      <div class="col-5 d-flex opaqueBG p-1 m-2">
         <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer" class="">&COPY{{
     BgImage.author
           }}</a>
       </div>
+      <div class="col-1 text-white selectable option-position">
+        <h1 class="mdi mdi-chevron-up-circle-outline"></h1>
+      </div>
+      <div class="col-5"></div>
     </div>
   </div>
 </template>
@@ -86,7 +91,7 @@ export default {
 
 <style scoped lang="scss">
 .bgImage {
-  height: 100vh;
+  height: 110vh;
   background-position: center;
   background-size: cover;
   // overflow: hidden;
@@ -99,6 +104,9 @@ export default {
   border-radius: 50px;
   color: whitesmoke;
   background-color: #ffaf8788;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 a {
@@ -121,9 +129,9 @@ a {
   text-shadow: 2px 2px 4px #000000;
 }
 
-.photographer-position {
-  position: absolute;
+.option-position {
+  position: fixed;
   bottom: 0;
-  left: 0;
+  right: 0;
 }
 </style>
