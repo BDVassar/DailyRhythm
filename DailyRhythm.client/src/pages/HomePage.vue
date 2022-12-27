@@ -4,6 +4,13 @@
 
   <!-- SECTION Time and Weather -->
   <div class="row mb-5 p-2 justify-content-between text-white">
+    <!-- <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+      <div class="d-flex flex-column align-items-center">
+
+        <h1 class="col-3 d-flex justify-content-start"><i class="mdi mdi-home-circle-outline"></i>
+        </h1>
+      </div>
+    </router-link> -->
     <div class="col-3 d-flex justify-content-start">
       <Clock />
     </div>
