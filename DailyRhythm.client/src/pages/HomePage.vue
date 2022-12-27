@@ -38,7 +38,7 @@
           }}</a>
       </div>
       <div class="col-1 text-white selectable option-position">
-        <h1 class="mdi mdi-chevron-up-circle-outline"></h1>
+        <h1 class="mdi mdi-chevron-up-circle-outline d-flex justify-content-end"></h1>
       </div>
       <div class="col-5"></div>
     </div>
