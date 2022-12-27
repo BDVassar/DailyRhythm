@@ -8,7 +8,7 @@ export class RhythmController extends BaseController {
         this.router
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createRhythm)
-            .get('', this.getOneRhythm)
+            .get('/:id', this.getOneRhythm)
     }
 
     async createRhythm(req, res, next) {
