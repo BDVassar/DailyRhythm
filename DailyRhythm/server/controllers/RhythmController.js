@@ -13,7 +13,7 @@ export class RhythmController extends BaseController {
 
     async createRhythm(req, res, next) {
         try {
-            req.body.rhythm.accountId = req.userInfo.id
+            req.body.creatorId = req.userInfo.id
             const rhythm = await rhythmService.createRhythm(req.body)
             return res.send(rhythm)
         } catch (error) {

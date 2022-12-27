@@ -2,7 +2,7 @@ import { Schema } from "mongoose";
 
 export const RhythmSchema = new Schema({
     name: { type: String, maxLength: 50, minLength: 2, required: true },
-    goalId: { type: String },
+    goalId: { type: Schema.Types.ObjectId, required: true, ref: 'Goal' },
     createdAt: { type: Date, required: true },
     creatorId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
     description: { type: String, required: false, minLength: 2, maxLength: 1000 },
