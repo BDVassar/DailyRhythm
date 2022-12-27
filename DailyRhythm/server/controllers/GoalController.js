@@ -10,6 +10,7 @@ export class GoalController extends BaseController {
             .post('', this.createGoal)
             .get('/:id', this.getOneGoal)
             .put('/:id', this.updateGoal)
+            .delete('/:id', this.archiveGoal)
     }
 
 
@@ -34,7 +35,6 @@ export class GoalController extends BaseController {
 
     async updateGoal(req, res, next) {
         try {
-            req.body.creatorId = req.userinfo.id
             const updatedGoal = await goalService.updateGoal(req.params.id, req.body, req.userInfo.id)
             return res.send(updatedGoal)
         } catch (error) {
