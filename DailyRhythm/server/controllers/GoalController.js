@@ -1,5 +1,6 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import { goalService } from "../services/GoalService";
+import { rhythmService } from "../services/RhythmService.js";
 import BaseController from "../utils/BaseController";
 
 export class GoalController extends BaseController {
@@ -9,11 +10,12 @@ export class GoalController extends BaseController {
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createGoal)
             .get('/:id', this.getOneGoal)
+            .get('/:id/rhythms', this.getRhythmsByGoalId)
             .put('/:id', this.updateGoal)
             .delete('/:id', this.archiveGoal)
     }
-
-
+    
+    
     async createGoal(req, res, next) {
         try {
             req.body.creatorId = req.userInfo.id
@@ -23,7 +25,7 @@ export class GoalController extends BaseController {
             next(error)
         }
     }
-
+    
     async getOneGoal(req, res, next) {
         try {
             const goal = await goalService.getOneGoal(req.params.id)
@@ -32,7 +34,15 @@ export class GoalController extends BaseController {
             next(error)
         }
     }
-
+    async getRhythmsByGoalId(req, res, next) {
+        try {
+            const rhythms = await rhythmService.getRhythmsByGoalId(req.params.id, req.userInfo.id)
+            return res.send(rhythms)
+        } catch (error) {
+            next(error)
+        }
+    }
+    
     async updateGoal(req, res, next) {
         try {
             const updatedGoal = await goalService.updateGoal(req.params.id, req.body, req.userInfo.id)

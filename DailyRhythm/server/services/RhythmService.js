@@ -12,6 +12,10 @@ class RhythmService {
         if (!rhythm) throw new BadRequest('No rhythm found.')
         return rhythm
     }
+    async getRhythmsByGoalId(goalId, accountId) {
+        const goalRhythms = await dbContext.Rhythms.find({ goalId })
+        return goalRhythms
+    }
 
     async createRhythm(body) {
         const rhythm = await dbContext.Rhythms.create(body)
