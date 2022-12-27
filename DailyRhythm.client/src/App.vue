@@ -5,6 +5,13 @@
   <main>
     <div class="container-fluid bgImage text-shadow" v-if="BgImage"
       :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
+      <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+        <div class="d-flex flex-column align-items-center">
+
+          <h1 class="col-3 d-flex justify-content-start text-white"><i class="mdi mdi-home-circle-outline"></i>
+          </h1>
+        </div>
+      </router-link>
       <router-view />
     </div>
     <div class="col-5 d-flex opaqueBG p-1 m-2">
@@ -13,6 +20,7 @@
         }}</a>
     </div>
   </main>
+
 </template>
 
 <script>
