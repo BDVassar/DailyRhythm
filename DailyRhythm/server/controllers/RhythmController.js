@@ -17,7 +17,7 @@ export class RhythmController extends BaseController {
             const rhythm = await rhythmService.createRhythm(req.body)
             return res.send(rhythm)
         } catch (error) {
-            next('error creating rhythm from the controller', error)
+            next(error)
         }
     }
 
