@@ -1,16 +1,7 @@
 <template>
-  <!-- <div class="container-fluid bgImage text-shadow" v-if="BgImage"
-    :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }"> -->
-
   <!-- SECTION Time and Weather -->
   <div class="row mb-5 p-2 justify-content-between text-white">
-    <!-- <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
 
-        <h1 class="col-3 d-flex justify-content-start"><i class="mdi mdi-home-circle-outline"></i>
-        </h1>
-      </div>
-    </router-link> -->
     <div class="col-3 d-flex justify-content-start">
       <Clock />
     </div>
@@ -22,6 +13,13 @@
   <!-- SECTION Greeting -->
   <div class="row text-white">
     <h1 class="text-center my-5">Good <span> Morning</span>, <span>User</span> </h1>
+  </div>
+
+  <!-- SECTION Login -->
+  <div class="row justify-content-center">
+    <h1 class="loginStyle">
+      <Login />
+    </h1>
   </div>
 
   <!-- SECTION Quote and author -->
@@ -39,17 +37,11 @@
 
   <!-- SECTION Photographer Name and Option Modal -->
   <div class="row">
-    <!-- <div class="col-5 d-flex opaqueBG p-1 m-2">
-      <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer" class="">&COPY{{
-    BgImage.author
-        }}</a>
-    </div> -->
     <div class="col-1 text-white selectable option-position">
       <h1 class="mdi mdi-chevron-up-circle-outline d-flex justify-content-end"></h1>
     </div>
     <div class="col-5"></div>
   </div>
-  <!-- </div> -->
 </template>
 
 <script>
@@ -105,6 +97,15 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
+}
+
+.loginStyle {
+  height: fit-content;
+  width: fit-content;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  color: whitesmoke;
+  background-color: #ffaf8788;
 }
 
 a {

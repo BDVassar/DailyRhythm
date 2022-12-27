@@ -1,7 +1,4 @@
 <template>
-  <header>
-    <Navbar />
-  </header>
   <main>
     <div class="container-fluid bgImage text-shadow" v-if="BgImage"
       :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
@@ -26,7 +23,6 @@
 <script>
 import { computed, onMounted } from 'vue';
 import { AppState } from './AppState';
-import Navbar from './components/Navbar.vue';
 import { bgImageService } from "./services/BgImageService";
 import { logger } from "./utils/Logger";
 import Pop from "./utils/Pop";
@@ -48,8 +44,6 @@ export default {
       BgImage: computed(() => AppState.BgImage),
     }
   },
-
-  components: { Navbar }
 }
 </script>
 <style lang="scss">
@@ -77,5 +71,9 @@ export default {
 a {
   color: rgb(254, 254, 254);
   font-size: 16px;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px #000000;
 }
 </style>

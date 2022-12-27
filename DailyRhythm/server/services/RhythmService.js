@@ -14,6 +14,8 @@ class RhythmService {
     }
 
     async createRhythm(body) {
+        const rhythm = await dbContext.Rhythms.create(body)
+        return rhythm
     }
 }
 
