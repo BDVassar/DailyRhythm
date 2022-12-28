@@ -12,7 +12,8 @@
 
   <!-- SECTION Greeting -->
   <div class="row text-white">
-    <h1 class="text-center my-5">Good <span> Morning</span>, <span>User</span> </h1>
+    <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{ account.name }}</span><span
+        v-else="!account.name">User</span> </h1>
   </div>
 
   <!-- SECTION Login -->
@@ -72,7 +73,8 @@ export default {
     }
     return {
       BgImage: computed(() => AppState.BgImage),
-      Quote: computed(() => AppState.Quote)
+      Quote: computed(() => AppState.Quote),
+      account: computed(() => AppState.account),
     };
   },
   components: { Clock }
