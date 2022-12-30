@@ -1,5 +1,6 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { accountService } from '../services/AccountService'
+import { beatService } from "../services/BeatService.js"
 import { goalService } from "../services/GoalService.js"
 import { rhythmService } from "../services/RhythmService.js"
 import BaseController from '../utils/BaseController'
@@ -12,6 +13,7 @@ export class AccountController extends BaseController {
       .get('', this.getUserAccount)
       .get('/goals', this.getMyGoals)
       .get('/rhythms', this.getMyRhythms)
+      .get('/beats', this.getMyBeats)
   }
 
   async getUserAccount(req, res, next) {
@@ -38,6 +40,15 @@ export class AccountController extends BaseController {
       return res.send(rhythms)
     } catch (error) {
       next('error getting all rhythms from controller', error)
+    }
+  }
+
+  async getMyBeats(req, res, next) {
+    try {
+      const beats = await beatService.getMyBeats(req.userInfo.id)
+      return res.send(beats)
+    } catch (error) {
+      next(error)
     }
   }
 }

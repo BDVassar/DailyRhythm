@@ -10,7 +10,7 @@ export class BeatController extends BaseController {
             .post('', this.createBeat)
             .get('/:id', this.getOneBeat)
             .put('/:id', this.updateBeat)
-        // .delete('/:id', this.archiveBeat)
+            .delete('/:id', this.archiveBeat)
 
     }
     async getOneBeat(req, res, next) {
@@ -33,20 +33,20 @@ export class BeatController extends BaseController {
 
     async updateBeat(req, res, next) {
         try {
-            const beat = await beatService.updateBeat(req.body, req.params.id)
-            return res.send(beat)
+            const updatedBeat = await beatService.updateBeat(req.params.id, req.body, req.userInfo.id)
+            return res.send(updatedBeat)
         } catch (error) {
             next(error)
         }
     }
 
-    // async archiveBeat(req, res, next) {
-    //     try {
-    //         const beats = await beatService
-    //         return res.send()
-    //     } catch (error) {
-    //         next(error)
-    //     }
-    // }
+    async archiveBeat(req, res, next) {
+        try {
+            const beat = await beatService.archiveBeat(req.params.id, req.userInfo.id)
+            return res.send(beat)
+        } catch (error) {
+            next(error)
+        }
+    }
 
 }
