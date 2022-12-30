@@ -7,15 +7,15 @@ export class BeatController extends BaseController {
         super('api/beats')
         this.router
             .use(Auth0Provider.getAuthorizedUserInfo)
-            // .post('', this.createBeat)
+            .post('', this.createBeat)
             .get('/:id', this.getOneBeat)
-            // .put('/:id', this.updateBeat)
-            // .delete('/:id', this.archiveBeat)
+            .put('/:id', this.updateBeat)
+        // .delete('/:id', this.archiveBeat)
 
     }
     async getOneBeat(req, res, next) {
         try {
-            const beat = await beatService.getOneBeat()
+            const beat = await beatService.getOneBeat(req.params.id)
             return res.send(beat)
         } catch (error) {
             next(error)
@@ -24,21 +24,21 @@ export class BeatController extends BaseController {
     async createBeat(req, res, next) {
         try {
             req.body.creatorId = req.userInfo.id
-            const beats = await beatService.createBeat(req.body)
-            return res.send()
+            const beat = await beatService.createBeat(req.body)
+            return res.send(beat)
         } catch (error) {
             next(error)
         }
     }
 
-    // async updateBeat(req, res, next) {
-    //     try {
-    //         const beats = await beatService
-    //         return res.send()
-    //     } catch (error) {
-    //         next(error)
-    //     }
-    // }
+    async updateBeat(req, res, next) {
+        try {
+            const beat = await beatService.updateBeat(req.body, req.params.id)
+            return res.send(beat)
+        } catch (error) {
+            next(error)
+        }
+    }
 
     // async archiveBeat(req, res, next) {
     //     try {
