@@ -14,7 +14,7 @@ class RhythmService {
     }
     async getRhythmsByGoalId(goalId, accountId) {
         const goalRhythms = await dbContext.Rhythms.find({ goalId })
-        return goalRhythms
+        return goalRhythms.filter(goal => goal.archived === false)
     }
 
     async createRhythm(body) {

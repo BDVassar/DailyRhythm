@@ -1,18 +1,52 @@
+import { Auth0Provider } from "@bcwdev/auth0provider"
 import { beatService } from "../services/BeatService.js"
 import BaseController from "../utils/BaseController.js"
 
 export class BeatController extends BaseController {
-constructor(){
-    super('api/beats')
+    constructor() {
+        super('api/beats')
+        this.router
+            .use(Auth0Provider.getAuthorizedUserInfo)
+            // .post('', this.createBeat)
+            .get('/:id', this.getOneBeat)
+            // .put('/:id', this.updateBeat)
+            // .delete('/:id', this.archiveBeat)
 
-}
-    async getAllBeats(req, res, next) {
-    try {
-    const beats = await beatService
-     return res.send()
-    } catch (error) {
-     next('error getting all beats in beat controller', error)
     }
+    async getOneBeat(req, res, next) {
+        try {
+            const beat = await beatService.getOneBeat()
+            return res.send(beat)
+        } catch (error) {
+            next(error)
+        }
     }
+    async createBeat(req, res, next) {
+        try {
+            req.body.creatorId = req.userInfo.id
+            const beats = await beatService.createBeat(req.body)
+            return res.send()
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    // async updateBeat(req, res, next) {
+    //     try {
+    //         const beats = await beatService
+    //         return res.send()
+    //     } catch (error) {
+    //         next(error)
+    //     }
+    // }
+
+    // async archiveBeat(req, res, next) {
+    //     try {
+    //         const beats = await beatService
+    //         return res.send()
+    //     } catch (error) {
+    //         next(error)
+    //     }
+    // }
 
 }
