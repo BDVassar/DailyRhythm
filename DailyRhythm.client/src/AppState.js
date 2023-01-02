@@ -10,4 +10,6 @@ export const AppState = reactive({
   BgImage: {},
   /** @type {import('./models/Quote.js').Quote{}} */
   Quote: {},
+  /** @type {import('./models/Weather.js').Weather{}} */
+  weather: {},
 })

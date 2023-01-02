@@ -1,3 +1,4 @@
+import axios from "axios"
 import Axios from 'axios'
 import { baseURL } from '../env'
 export const api = Axios.create({
@@ -17,4 +18,8 @@ export const UnsplashApi = Axios.create({
 export const TypeFitApi = Axios.create({
   baseURL: 'https://type.fit/api/quotes',
   timeout: 8000,
+})
+export const WeatherAPI = new axios.create({
+    baseURL: 'https://bcw-sandbox.herokuapp.com/api/weather',
+    timeout: 8000,
 })

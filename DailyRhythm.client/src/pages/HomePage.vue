@@ -1,138 +1,144 @@
 <template>
-  <!-- SECTION Time and Weather -->
-  <div class="row mb-5 p-2 justify-content-between text-white">
+    <!-- SECTION Time and Weather -->
+    <div class="row mb-5 p-2 justify-content-between text-white">
+        <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+            <h1 class="col-3 d-flex justify-content-start text-white"><i class="mdi mdi-home-circle-outline"></i>
+            </h1>
+        </router-link>
 
-    <div class="col-3 d-flex justify-content-start">
-      <Clock />
+        <div class="col-3 d-flex justify-content-start">
+            <Clock />
+        </div>
+        <div v-if="weather.weather" class="col-3 d-flex justify-content-end">
+
+            <h3>{{ weather.name }}</h3>
+            <h3 class="col-12 text-center">{{ weather.weather[0].description }}</h3>
+            <i id="weather-icon" class="col-2"
+                :style="{ backgroundImage: `url('${weather.weather.icon.substring(0, weather.weather.icon.lastIndexOf('/')) + '/' + weather.weather[0].icon + '.png'}')` }"></i>
+            <div class="col-2">{{ Math.trunc((weather.main.temp - 273.15) * 1.8 + 32) }}&#8457</div>
+        </div>
     </div>
-    <div class="col-3 d-flex justify-content-end">
-      <h3>5 <span class="mdi mdi-temperature-fahrenheit"></span></h3>
+
+    <!-- SECTION Greeting -->
+    <div class="row text-white">
+        <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{ account.name
+}}</span><span v-else="!account.name">User</span> </h1>
     </div>
-  </div>
 
-  <!-- SECTION Greeting -->
-  <div class="row text-white">
-    <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{ account.name }}</span><span
-        v-else="!account.name">User</span> </h1>
-  </div>
-
-  <!-- SECTION Login -->
-  <div class="row justify-content-center">
-    <h1 class="loginStyle">
-      <Login />
-    </h1>
-  </div>
-
-  <!-- SECTION Quote and author -->
-  <div class="row my-5 py-5 text-white justify-content-center">
-    <div class="col-10">
-      <h3 class="text-center quote-content">{{ Quote.text }}</h3>
-      <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
+    <!-- SECTION Login -->
+    <div class="row justify-content-center">
+        <h1 class="loginStyle">
+            <Login />
+        </h1>
     </div>
-  </div>
 
-  <!-- SECTION Option Modal -->
-  <div class="row align-content-end justify-content-center">
-
-  </div>
-
-  <!-- SECTION Photographer Name and Option Modal -->
-  <div class="row">
-    <div class="col-1 text-white selectable option-position">
-      <h1 class="mdi mdi-chevron-up-circle-outline d-flex justify-content-end"></h1>
+    <!-- SECTION Quote and author -->
+    <div class="row my-5 py-5 text-white justify-content-center">
+        <div class="col-10">
+            <h3 class="text-center quote-content">{{ Quote.text }}</h3>
+            <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
+        </div>
     </div>
-    <div class="col-5"></div>
-  </div>
 </template>
 
 <script>
 import { onMounted, computed } from "vue";
-import { bgImageService } from "../services/BgImageService.js";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop.js";
 import { AppState } from '../AppState.js'
 import { quoteService } from "../services/QuoteService.js";
-import { BgImage } from "../models/BgImage.js";
 import { Quote } from "../models/Quote.js";
 import Clock from "../components/Clock.vue";
+import { weatherService } from "../services/WeatherService.js";
+import { Weather } from "../models/Weather.js";
+
 
 export default {
-  setup() {
-    onMounted(() => {
-      // getRandomPicture();
-      getRandomQuote();
-    });
-    async function getRandomQuote() {
-      try {
-        await quoteService.getRandomQuote();
-      }
-      catch (error) {
-        logger.error(error);
-        Pop.error(error.message);
-      }
-    }
-    return {
-      BgImage: computed(() => AppState.BgImage),
-      Quote: computed(() => AppState.Quote),
-      account: computed(() => AppState.account),
-    };
-  },
-  components: { Clock }
+    setup() {
+        onMounted(() => {
+            getRandomQuote();
+            getWeather();
+        });
+        async function getRandomQuote() {
+            try {
+                await quoteService.getRandomQuote();
+            }
+            catch (error) {
+                logger.error(error);
+                Pop.error(error.message);
+            }
+        };
+        async function getWeather() {
+            try {
+                await weatherService.getWeather()
+            } catch (error) {
+                Pop.error(error.message)
+                console.error(error)
+            }
+        }
+        return {
+            BgImage: computed(() => AppState.BgImage),
+            Quote: computed(() => AppState.Quote),
+            account: computed(() => AppState.account),
+            weather: computed(() => AppState.weather),
+        };
+    },
+    components: { Clock }
 }
 </script>
 
 <style scoped lang="scss">
-// .bgImage {
-//   height: 100vh;
-//   background-position: center;
-//   background-size: cover;
-//   // overflow: hidden;
-// }
-
 .opaqueBG {
-  height: fit-content;
-  width: fit-content;
-  font-size: 1.5rem;
-  border-radius: 50px;
-  color: whitesmoke;
-  background-color: #ffaf8788;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+    height: fit-content;
+    width: fit-content;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    color: whitesmoke;
+    background-color: #ffaf8788;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 .loginStyle {
-  height: fit-content;
-  width: fit-content;
-  font-size: 1.5rem;
-  border-radius: 50px;
-  color: whitesmoke;
-  background-color: #ffaf8788;
+    height: fit-content;
+    width: fit-content;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    color: whitesmoke;
+    background-color: #ffaf8788;
 }
 
 a {
-  color: rgb(254, 254, 254);
-  font-size: 16px;
+    color: rgb(254, 254, 254);
+    font-size: 16px;
 }
 
 .quote-author {
-  visibility: hidden;
-  opacity: 0;
-  transition: ease 2s;
+    visibility: hidden;
+    opacity: 0;
+    transition: ease 2s;
 }
 
 .quote-content:hover+.quote-author {
-  visibility: visible;
-  opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
 
 .text-shadow {
-  text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .option-position {
-  position: fixed;
-  bottom: 0;
-  right: 0;
+    position: absolute;
+    bottom: 0;
+}
+
+#weather-icon {
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 </style>
