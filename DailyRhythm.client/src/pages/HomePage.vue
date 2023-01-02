@@ -6,16 +6,21 @@
             </h1>
         </router-link>
 
-        <div class="col-3 d-flex justify-content-start">
-            <Clock />
-        </div>
-        <div v-if="weather.weather" class="col-3 d-flex justify-content-end">
+        <div class="row d-flex justify-content-between">
+            <div class="col-3">
+                <Clock />
+            </div>
+            <div v-if="weather.weather" class="col-3 text-center">
 
-            <h3>{{ weather.name }}</h3>
-            <h3 class="col-12 text-center">{{ weather.weather[0].description }}</h3>
-            <i id="weather-icon" class="col-2"
-                :style="{ backgroundImage: `url('${weather.weather.icon.substring(0, weather.weather.icon.lastIndexOf('/')) + '/' + weather.weather[0].icon + '.png'}')` }"></i>
-            <div class="col-2">{{ Math.trunc((weather.main.temp - 273.15) * 1.8 + 32) }}&#8457</div>
+                <h3 class="col">{{ weather.name }}</h3>
+                <div class="row d-flex justify-content-center">
+                    <h3 class="col-6">{{ weather.weather[0].description }}</h3>
+                    <div id="weather-icon"
+                        :style="{ backgroundImage: `url('${weather.weather.icon.substring(0, weather.weather.icon.lastIndexOf('/')) + '/' + weather.weather[0].icon + '.png'}')` }">
+                    </div>
+                </div>
+                <h3 class="col">{{ Math.trunc((weather.main.temp - 273.15) * 1.8 + 32) }}&#8457</h3>
+            </div>
         </div>
     </div>
 
