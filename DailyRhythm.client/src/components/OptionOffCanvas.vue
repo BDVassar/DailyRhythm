@@ -17,23 +17,26 @@
                     </div>
                     <div class="offcanvas-body small pt-0" style="background-color: #ffaf87">
                         <div class="row justify-content-evenly">
-                            <button class="btn col"><i class="mdi mdi-clock-time-nine-outline text-white"
+                            <button class="btn col-2"><i class="mdi mdi-clock-time-nine-outline text-white"
                                     style="font-size: 40px"></i>
                                 <div class="text-white">Clock Off-Canvas/Modal</div>
                             </button>
-                            <button class="btn col"><i class="mdi mdi-calendar text-white" style="font-size: 40px"></i>
+                            <button class="btn col-2"><i class="mdi mdi-calendar text-white"
+                                    style="font-size: 40px"></i>
                                 <div class="text-white">Calendar Modal</div>
                             </button>
-                            <button class="btn col"><i class="mdi mdi-bullseye-arrow text-white"
-                                    style="font-size: 40px"></i>
-                                <div class="text-white">Daily Rhythm Page</div>
-                            </button>
-                            <button class="btn col"><i class="mdi mdi-timer-sand text-white"
+                            <router-link class="col-2" :to="{ name: 'DailyRhythmPage' }">
+                                <button class="btn"><i class="mdi mdi-bullseye-arrow text-white"
+                                        style="font-size: 40px"></i>
+                                    <div class="text-white">Daily Rhythm Page</div>
+                                </button>
+                            </router-link>
+                            <button class="btn col-2"><i class="mdi mdi-timer-sand text-white"
                                     style="font-size: 40px"></i>
                                 <div class="text-white">Timer Modal</div>
                             </button>
-                            <router-link class="" :to="{ name: 'Settings' }">
-                                <button class="btn col"><i class="mdi mdi-cog-outline text-white"
+                            <router-link class="col-2" :to="{ name: 'Settings' }">
+                                <button class="btn"><i class="mdi mdi-cog-outline text-white"
                                         style="font-size: 40px"></i>
                                     <div class="text-white">Edit Profile + Account Modal/Page</div>
                                 </button>
