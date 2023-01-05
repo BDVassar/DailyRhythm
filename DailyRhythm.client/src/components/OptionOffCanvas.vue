@@ -32,10 +32,12 @@
                                     style="font-size: 40px"></i>
                                 <div class="text-white">Timer Modal</div>
                             </button>
-                            <button class="btn col"><i class="mdi mdi-cog-outline text-white"
-                                    style="font-size: 40px"></i>
-                                <div class="text-white">Edit Profile + Account Modal/Page</div>
-                            </button>
+                            <router-link class="" :to="{ name: 'Settings' }">
+                                <button class="btn col"><i class="mdi mdi-cog-outline text-white"
+                                        style="font-size: 40px"></i>
+                                    <div class="text-white">Edit Profile + Account Modal/Page</div>
+                                </button>
+                            </router-link>
                         </div>
                     </div>
                 </div>
