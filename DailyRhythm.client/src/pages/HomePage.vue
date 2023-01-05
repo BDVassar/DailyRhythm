@@ -32,6 +32,9 @@
             <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
         </div>
     </div>
+    <div>
+
+    </div>
 </template>
 
 <script>
@@ -52,6 +55,7 @@ export default {
         onMounted(() => {
             getRandomQuote();
             getWeather();
+            getRandomDadJoke();
             getRandomDadJoke();
             // getSettings();
         });
