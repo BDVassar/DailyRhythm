@@ -31,7 +31,7 @@
                                     <!-- <div class="text-white">Daily Rhythm Page</div> -->
                                 </button>
                             </router-link>
-                            <button class="btn col-2"><i class="mdi mdi-timer-sand text-white"
+                            <button class="btn col-2"><i class="mdi mdi-timer-sand text-white" title="Timer"
                                     style="font-size: 40px"></i>
                                 <!-- <div class="text-white">Timer Modal</div> -->
                             </button>
