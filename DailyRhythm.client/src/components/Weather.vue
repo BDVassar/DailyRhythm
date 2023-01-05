@@ -1,27 +1,29 @@
 <template>
-  <div class="row justify-content-center">
-    <h1 class="col-6 d-flex justify-content-center align-items-center"> {{ weather.tempF }} <i
-        class="mdi mdi-temperature-fahrenheit"></i>
-    </h1>
-    <h1 class="col-6">
-      <img :src="`http://openweathermap.org/img/wn/${weather.icon}@2x.png`" />
-    </h1>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-12 d-flex justify-content-center">
-      <p>High : {{ weather.tempMaxF }} <i class="mdi mdi-temperature-fahrenheit"></i> | Low : {{
-        weather.tempMinF
-      }} <i class="mdi mdi-temperature-fahrenheit"></i></p>
+  <div class="col-4 weather-card rounded elevation-5 me-3" title="See local weather">
+    <div class="row justify-content-center">
+      <h5 class="col-6 d-flex justify-content-center align-items-center"> {{ weather.tempF }} <i
+          class="mdi mdi-temperature-fahrenheit"></i>
+      </h5>
+      <h5 class="col-6">
+        <img :src="`http://openweathermap.org/img/wn/${weather.icon}@2x.png`" id="weather-icon" />
+      </h5>
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-12 d-flex justify-content-center">
-      <p>Feels like {{ weather.feelsLikeF }} <i class="mdi mdi-temperature-fahrenheit"></i></p>
+    <div class="row justify-content-center">
+      <div class="col-12 d-flex justify-content-center">
+        <p>High : {{ weather.tempMaxF }} <i class="mdi mdi-temperature-fahrenheit"></i> | Low : {{
+          weather.tempMinF
+        }} <i class="mdi mdi-temperature-fahrenheit"></i></p>
+      </div>
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-12 d-flex justify-content-center">
-      <h5> {{ weather.description }} in {{ weather.location }}</h5>
+    <div class="row justify-content-center">
+      <div class="col-12 d-flex justify-content-center">
+        <p>Feels like {{ weather.feelsLikeF }} <i class="mdi mdi-temperature-fahrenheit"></i></p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 d-flex justify-content-center">
+        <p> {{ weather.description }} in {{ weather.location }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -57,10 +59,18 @@ export default {
 
 
 <style lang="scss" scoped>
-// .weather-card {
-//   outline: 5px solid #99c2ac;
-//   background-color: #99c2ac83;
-//   width: 40vh;
-//   height: 30vh;
-// }
+.weather-card {
+  outline: 3px solid #99c2ac;
+  background-color: #99c2ac83;
+  width: 30vh;
+  height: 25vh;
+}
+
+#weather-icon {
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 </style>

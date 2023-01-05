@@ -1,52 +1,47 @@
 <template>
     <!-- SECTION Time and Weather -->
     <div class="row mb-5 p-2 justify-content-between text-white">
-
-        <div class="col-3 d-flex justify-content-start">
-            <Clock />
-        </div>
-        <div class="col-2 weather-card rounded elevation-5 m-5" title="See local weather">
-            <Weather />
-        </div>
+        <Clock />
+        <Weather />
+    </div>
     </div>
     <!--SECTION Timer-->
     <div class="row">
         <div class="col-2 text-light justify-content-start">
             <Timer />
         </div>
-    </div>
 
-    <!-- SECTION Greeting -->
-    <div class="row text-white">
-        <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{
-        account.name
-}}</span><span v-else="!account.name">User</span> </h1>
-    </div>
-
-    <!-- SECTION Login -->
-    <div class="row justify-content-center">
-        <h1 class="loginStyle">
-            <Login />
-        </h1>
-    </div>
-
-    <!-- SECTION Quote and author -->
-    <div v-if="quoteSetting" class="row my-5 py-5 text-white justify-content-center">
-        <div class="col-10">
-            <h3 class="text-center quote-content">{{ Quote.text }}</h3>
-            <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
+        <!-- SECTION Greeting -->
+        <div class="row text-white">
+            <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{
+                account.name
+            }}</span><span v-else="!account.name">User</span> </h1>
         </div>
-    </div>
 
-    <div v-if="dadJokesSetting" class="row my-5 py-5 text-white justify-content-center">
-        <div class="col-10">
-            <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
+        <!-- SECTION Login -->
+        <div class="row justify-content-center">
+            <h1 class="loginStyle">
+                <Login />
+            </h1>
         </div>
-    </div>
 
-    <div>
-        <OptionOffCanvas />
-    </div>
+        <!-- SECTION Quote and author -->
+        <div v-if="quoteSetting" class="row my-5 py-5 text-white justify-content-center">
+            <div class="col-10">
+                <h3 class="text-center quote-content">{{ Quote.text }}</h3>
+                <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
+            </div>
+        </div>
+
+        <div v-if="dadJokesSetting" class="row my-5 py-5 text-white justify-content-center">
+            <div class="col-10">
+                <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
+            </div>
+        </div>
+
+        <div>
+            <OptionOffCanvas />
+        </div>
 </template>
 
 <script>
@@ -145,19 +140,4 @@ a {
     position: absolute;
     bottom: 0;
 }
-
-.weather-card {
-    outline: 5px solid #99c2ac;
-    background-color: #99c2ac83;
-    width: 40vh;
-    height: 30vh;
-}
-
-// #weather-icon {
-//     height: 50px;
-//     width: 50px;
-//     background-size: contain;
-//     background-position: center;
-//     background-repeat: no-repeat;
-// }
 </style>

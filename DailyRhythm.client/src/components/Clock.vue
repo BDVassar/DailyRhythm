@@ -1,7 +1,9 @@
 <template>
-    <h3>
-        {{ currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }}
-    </h3>
+    <div class="col-4 d-flex justify-content-start">
+        <h3>
+            {{ currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }}
+        </h3>
+    </div>
 </template>
 
 <script>
