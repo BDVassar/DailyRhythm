@@ -40,7 +40,7 @@
     </div>
 
     <div>
-
+        <OptionOffCanvas />
     </div>
 </template>
 
