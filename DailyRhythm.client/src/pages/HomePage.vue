@@ -8,14 +8,19 @@
         <div class="col-2 weather-card rounded elevation-5 m-5" title="See local weather">
             <Weather />
         </div>
-
+    </div>
+    <!--SECTION Timer-->
+    <div class="row">
+        <div class="col-2 text-light justify-content-start">
+            <Timer />
+        </div>
     </div>
 
     <!-- SECTION Greeting -->
     <div class="row text-white">
         <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{
-            account.name
-        }}</span><span v-else="!account.name">User</span> </h1>
+        account.name
+}}</span><span v-else="!account.name">User</span> </h1>
     </div>
 
     <!-- SECTION Login -->
