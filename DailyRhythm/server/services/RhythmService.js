@@ -4,7 +4,7 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
 class RhythmService {
     async getMyRhythms(creatorId) {
         const rhythms = await dbContext.Rhythms.find({ creatorId })
-        return rhythms
+        return rhythms.filter(rhythm => rhythm.archived === false)
     }
 
     async getOneRhythm(rhythmId) {
@@ -14,7 +14,7 @@ class RhythmService {
     }
     async getRhythmsByGoalId(goalId, accountId) {
         const goalRhythms = await dbContext.Rhythms.find({ goalId })
-        return goalRhythms
+        return goalRhythms.filter(rhythm => rhythm.archived === false)
     }
 
     async createRhythm(body) {
