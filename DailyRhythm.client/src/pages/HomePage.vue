@@ -5,24 +5,17 @@
         <div class="col-3 d-flex justify-content-start">
             <Clock />
         </div>
-
-        <div v-if="weather.weather" class="col-3 text-center">
-
-            <h3 class="col">{{ weather.name }}</h3>
-            <div class="row d-flex justify-content-center">
-                <h3 class="col-6">{{ weather.weather[0].description }}</h3>
-                <div id="weather-icon"
-                    :style="{ backgroundImage: `url('${weather.weather.icon.substring(0, weather.weather.icon.lastIndexOf('/')) + '/' + weather.weather[0].icon + '.png'}')` }">
-                </div>
-            </div>
-            <h3 class="col">{{ Math.trunc((weather.main.temp - 273.15) * 1.8 + 32) }}&#8457</h3>
+        <div class="col-2 weather-card rounded elevation-5 m-5" title="See local weather">
+            <Weather />
         </div>
+
     </div>
 
     <!-- SECTION Greeting -->
     <div class="row text-white">
-        <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{ account.name
-}}</span><span v-else="!account.name">User</span> </h1>
+        <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{
+            account.name
+        }}</span><span v-else="!account.name">User</span> </h1>
     </div>
 
     <!-- SECTION Login -->
@@ -61,7 +54,7 @@ export default {
     setup() {
         onMounted(() => {
             getRandomQuote();
-            getWeather();
+            // getWeather();
             getRandomDadJoke();
         });
 
@@ -74,14 +67,7 @@ export default {
                 Pop.error(error.message);
             }
         };
-        async function getWeather() {
-            try {
-                await weatherService.getWeather()
-            } catch (error) {
-                Pop.error(error.message)
-                logger.error(error)
-            }
-        };
+
         async function getRandomDadJoke() {
             try {
                 await quoteService.getRandomDadJoke()
@@ -94,7 +80,6 @@ export default {
             BgImage: computed(() => AppState.BgImage),
             Quote: computed(() => AppState.Quote),
             account: computed(() => AppState.account),
-            weather: computed(() => AppState.weather),
             dadJokesSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes')))
         };
     },
@@ -149,11 +134,18 @@ a {
     bottom: 0;
 }
 
-#weather-icon {
-    height: 50px;
-    width: 50px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+.weather-card {
+    outline: 5px solid #99c2ac;
+    background-color: #99c2ac83;
+    width: 40vh;
+    height: 30vh;
 }
+
+// #weather-icon {
+//     height: 50px;
+//     width: 50px;
+//     background-size: contain;
+//     background-position: center;
+//     background-repeat: no-repeat;
+// }
 </style>
