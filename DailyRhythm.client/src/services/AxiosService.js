@@ -33,11 +33,7 @@ export const WeatherAPI = Axios.create({
 //         }
 //     }
 // })
-<<<<<<< Updated upstream
-export const DadJokesApi = Axios.create({
-=======
 export const DadJokesApi = new axios.create({
->>>>>>> Stashed changes
     baseURL: 'https://icanhazdadjoke.com/',
     timeout: 8000,
     headers: {
@@ -45,8 +41,3 @@ export const DadJokesApi = new axios.create({
         'Content-Type': 'application/json'
     }
 })
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
