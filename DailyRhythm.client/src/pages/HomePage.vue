@@ -1,27 +1,15 @@
 <template>
     <!-- SECTION Time and Weather -->
     <div class="row mb-5 p-2 justify-content-between text-white">
-        <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-            <h1 class="col-3 d-flex justify-content-start text-white"><i class="mdi mdi-home-circle-outline"></i>
-            </h1>
-        </router-link>
 
-        <div class="row d-flex justify-content-between">
-            <div class="col-3">
-                <Clock />
-            </div>
-            <div v-if="weather.weather" class="col-3 text-center">
-
-                <h3 class="col">{{ weather.name }}</h3>
-                <div class="row d-flex justify-content-center">
-                    <h3 class="col-6">{{ weather.weather[0].description }}</h3>
-                    <div id="weather-icon"
-                        :style="{ backgroundImage: `url('${weather.weather.icon.substring(0, weather.weather.icon.lastIndexOf('/')) + '/' + weather.weather[0].icon + '.png'}')` }">
-                    </div>
-                </div>
-                <h3 class="col">{{ Math.trunc((weather.main.temp - 273.15) * 1.8 + 32) }}&#8457</h3>
-            </div>
+        <div class="col-3 d-flex justify-content-start">
+            <Clock />
         </div>
+
+        <div class="col-3 d-flex justify-content-end">
+            <h3>5 <span class="mdi mdi-temperature-fahrenheit"></span></h3>
+        </div>
+        s
     </div>
 
     <!-- SECTION Greeting -->
@@ -58,12 +46,20 @@ import { weatherService } from "../services/WeatherService.js";
 import { Weather } from "../models/Weather.js";
 
 
+
 export default {
     setup() {
         onMounted(() => {
             getRandomQuote();
             getWeather();
+            getRandomDadJoke();
+            // getSettings();
         });
+        // function getSettings() {
+        //     document.getElementById('inspiration').checked = JSON.parse(window.localStorage.getItem('inspiration'))
+        //     document.getElementById('dadJokes').checked = JSON.parse(window.localStorage.getItem('dadJokes'))
+        //     document.getElementById('poetry').checked = JSON.parse(window.localStorage.getItem('poetry'))
+        // }
         async function getRandomQuote() {
             try {
                 await quoteService.getRandomQuote();
@@ -78,7 +74,15 @@ export default {
                 await weatherService.getWeather()
             } catch (error) {
                 Pop.error(error.message)
-                console.error(error)
+                logger.error(error)
+            }
+        };
+        async function getRandomDadJoke() {
+            try {
+                await quoteService.getRandomDadJoke()
+            } catch (error) {
+                Pop.error(error)
+                logger.error(error)
             }
         }
         return {
@@ -86,6 +90,7 @@ export default {
             Quote: computed(() => AppState.Quote),
             account: computed(() => AppState.account),
             weather: computed(() => AppState.weather),
+            dadJokesSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes')))
         };
     },
     components: { Clock }
@@ -145,5 +150,8 @@ a {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 </style>
