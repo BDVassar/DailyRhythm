@@ -13,10 +13,10 @@
         </div>
         <div class="col-5 d-flex opaqueBG p-1 m-2">
             <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer" class="">&COPY{{
-        BgImage.author
-                }}</a>
+                BgImage.author
+            }}</a>
         </div>
-        <OptionOffCanvas />
+
     </main>
 
 </template>
@@ -58,6 +58,7 @@ export default {
     height: 100vh;
     background-position: center;
     background-size: cover;
+    padding: 0px;
     // overflow: hidden;
 }
 

@@ -31,14 +31,21 @@
     </div>
 
     <!-- SECTION Quote and author -->
-    <div class="row my-5 py-5 text-white justify-content-center">
+    <div v-if="quoteSetting" class="row my-5 py-5 text-white justify-content-center">
         <div class="col-10">
             <h3 class="text-center quote-content">{{ Quote.text }}</h3>
             <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
         </div>
     </div>
-    <div>
 
+    <div v-if="dadJokesSetting" class="row my-5 py-5 text-white justify-content-center">
+        <div class="col-10">
+            <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
+        </div>
+    </div>
+
+    <div>
+        <OptionOffCanvas />
     </div>
 </template>
 
@@ -50,7 +57,6 @@ import { AppState } from '../AppState.js'
 import { quoteService } from "../services/QuoteService.js";
 import { Quote } from "../models/Quote.js";
 import Clock from "../components/Clock.vue";
-import { weatherService } from "../services/WeatherService.js";
 import { Weather } from "../models/Weather.js";
 
 
@@ -59,7 +65,6 @@ export default {
     setup() {
         onMounted(() => {
             getRandomQuote();
-            // getWeather();
             getRandomDadJoke();
         });
 
@@ -84,7 +89,9 @@ export default {
         return {
             BgImage: computed(() => AppState.BgImage),
             Quote: computed(() => AppState.Quote),
+            quoteSetting: computed(() => JSON.parse(window.localStorage.getItem('inspiration'))),
             account: computed(() => AppState.account),
+            dadJoke: computed(() => AppState.dadJoke),
             dadJokesSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes')))
         };
     },

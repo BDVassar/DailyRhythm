@@ -29,6 +29,12 @@ const routes = [
     beforeEnter: authGuard
   },
   {
+    path: '/DailyRhythmPage',
+    name: 'DailyRhythmPage',
+    component: loadPage('DailyRhythmPage'),
+    beforeEnter: authGuard
+  },
+  {
     path: '/Settings',
     name: 'Settings',
     component: loadPage('SettingsPage'),
