@@ -4,44 +4,44 @@
         <Clock />
         <Weather />
     </div>
-    </div>
     <!--SECTION Timer-->
     <div class="row">
         <div class="col-2 text-light justify-content-start">
             <Timer />
         </div>
+    </div>
 
-        <!-- SECTION Greeting -->
-        <div class="row text-white">
-            <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{
-                account.name
-            }}</span><span v-else="!account.name">User</span> </h1>
-        </div>
+    <!-- SECTION Greeting -->
+    <div class="row text-white">
+        <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{
+            account.name
+        }}</span><span v-else="!account.name">User</span> </h1>
+    </div>
 
-        <!-- SECTION Login -->
-        <div class="row justify-content-center">
-            <h1 class="loginStyle">
-                <Login />
-            </h1>
-        </div>
+    <!-- SECTION Login -->
+    <div class="row justify-content-center">
+        <h1 class="loginStyle">
+            <Login />
+        </h1>
+    </div>
 
-        <!-- SECTION Quote and author -->
-        <div v-if="quoteSetting" class="row my-5 py-5 text-white justify-content-center">
-            <div class="col-10">
-                <h3 class="text-center quote-content">{{ Quote.text }}</h3>
-                <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
-            </div>
+    <!-- SECTION Quote and author -->
+    <div v-if="quoteSetting" class="row my-5 py-5 text-white justify-content-center">
+        <div class="col-10">
+            <h3 class="text-center quote-content">{{ Quote.text }}</h3>
+            <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
         </div>
+    </div>
 
-        <div v-if="dadJokesSetting" class="row my-5 py-5 text-white justify-content-center">
-            <div class="col-10">
-                <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
-            </div>
+    <div v-if="dadJokesSetting" class="row my-5 py-5 text-white justify-content-center">
+        <div class="col-10">
+            <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
         </div>
+    </div>
 
-        <div>
-            <OptionOffCanvas />
-        </div>
+    <div>
+        <OptionOffCanvas />
+    </div>
 </template>
 
 <script>
