@@ -6,10 +6,17 @@
             <Clock />
         </div>
 
-        <div class="col-3 d-flex justify-content-end">
-            <h3>5 <span class="mdi mdi-temperature-fahrenheit"></span></h3>
+        <div v-if="weather.weather" class="col-3 text-center">
+
+            <h3 class="col">{{ weather.name }}</h3>
+            <div class="row d-flex justify-content-center">
+                <h3 class="col-6">{{ weather.weather[0].description }}</h3>
+                <div id="weather-icon"
+                    :style="{ backgroundImage: `url('${weather.weather.icon.substring(0, weather.weather.icon.lastIndexOf('/')) + '/' + weather.weather[0].icon + '.png'}')` }">
+                </div>
+            </div>
+            <h3 class="col">{{ Math.trunc((weather.main.temp - 273.15) * 1.8 + 32) }}&#8457</h3>
         </div>
-        s
     </div>
 
     <!-- SECTION Greeting -->
@@ -55,7 +62,6 @@ export default {
         onMounted(() => {
             getRandomQuote();
             getWeather();
-            getRandomDadJoke();
             getRandomDadJoke();
             // getSettings();
         });
@@ -154,8 +160,5 @@ a {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    position: fixed;
-    bottom: 0;
-    right: 0;
 }
 </style>
