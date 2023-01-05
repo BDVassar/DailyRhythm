@@ -3,8 +3,8 @@
         <div class="row text-center">
             <div class="text-white selectable">
                 <h1>
-                    <button class="mdi mdi-chevron-up-circle-outline text-white text-shadow selectable" type="button"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+                    <button class="mdi mdi-chevron-up-circle-outline text-white text-shadow selectable"
+                        title="See Options" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
                         aria-controls="offcanvasBottom"></button>
                 </h1>
                 <div class="offcanvas offcanvas-bottom"
@@ -18,27 +18,27 @@
                     <div class="offcanvas-body small pt-0" style="background-color: #ffaf87">
                         <div class="row justify-content-evenly">
                             <button class="btn col-2"><i class="mdi mdi-clock-time-nine-outline text-white"
-                                    style="font-size: 40px"></i>
-                                <div class="text-white">Clock Off-Canvas/Modal</div>
+                                    title="Clock" style="font-size: 40px"></i>
+                                <!-- <div class="text-white">Clock Off-Canvas/Modal</div> -->
                             </button>
-                            <button class="btn col-2"><i class="mdi mdi-calendar text-white"
+                            <button class="btn col-2"><i class="mdi mdi-calendar text-white" title="Calendar"
                                     style="font-size: 40px"></i>
-                                <div class="text-white">Calendar Modal</div>
+                                <!-- <div class="text-white">Calendar Modal</div> -->
                             </button>
                             <router-link class="col-2" :to="{ name: 'DailyRhythmPage' }">
                                 <button class="btn"><i class="mdi mdi-bullseye-arrow text-white"
-                                        style="font-size: 40px"></i>
-                                    <div class="text-white">Daily Rhythm Page</div>
+                                        title="Daily Rhythm Page" style="font-size: 40px"></i>
+                                    <!-- <div class="text-white">Daily Rhythm Page</div> -->
                                 </button>
                             </router-link>
                             <button class="btn col-2"><i class="mdi mdi-timer-sand text-white"
                                     style="font-size: 40px"></i>
-                                <div class="text-white">Timer Modal</div>
+                                <!-- <div class="text-white">Timer Modal</div> -->
                             </button>
                             <router-link class="col-2" :to="{ name: 'Settings' }">
-                                <button class="btn"><i class="mdi mdi-cog-outline text-white"
+                                <button class="btn"><i class="mdi mdi-cog-outline text-white" title="Settings Page"
                                         style="font-size: 40px"></i>
-                                    <div class="text-white">Edit Profile + Account Modal/Page</div>
+                                    <!-- <div class="text-white">Edit Profile + Account Modal/Page</div> -->
                                 </button>
                             </router-link>
                         </div>
