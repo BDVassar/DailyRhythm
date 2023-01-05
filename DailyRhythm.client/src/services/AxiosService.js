@@ -26,15 +26,7 @@ export const WeatherApi = Axios.create({
   }
 })
 
-// export const DadJokesApi = new axios.create({
-//     baseURL: 'https://dad-jokes.p.rapidapi.com/random/joke',
-//     timeout: 8000,
-//     headers: {
-//         common: {
-//             'x-rapidapi-key': 'a0ff27e692msh7766b73ebc40ac4p1e7647jsn570d1f2b64bf'
-//         }
-//     }
-// })
+
 export const DadJokesApi = new axios.create({
   baseURL: 'https://icanhazdadjoke.com/',
   timeout: 8000,
