@@ -58,6 +58,7 @@ export default {
     height: 100vh;
     background-position: center;
     background-size: cover;
+    padding: 0px;
     // overflow: hidden;
 }
 
