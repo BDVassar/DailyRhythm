@@ -21,6 +21,18 @@ const routes = [
     name: 'Account',
     component: loadPage('AccountPage'),
     beforeEnter: authGuard
+  },
+  {
+    path: '/DailyRhythmCalendar',
+    name: 'DailyRhythmCalendar',
+    component: loadPage('DailyRhythmCalendarPage'),
+    beforeEnter: authGuard
+  },
+  {
+    path: '/Settings',
+    name: 'Settings',
+    component: loadPage('SettingsPage'),
+    beforeEnter: authGuard
   }
 ]
 
