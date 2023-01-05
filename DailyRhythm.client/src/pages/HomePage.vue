@@ -63,13 +63,8 @@ export default {
             getRandomQuote();
             getWeather();
             getRandomDadJoke();
-            // getSettings();
         });
-        // function getSettings() {
-        //     document.getElementById('inspiration').checked = JSON.parse(window.localStorage.getItem('inspiration'))
-        //     document.getElementById('dadJokes').checked = JSON.parse(window.localStorage.getItem('dadJokes'))
-        //     document.getElementById('poetry').checked = JSON.parse(window.localStorage.getItem('poetry'))
-        // }
+
         async function getRandomQuote() {
             try {
                 await quoteService.getRandomQuote();

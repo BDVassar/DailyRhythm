@@ -10,50 +10,56 @@
                 <h5>Toggle Component View</h5>
 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="Clock" checked>
-                    <label class="form-check-label" for="Clock">Clock</label>
+                    <input @click="changeSetting('clock')" class="form-check-input" type="checkbox" role="switch"
+                        id="clock" checked>
+                    <label class="form-check-label" for="clock">Clock</label>
                 </div>
 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="Weather" checked>
-                    <label class="form-check-label" for="Weather">Weather</label>
+                    <input @click="changeSetting('weather')" class="form-check-input" type="checkbox" role="switch"
+                        id="weather" checked>
+                    <label class="form-check-label" for="weather">Weather</label>
                 </div>
 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="Timer" checked>
-                    <label class="form-check-label" for="Timer">Timer</label>
+                    <input @click="changeSetting('timer')" class="form-check-input" type="checkbox" role="switch"
+                        id="timer" checked>
+                    <label class="form-check-label" for="timer">Timer</label>
                 </div>
 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="My Tasks" checked>
-                    <label class="form-check-label" for="My Tasks">My Tasks</label>
+                    <input class="form-check-input" type="checkbox" role="switch" id="tasks" checked>
+                    <label class="form-check-label" for="tasks">My Tasks</label>
                 </div>
 
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="Today's Appointments" checked>
-                    <label class="form-check-label" for="Today's Appointments">Today's Appointments</label>
+                    <input class="form-check-input" type="checkbox" role="switch" id="appointments" checked>
+                    <label class="form-check-label" for="appointments">Today's Appointments</label>
                 </div>
 
 
                 <h5 class="text-white text-shadow">Quote Type:</h5>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="Quote" id="Inspiration" checked>
-                    <label class="form-check-label" for="Inspiration">
+                    <input @click="changeSetting('inspiration')" class="form-check-input" type="radio" name="Quote"
+                        id="inspiration" checked>
+                    <label class="form-check-label" for="inspiration">
                         Inspiration
                     </label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="Quote" id="DadJokes">
-                    <label class="form-check-label" for="DadJokes">
+                    <input @click="changeSetting('dadJokes')" class="form-check-input" type="radio" name="Quote"
+                        id="dadJokes">
+                    <label class="form-check-label" for="dadJokes">
                         Dad Jokes
                     </label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="Quote" id="Poetry">
-                    <label class="form-check-label" for="Poetry">
+                    <input @click="changeSetting('poetry')" class="form-check-input" type="radio" name="Quote"
+                        id="poetry">
+                    <label class="form-check-label" for="poetry">
                         Poetry
                     </label>
                 </div>
@@ -65,9 +71,39 @@
 </template>
 
 <script>
+import { logger } from "../utils/Logger";
+import { onMounted, computed } from "vue";
+
 export default {
     setup() {
-
+        onMounted(() => {
+            getSettings()
+        })
+        function getSettings() {
+            document.getElementById('inspiration').checked = JSON.parse(window.localStorage.getItem('inspiration'))
+            document.getElementById('dadJokes').checked = JSON.parse(window.localStorage.getItem('dadJokes'))
+            document.getElementById('poetry').checked = JSON.parse(window.localStorage.getItem('poetry'))
+        }
+    },
+    methods: {
+        changeSetting(setting) {
+            var checkbox = document.getElementById(setting);
+            switch (setting) {
+                case 'dadJokes':
+                    window.localStorage.setItem('inspiration', !checkbox.checked)
+                    window.localStorage.setItem('poetry', !checkbox.checked)
+                    break;
+                case 'poetry':
+                    window.localStorage.setItem('inspiration', !checkbox.checked)
+                    window.localStorage.setItem('dadJokes', !checkbox.checked)
+                    break;
+                default:
+                    window.localStorage.setItem('dadJokes', !checkbox.checked)
+                    window.localStorage.setItem('poetry', !checkbox.checked)
+                    break;
+            }
+            window.localStorage.setItem(setting, checkbox.checked)
+        }
     }
 }
 </script>
