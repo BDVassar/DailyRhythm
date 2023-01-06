@@ -5,6 +5,7 @@
             </h1>
         </router-link>
         <WeeklyCalendarView />
+        <DailyRhythmViewOptions />
     </div>
 </template>
 
@@ -13,11 +14,12 @@
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted } from 'vue';
 import WeeklyCalendarView from "../components/WeeklyCalendarView.vue";
+import DailyRhythmViewOptions from "../components/DailyRhythmViewOptions.vue";
 export default {
     setup() {
         return {};
     },
-    components: { WeeklyCalendarView }
+    components: { WeeklyCalendarView, DailyRhythmViewOptions }
 };
 </script>
 
