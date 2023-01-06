@@ -22,12 +22,7 @@ const routes = [
     component: loadPage('AccountPage'),
     beforeEnter: authGuard
   },
-  {
-    path: '/DailyRhythmCalendar',
-    name: 'DailyRhythmCalendar',
-    component: loadPage('DailyRhythmCalendarPage'),
-    beforeEnter: authGuard
-  },
+
   {
     path: '/DailyRhythmPage',
     name: 'DailyRhythmPage',

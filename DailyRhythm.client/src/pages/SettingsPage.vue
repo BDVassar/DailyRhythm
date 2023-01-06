@@ -68,6 +68,20 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <div class="card col-1" v-for="day in getCurrentWeek()">{{ day }}</div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-around mb-0" style="height: 200px;">
+                    <div class="card col-5">card for rythms</div>
+                    <div class="card col-5">card for beats</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </template>
 
 <script>
@@ -80,10 +94,17 @@ export default {
             getSettings()
         })
         function getSettings() {
+            // Call setDefaultSetting to see if inspiration exists in local storage
+            setDefaultSetting()
             document.getElementById('inspiration').checked = JSON.parse(window.localStorage.getItem('inspiration'))
             document.getElementById('dadJokes').checked = JSON.parse(window.localStorage.getItem('dadJokes'))
             document.getElementById('poetry').checked = JSON.parse(window.localStorage.getItem('poetry'))
         }
+        function setDefaultSetting() {
+            // If local storage value exists, do nothing. Otherwise set local storage for inspiration to true
+            window.localStorage.getItem('inspiration') ? false : window.localStorage.setItem('inspiration', true)
+        }
+
     },
     methods: {
         changeSetting(setting) {
@@ -103,6 +124,17 @@ export default {
                     break;
             }
             window.localStorage.setItem(setting, checkbox.checked)
+        },
+
+        getCurrentWeek() {
+            var currWeek = []
+            var curr = new Date
+            var first = curr.getDate() - curr.getDay()
+            for (let i = 0; i <= 6; i++) {
+                currWeek.push(new Date(curr.setDate(first + i)).toLocaleDateString('en-US', { weekday: 'long', day: 'numeric' }))
+            }
+            logger.log(currWeek)
+            return currWeek
         }
     }
 }

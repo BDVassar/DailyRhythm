@@ -1,21 +1,23 @@
 <template>
-  <div class="container-fluid">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <h1 class="col-3 d-flex justify-content-start text-white"><i class="mdi mdi-home-circle-outline"></i>
-      </h1>
-    </router-link>
-
-  </div>
+    <div class="container-fluid">
+        <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+            <h1 class="col-3 d-flex justify-content-start text-white"><i class="mdi mdi-home-circle-outline"></i>
+            </h1>
+        </router-link>
+        <WeeklyCalendarView />
+    </div>
 </template>
 
 
 <script>
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted } from 'vue';
+import WeeklyCalendarView from "../components/WeeklyCalendarView.vue";
 export default {
-  setup() {
-    return {}
-  }
+    setup() {
+        return {};
+    },
+    components: { WeeklyCalendarView }
 };
 </script>
 

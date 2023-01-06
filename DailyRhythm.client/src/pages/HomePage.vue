@@ -15,7 +15,8 @@
     <div class="row text-white">
         <h1 class="text-center my-5">Good <span> Morning</span>, <span v-if="account.name">{{
             account.name
-        }}</span><span v-else="!account.name">User</span> </h1>
+        }}
+                {{ quoteSetting }}</span><span v-else="!account.name">User</span> </h1>
     </div>
 
     <!-- SECTION Login -->
@@ -26,7 +27,8 @@
     </div>
 
     <!-- SECTION Quote and author -->
-    <div v-if="quoteSetting" class="row my-5 py-5 text-white justify-content-center">
+
+    <div v-if="quoteSetting && !dadJokesSetting" class="row my-5 py-5 text-white justify-content-center">
         <div class="col-10">
             <h3 class="text-center quote-content">{{ Quote.text }}</h3>
             <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
@@ -84,10 +86,11 @@ export default {
         return {
             BgImage: computed(() => AppState.BgImage),
             Quote: computed(() => AppState.Quote),
-            quoteSetting: computed(() => JSON.parse(window.localStorage.getItem('inspiration'))),
+            quoteSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes')) ? false : true),
             account: computed(() => AppState.account),
             dadJoke: computed(() => AppState.dadJoke),
-            dadJokesSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes')))
+            dadJokesSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes'))),
+
         };
     },
     components: { Clock }
