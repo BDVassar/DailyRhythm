@@ -75,7 +75,9 @@
                 </div>
 
                 <div class="d-flex justify-content-center mt-5 pt-5">
-                    <button type="button" class="btn btn-outline">Edit Account</button>
+                    <router-link :to="{ name: 'Account' }">
+                        <button type="button" class="btn btn-outline">Edit Account</button>
+                    </router-link>
                 </div>
             </div>
         </div>
