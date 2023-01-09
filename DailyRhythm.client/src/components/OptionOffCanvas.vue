@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid option-position">
+    <div class="container-fluid option-position ">
         <div class="row text-center">
             <div class="text-white selectable">
                 <h1>
@@ -7,7 +7,7 @@
                         title="See Options" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
                         aria-controls="offcanvasBottom"></button>
                 </h1>
-                <div class="offcanvas offcanvas-bottom" style="width: 50vw; left: 25%; height:20vh;"
+                <div class="offcanvas offcanvas-bottom" style="width: 40vw; left: 30%; height:13vh;"
                     data-bs-backdrop="static" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
                     <div class="offcanvas-header pb-0" style="background-color: #ffaf87;">
                         <h5 class="offcanvas-title text-white" id="offcanvasBottomLabel">
@@ -16,20 +16,20 @@
                     </div>
                     <div class="offcanvas-body small pt-0" style="background-color: #ffaf87">
                         <div class="row justify-content-evenly">
-                            <button class="btn col-1"><i class="mdi mdi-calendar text-white" title="Calendar"
+                            <!-- <button class="btn col-1"><i class="mdi mdi-calendar text-white" title="Calendar"
                                     style="font-size: 40px"></i>
-                            </button>
+                            </button> -->
                             <router-link class="col-1" :to="{ name: 'DailyRhythmPage' }">
                                 <button class="btn"><i class="mdi mdi-bullseye-arrow text-white"
                                         title="Daily Rhythm Page" style="font-size: 40px"></i>
                                 </button>
                             </router-link>
-                            <button class="btn col-1"><i class="mdi mdi-clock-time-nine-outline text-white"
+                            <!-- <button class="btn col-1"><i class="mdi mdi-clock-time-nine-outline text-white"
                                     title="Clock" style="font-size: 40px"></i>
-                            </button>
-                            <button class="btn col-1"><i class="mdi mdi-timer-sand text-white" title="Timer"
+                            </button> -->
+                            <!-- <button class="btn col-1"><i class="mdi mdi-timer-sand text-white" title="Timer"
                                     style="font-size: 40px"></i>
-                            </button>
+                            </button> -->
                             <router-link class="col-1" :to="{ name: 'About' }">
                                 <button class="btn"><i class="mdi mdi-information-outline text-white"
                                         title="About Daily Rhythms" style="font-size: 40px"></i>

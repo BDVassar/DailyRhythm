@@ -16,4 +16,5 @@ export const AppState = reactive({
   dadJoke: {},
   /** @type {import('./models/Poem.js').Poem{}} */
   Poem: {},
+  Goals: [],
 })
