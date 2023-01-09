@@ -21,7 +21,11 @@
             <div>Beats</div>
             <div><button class="btn"><i class="mdi mdi-plus"></i></button></div>
 
+            <div class="form-floating mb-3 elevation-5">
+                <select v-model="editable.icon" class="form-select" id="icon" aria-label="Icon">
 
+                </select>
+            </div>
         </form>
     </div>
     <div class="modal-footer">
