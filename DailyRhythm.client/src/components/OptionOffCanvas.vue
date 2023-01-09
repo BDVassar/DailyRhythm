@@ -67,8 +67,8 @@ export default {
     text-shadow: 2px 2px 4px #000000;
 }
 
-.option-position {
+/* .option-position {
     position: absolute;
     bottom: 0;
-}
+} */
 </style>
