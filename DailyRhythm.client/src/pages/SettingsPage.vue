@@ -90,7 +90,7 @@
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-around mb-0" style="height: 200px;">
-                    <div class="card col-5">card for rythms</div>
+                    <div class="card col-5">card for rhythms</div>
                     <div class="card col-5">card for beats</div>
                 </div>
             </div>

@@ -19,6 +19,11 @@ export const TypeFitApi = Axios.create({
   timeout: 8000,
 })
 
+export const PoetryApi = Axios.create({
+  baseURL: 'https://poetrydb.org/author/Emily Dickinson',
+  timeout: 8000,
+})
+
 export const WeatherApi = Axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5/weather?q=boise,id,us',
   timeout: 8000,

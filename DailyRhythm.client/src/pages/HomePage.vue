@@ -40,6 +40,14 @@
         </div>
     </div>
 
+    <div v-if="poetrySetting" class="row my-5 py-5 text-white justify-content-center">
+        <div class="col-10">
+            <h5 class="text-center quote-author p-1">-{{ Poem.title }}</h5>
+            <h3 class="text-center quote-content">{{ Poem.lines }}</h3>
+            <h5 class="text-center quote-author p-1">-{{ Poem.author }}</h5>
+        </div>
+    </div>
+
     <div>
         <OptionOffCanvas />
     </div>
@@ -54,6 +62,7 @@ import { quoteService } from "../services/QuoteService.js";
 import { Quote } from "../models/Quote.js";
 import Clock from "../components/Clock.vue";
 import { Weather } from "../models/Weather.js";
+import { Poem } from "../models/Poem.js";
 // import Greeting from "../components/Greeting.vue";
 
 
@@ -63,6 +72,7 @@ export default {
         onMounted(() => {
             getRandomQuote();
             getRandomDadJoke();
+            getRandomPoem();
         });
 
         async function getRandomQuote() {
@@ -83,6 +93,15 @@ export default {
                 logger.error(error)
             }
         }
+
+        async function getRandomPoem() {
+            try {
+                await quoteService.getRandomPoem()
+            } catch (error) {
+                Pop.error(error)
+                logger.error(error)
+            }
+        }
         return {
             BgImage: computed(() => AppState.BgImage),
             Quote: computed(() => AppState.Quote),
@@ -90,6 +109,8 @@ export default {
             account: computed(() => AppState.account),
             dadJoke: computed(() => AppState.dadJoke),
             dadJokesSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes'))),
+            Poem: computed(() => AppState.Poem),
+            poetrySetting: computed(() => JSON.parse(window.localStorage.getItem('Poem'))),
 
         };
     },
