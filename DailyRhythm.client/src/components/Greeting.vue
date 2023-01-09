@@ -22,7 +22,7 @@ export default {
   setup() {
     return {
       account: computed(() => AppState.account),
-      hour: new Date().getHours().toLocaleString
+      hour: new Date().getHours()
     }
   }
 };
