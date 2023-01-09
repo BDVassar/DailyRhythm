@@ -14,4 +14,5 @@ export const AppState = reactive({
   weather: {},
    /** @type {import('./models/DadJoke.js').DadJoke{}} */
   dadJoke: {},
+  Goals: [],
 })
