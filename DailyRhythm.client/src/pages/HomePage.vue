@@ -63,8 +63,6 @@ import { Quote } from "../models/Quote.js";
 import Clock from "../components/Clock.vue";
 import { Weather } from "../models/Weather.js";
 import { Poem } from "../models/Poem.js";
-// import Greeting from "../components/Greeting.vue";
-
 
 
 export default {
