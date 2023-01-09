@@ -69,6 +69,4 @@ a {
     color: rgb(254, 254, 254);
     font-size: 16px;
 }
-
-
 </style>

@@ -20,8 +20,9 @@
                                     style="font-size: 40px"></i>
                             </button> -->
                             <router-link class="col-1" :to="{ name: 'DailyRhythmPage' }">
-                                <button class="btn"><i class="mdi mdi-bullseye-arrow text-white"
-                                        title="Daily Rhythm Page" style="font-size: 40px"></i>
+                                <button class="btn" data-bs-dismiss="offcanvas"><i
+                                        class="mdi mdi-bullseye-arrow text-white" title="Daily Rhythm Page"
+                                        style="font-size: 40px"></i>
                                 </button>
                             </router-link>
                             <!-- <button class="btn col-1"><i class="mdi mdi-clock-time-nine-outline text-white"
@@ -31,12 +32,14 @@
                                     style="font-size: 40px"></i>
                             </button> -->
                             <router-link class="col-1" :to="{ name: 'About' }">
-                                <button class="btn"><i class="mdi mdi-information-outline text-white"
-                                        title="About Daily Rhythms" style="font-size: 40px"></i>
+                                <button class="btn" data-bs-dismiss="offcanvas"><i
+                                        class="mdi mdi-information-outline text-white" title="About Daily Rhythms"
+                                        style="font-size: 40px"></i>
                                 </button>
                             </router-link>
                             <router-link class="col-1" :to="{ name: 'Settings' }">
-                                <button class="btn"><i class="mdi mdi-cog-outline text-white" title="Settings Page"
+                                <button class="btn" data-bs-dismiss="offcanvas"><i
+                                        class="mdi mdi-cog-outline text-white" title="Settings Page"
                                         style="font-size: 40px"></i>
                                 </button>
                             </router-link>
