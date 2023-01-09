@@ -43,11 +43,7 @@
                     <label class="form-check-label" for="appointments">Today's Appointments</label>
                 </div>
 
-                <h5 class=" mt-5 text-white text-shadow">Search Background Theme:</h5>
-                <form>
-                    <input type="text" placeholder="e.g. beach" name="search" class="search p-1 rounded fs-5">
-                    <button type="submit" title="Search"><i class="mdi mdi-image-search"></i></button>
-                </form>
+                <ImageSearchBar />
 
                 <h5 class="mt-5 text-white text-shadow">Select Positive Words:</h5>
                 <div class="form-check">

@@ -10,5 +10,12 @@ class BgImageService {
     res.data.results.sort((a, b) => 0.5 - Math.random())
     AppState.BgImage = new BgImage(res.data.results[0])
   }
+
+  async searchImage(search) {
+    const res = await UnsplashApi.get('', { params: search })
+    logger.log('[Search Images]', res.data.results)
+    res.data.results.sort((a, b) => 0.5 - Math.random())
+    AppState.BgImage = new BgImage(res.data.results[0])
+  }
 }
 export const bgImageService = new BgImageService()
