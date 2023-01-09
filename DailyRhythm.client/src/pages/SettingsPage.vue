@@ -72,7 +72,8 @@
 
                 <div class="d-flex justify-content-center mt-5 pt-5">
                     <router-link :to="{ name: 'Account' }">
-                        <button type="button" class="btn btn-outline mini-shadow">Edit Account</button>
+                        <button type="button" class="btn btn-outline mini-shadow" title="Edit Account">Edit
+                            Account</button>
                     </router-link>
                 </div>
             </div>
