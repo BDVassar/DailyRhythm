@@ -21,10 +21,36 @@
             <div>Beats</div>
             <div><button class="btn"><i class="mdi mdi-plus"></i></button></div>
 
-            <div class="form-floating mb-3 elevation-5">
-                <select v-model="editable.icon" class="form-select" id="icon" aria-label="Icon">
-
-                </select>
+            <div class="dropdown me-1">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false" data-bs-offset="10,20">
+                    Icon
+                </button>
+                <ul class="dropdown-menu row">
+                    <li><a class="dropdown-item mdi mdi-weight-lifter" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-leaf" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-book-open-page-variant" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-food-apple" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-heart" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-lead-pencil" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-music-clef-treble" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-music" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-music-note" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-palette" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-paw" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-currency-usd" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-home" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-comment-text-outline" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-plus-thick" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-silverware" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-meditation" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-beach" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-power-sleep" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-star" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-cup-water" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-laptop" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-flower-tulip" href="#"></a></li>
+                </ul>
             </div>
         </form>
     </div>
