@@ -76,7 +76,7 @@
 
                 <div class="d-flex justify-content-center mt-5 pt-5">
                     <router-link :to="{ name: 'Account' }">
-                        <button type="button" class="btn btn-outline">Edit Account</button>
+                        <button type="button" class="btn btn-outline mini-shadow">Edit Account</button>
                     </router-link>
                 </div>
             </div>
@@ -158,6 +158,10 @@ export default {
 <style scoped lang="scss">
 .text-shadow {
     text-shadow: 2px 2px 4px #000000;
+}
+
+.mini-shadow {
+    text-shadow: 2px 2px 2px #2a2a2a;
 }
 
 .text-underline {
