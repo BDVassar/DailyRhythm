@@ -18,6 +18,7 @@ export const TypeFitApi = Axios.create({
   baseURL: 'https://type.fit/api/quotes',
   timeout: 8000,
 })
+
 export const WeatherApi = Axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5/weather?q=boise,id,us',
   timeout: 8000,
@@ -25,7 +26,6 @@ export const WeatherApi = Axios.create({
     appid: appid
   }
 })
-
 
 export const DadJokesApi = new axios.create({
   baseURL: 'https://icanhazdadjoke.com/',

@@ -1,30 +1,30 @@
 <template>
   <div class="col-4 weather-card rounded elevation-5 me-3" title="See local weather">
     <div class="row justify-content-center">
-      <h5 class="col-6 d-flex justify-content-center align-items-center"> {{ weather.tempF }} <i
+      <h5 class="col-6 d-flex justify-content-center align-items-center mb-0"> {{ weather.tempF }} <i
           class="mdi mdi-temperature-fahrenheit"></i>
       </h5>
-      <h5 class="col-6">
+      <h5 class="col-6 mb-0 d-flex justify-content-center">
         <img :src="`http://openweathermap.org/img/wn/${weather.icon}@2x.png`" id="weather-icon" />
       </h5>
     </div>
-    <div class="row justify-content-center">
+    <!-- <div class="row justify-content-center">
       <div class="col-12 d-flex justify-content-center">
-        <p>High : {{ weather.tempMaxF }} <i class="mdi mdi-temperature-fahrenheit"></i> | Low : {{
+        <p class="mb-0">High : {{ weather.tempMaxF }} <i class="mdi mdi-temperature-fahrenheit"></i> | Low : {{
           weather.tempMinF
         }} <i class="mdi mdi-temperature-fahrenheit"></i></p>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-12 d-flex justify-content-center">
-        <p>Feels like {{ weather.feelsLikeF }} <i class="mdi mdi-temperature-fahrenheit"></i></p>
+        <p class="mb-0">Feels like {{ weather.feelsLikeF }} <i class="mdi mdi-temperature-fahrenheit"></i></p>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-12 d-flex justify-content-center">
         <p> {{ weather.description }} in {{ weather.location }}</p>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -62,8 +62,8 @@ export default {
 .weather-card {
   outline: 3px solid #99c2ac;
   background-color: #99c2ac83;
-  width: 30vh;
-  height: 25vh;
+  width: fit-content;
+  height: fit-content;
 }
 
 #weather-icon {

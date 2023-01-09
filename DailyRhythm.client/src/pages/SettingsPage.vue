@@ -1,14 +1,20 @@
 <template>
     <div class="container-fluid">
-        <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-            <h1 class="col-3 d-flex justify-content-start text-white"><i class="mdi mdi-home-circle-outline"></i>
-            </h1>
-        </router-link>
-        <h1 class="text-center text-white text-shadow text-underline">Settings</h1>
+        <div class="row">
+            <router-link class="navbar-brand" :to="{ name: 'Home' }">
+                <h1 class="col-3 d-flex justify-content-start text-white" title="Home"><i
+                        class="mdi mdi-home-circle-outline"></i>
+                </h1>
+            </router-link>
+        </div>
+
+        <div class="row">
+            <h1 class="text-center text-white text-shadow text-underline mb-5">My Settings</h1>
+        </div>
+
         <div class="row justify-content-center">
             <div class="col-8 text-white" id="opaqueBG">
-                <h5>Toggle Component View</h5>
-
+                <h5 class="mt-5">Toggle Homepage Components:</h5>
                 <div class="form-check form-switch">
                     <input @click="changeSetting('clock')" class="form-check-input" type="checkbox" role="switch"
                         id="clock" checked>
@@ -37,9 +43,13 @@
                     <label class="form-check-label" for="appointments">Today's Appointments</label>
                 </div>
 
+                <h5 class=" mt-5 text-white text-shadow">Search Background Theme:</h5>
+                <form>
+                    <input type="text" placeholder="e.g. beach" name="search" class="search p-1 rounded fs-5">
+                    <button type="submit" title="Search"><i class="mdi mdi-image-search"></i></button>
+                </form>
 
-                <h5 class="text-white text-shadow">Quote Type:</h5>
-
+                <h5 class="mt-5 text-white text-shadow">Select Positive Words:</h5>
                 <div class="form-check">
                     <input @click="changeSetting('inspiration')" class="form-check-input" type="radio" name="Quote"
                         id="inspiration" checked>
@@ -64,11 +74,14 @@
                     </label>
                 </div>
 
+                <div class="d-flex justify-content-center mt-5 pt-5">
+                    <button type="button" class="btn btn-outline">Edit Account</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <div class="card col-1" v-for="day in getCurrentWeek()">{{ day }}</div>
@@ -80,7 +93,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </template>
 
@@ -126,16 +139,16 @@ export default {
             window.localStorage.setItem(setting, checkbox.checked)
         },
 
-        getCurrentWeek() {
-            var currWeek = []
-            var curr = new Date
-            var first = curr.getDate() - curr.getDay()
-            for (let i = 0; i <= 6; i++) {
-                currWeek.push(new Date(curr.setDate(first + i)).toLocaleDateString('en-US', { weekday: 'long', day: 'numeric' }))
-            }
-            logger.log(currWeek)
-            return currWeek
-        }
+        // getCurrentWeek() {
+        //     var currWeek = []
+        //     var curr = new Date
+        //     var first = curr.getDate() - curr.getDay()
+        //     for (let i = 0; i <= 6; i++) {
+        //         currWeek.push(new Date(curr.setDate(first + i)).toLocaleDateString('en-US', { weekday: 'long', day: 'numeric' }))
+        //     }
+        //     logger.log(currWeek)
+        //     return currWeek
+        // }
     }
 }
 </script>
@@ -152,9 +165,13 @@ export default {
 #opaqueBG {
     height: fit-content;
     width: fit-content;
-    font-size: 1.5rem;
-    border-radius: 50px;
+    font-size: 1.4rem;
+    // border-radius: 50px;
     color: whitesmoke;
     background-color: #ffaf8788;
+}
+
+.search {
+    background-color: white;
 }
 </style>

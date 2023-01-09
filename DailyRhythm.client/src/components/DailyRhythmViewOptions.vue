@@ -12,7 +12,7 @@
                 </button>
 
                 <button class="btn col-2 text-white"><i class="mdi mdi-music" title="Rhythms"
-                        style="font-size: 40px">Rythms</i>
+                        style="font-size: 40px">Rhythms</i>
                 </button>
 
                 <button class="btn col-2 text-white"><i class="mdi mdi-music-note" title="Beats"
@@ -20,7 +20,7 @@
                 </button>
 
                 <button class="btn col-2 text-white"><i class="mdi mdi-timer-sand" title="Timer Component"
-                        style="font-size: 40px">Timer Component</i>
+                        style="font-size: 40px">Timer</i>
                 </button>
 
             </div>
