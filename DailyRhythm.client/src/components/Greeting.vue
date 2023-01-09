@@ -1,16 +1,16 @@
 <template>
-  <h1 class="text-center my-5">
-    <span v-if="hour >= 5">Good Morning,</span>
-    <span v-else-if="hour >= 12">Good Afternoon,</span>
-    <span v-else-if="hour >= 17">Good Evening,</span>
-    <span v-else-if="hour >= 21">Good Night,</span>
-    <span v-else="hour < 5">Good Night,</span>
-    <span v-if="account.name">{{
+  <div class="text-center my-5">
+    <h1 v-if="hour >= 5">Good Morning,</h1>
+    <h1 v-else-if="hour >= 12">Good Afternoon,</h1>
+    <h1 v-else-if="hour >= 17">Good Evening,</h1>
+    <h1 v-else-if="hour >= 21">Good Night,</h1>
+    <h1 v-else="hour < 5">Good Night,</h1>
+    <h5 v-if="account.name">{{
       account.name
     }}
-    </span>
-    <span v-else="!account.name">User</span>
-  </h1>
+    </h5>
+    <h5 v-else="!account.name">User</h5>
+  </div>
 </template>
 
 
@@ -20,9 +20,9 @@ import { computed, reactive, onMounted } from 'vue';
 
 export default {
   setup() {
-
     return {
-      hour: newDate().getHours()
+      account: computed(() => AppState.account),
+      hour: new Date().getHours().toLocaleString
     }
   }
 };

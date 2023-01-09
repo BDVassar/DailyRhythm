@@ -15,7 +15,7 @@
 
     <!-- SECTION Greeting -->
     <div class="row text-white">
-        <!-- <Greeting /> -->
+        <Greeting />
     </div>
 
     <!-- SECTION Login -->
