@@ -1,10 +1,26 @@
 <template>
     <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a Goal</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
         <form @submit.prevent="createGoal()">
+
+            <div class="form-floating mb-3 elevation-5">
+                <input v-model="editable.title" type="text" required class="form-control" id="title"
+                    placeholder="New Goal Name">
+                <label for="title">New Goal Name</label>
+            </div>
+
+            <p>Now break this goal down into daily rhythms and one time beats.</p>
+
+            <div>Daily Rhythms</div>
+            <div><button class="btn"><i class="mdi mdi-plus"></i></button>
+            </div>
+
+            <div>Beats</div>
+            <div><button class="btn"><i class="mdi mdi-plus"></i></button></div>
+
 
         </form>
     </div>
