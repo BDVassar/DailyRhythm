@@ -1,25 +1,25 @@
 <template>
     <!-- SECTION Time and Weather -->
-    <div class="row p-3 justify-content-between text-white">
+    <div class="row p-3 justify-content-between text-white text-shadow">
         <Clock />
         <Weather />
     </div>
 
     <!--SECTION Timer-->
     <div class="row">
-        <div class="col-2 mx-2 text-light justify-content-start">
+        <div class="col-2 mx-2 text-light justify-content-start text-shadow">
             <Timer />
         </div>
     </div>
 
 
     <!-- SECTION Greeting -->
-    <div class="row text-white">
+    <div class="row text-white text-shadow">
         <Greeting />
     </div>
 
     <!-- SECTION Login -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center text-shadow">
         <h1 class="loginStyle">
             <Login />
         </h1>
@@ -27,20 +27,20 @@
 
     <!-- SECTION Quote and author -->
 
-    <div v-if="quoteSetting && !dadJokesSetting" class="row my-5 py-5 text-white justify-content-center">
+    <div v-if="quoteSetting && !dadJokesSetting" class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h3 class="text-center quote-content">{{ Quote.text }}</h3>
             <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
         </div>
     </div>
 
-    <div v-if="dadJokesSetting" class="row my-5 py-5 text-white justify-content-center">
+    <div v-if="dadJokesSetting" class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
         </div>
     </div>
 
-    <div v-if="poetrySetting" class="row my-5 py-5 text-white justify-content-center">
+    <div v-if="poetrySetting" class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h5 class="text-center quote-author p-1">-{{ Poem.title }}</h5>
             <h3 class="text-center quote-content">{{ Poem.lines }}</h3>

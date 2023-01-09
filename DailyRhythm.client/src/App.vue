@@ -1,7 +1,6 @@
 <template>
     <main>
-        <div class="container-fluid bgImage text-shadow" v-if="BgImage"
-            :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
+        <div class="container-fluid bgImage" v-if="BgImage" :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
             <router-view />
         </div>
         <div class="col-5 d-flex opaqueBG p-1 m-2">
@@ -71,7 +70,5 @@ a {
     font-size: 16px;
 }
 
-.text-shadow {
-    text-shadow: 2px 2px 4px #000000;
-}
+
 </style>
