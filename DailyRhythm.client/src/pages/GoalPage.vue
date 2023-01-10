@@ -1,15 +1,15 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <router-link class="navbar-brand" :to="{ name: 'Home' }">
+      <router-link class="col-1" :to="{ name: 'Home' }">
         <h1 class="col-3 d-flex justify-content-start text-white" title="Home"><i
             class="mdi mdi-home-circle-outline"></i>
         </h1>
       </router-link>
       <router-link class="col-1" :to="{ name: 'DailyRhythmPage' }">
-        <button class="btn" data-bs-dismiss="offcanvas"><i class="mdi mdi-bullseye-arrow text-white"
-            title="Daily Rhythm Page" style="font-size: 40px"></i>
-        </button>
+        <h1 class="col-3 d-flex justify-content-start text-white" title="DailyRhythm"><i
+            class="mdi mdi-bullseye-arrow"></i>
+        </h1>
       </router-link>
     </div>
 
