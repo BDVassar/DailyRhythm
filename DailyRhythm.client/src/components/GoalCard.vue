@@ -1,6 +1,6 @@
 <template>
   <section class="row card opacity-75 text-center p-3" :style="{ backgroundColor: `${goal.color}` }">
-    <h1><span class="mdi" :class="goal.icon"></span>{{ goal.name }}</h1>
+    <h3><span class="mdi" :class="goal.icon"></span>{{ goal.name }}</h3>
     <p>{{ goal.description }}</p>
     <div class="col-12 text-center p-3">
       <h5>Rhythms</h5>
@@ -29,5 +29,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.card {
+  min-height: 40vh;
+}
 </style>
