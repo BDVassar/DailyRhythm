@@ -52,7 +52,7 @@ export class AccountController extends BaseController {
       next(error)
     }
   }
-  //FIXME - Almost working
+
 
   async updateAccount(req, res, next) {
     try {

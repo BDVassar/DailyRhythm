@@ -9,7 +9,7 @@ class BgImageService {
       const search = AppState.searchImage
       this.searchImage(search)
     } else {
-      const res = await UnsplashApi.get('?query=beach')
+      const res = await UnsplashApi.get('?query=beach sunset')
       logger.log('[GETTING RANDOM IMAGE]', res.data.results)
       res.data.results.sort((a, b) => 0.5 - Math.random())
       AppState.BgImage = new BgImage(res.data.results[0])
