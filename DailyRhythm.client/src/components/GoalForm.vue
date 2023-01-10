@@ -69,6 +69,7 @@ export default {
             async createGoal() {
                 try {
                     const goal = await goalService.createGoal(editable.value)
+                    logger.log(goal.id)
                     Pop.success('Successfully created goal')
                     editable.value = {}
                     Modal.getOrCreateInstance('#goalModal').hide()
