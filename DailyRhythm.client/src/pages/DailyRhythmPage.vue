@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid opacity-75">
         <div class="row justify-content-between">
             <router-link class="col-2 navbar-brand d-flex justify-content-start" :to="{ name: 'Home' }">
                 <h1 class="text-white" title="Home"><i class="mdi mdi-home-circle-outline"></i>

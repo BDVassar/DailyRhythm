@@ -43,6 +43,6 @@ export default {
     width: fit-content;
     font-size: 1.5rem;
     color: whitesmoke;
-    background-color: #ffaf8788;
+    background-color: #ffaf87;
 }
 </style>
