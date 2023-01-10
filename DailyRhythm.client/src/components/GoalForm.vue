@@ -43,18 +43,21 @@
                     Icon
                 </button>
                 <ul class="dropdown-menu row" style="height: 200px; overflow:scroll">
-                    <li v-for="icon in iconArray" :class="`dropdown-item mdi ${icon}`"></li>
+                    <li @click="editable.icon = icon" v-for="icon in iconArray" :class="`dropdown-item mdi ${icon}`">
+                    </li>
                 </ul>
+                <i v-if="editable.icon" class="mdi" :class="editable.icon"></i>
             </div>
 
-            <div class="form-floating">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+            <!-- <div class="form-floating">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    v-model="editable.icon">
                     <option selected>Open this select menu</option>
-                    <option v-for="icon in iconArray" class="`mdi ${icon}`" value="`mdi ${icon}`"><i
-                            class="`mdi ${icon}`"></i></option>
+                    <option v-for="icon in iconArray" :value="icon"><i class="text-dark mdi" :class="icon"></i>Test
+                    </option>
                 </select>
                 <label for="floatingSelect">Works with selects</label>
-            </div>
+            </div> -->
 
 
 
