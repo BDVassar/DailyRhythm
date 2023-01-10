@@ -1,6 +1,7 @@
 <template>
   <section class="row card opacity-75 text-center" :style="{ backgroundColor: `${goal.color}` }">
     <h1><span class="mdi" :class="goal.icon"></span>{{ goal.name }}</h1>
+    <p>{{ goal.description }}</p>
     <div class="col-12 text-center">
       <h5>Rhythms</h5>
     </div>
