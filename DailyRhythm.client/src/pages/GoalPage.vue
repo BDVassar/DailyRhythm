@@ -13,7 +13,7 @@
       </router-link>
     </div>
     <div class="row justify-content-evenly">
-      <div v-for="g in goals" class="col-4">
+      <div v-for="g in goals" class="col-4 p-3">
         <GoalCard :goal="g" />
       </div>
     </div>
