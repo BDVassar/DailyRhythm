@@ -1,5 +1,5 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
-import { accountService } from '../services/AccountService'
+import { accountService } from '../services/AccountService.js'
 import { beatService } from "../services/BeatService.js"
 import { goalService } from "../services/GoalService.js"
 import { rhythmService } from "../services/RhythmService.js"
@@ -14,7 +14,7 @@ export class AccountController extends BaseController {
       .get('/goals', this.getMyGoals)
       .get('/rhythms', this.getMyRhythms)
       .get('/beats', this.getMyBeats)
-      .put('/:id', this.editAccount)
+      .put('', this.updateAccount)
   }
 
   async getUserAccount(req, res, next) {
@@ -54,9 +54,10 @@ export class AccountController extends BaseController {
   }
   //FIXME - Almost working
 
-  async editAccount(req, res, next) {
+  async updateAccount(req, res, next) {
     try {
-      const editAccount = await accountService.editAccount(req.params.id)
+      const updateAccount = await accountService.updateAccount(req.userInfo.id, req.body)
+      return res.send(updateAccount)
     } catch (error) {
       next(error)
     }

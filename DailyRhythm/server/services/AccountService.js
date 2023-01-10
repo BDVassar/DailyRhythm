@@ -59,15 +59,7 @@ class AccountService {
     await mergeSubsIfNeeded(account, user)
     return account
   }
-//FIXME - Still not functioning
-  async editAccount(user, body) {
-    const currentBody = await this.getAccount(user)
-    currentBody.email = body.email ? body.email : currentBody?.email
-    currentBody.name = body.name ? body.name : currentBody.name
-    currentBody.picture = body.picture ? body.picture : currentBody.picture
-    await currentBody?.save()
-    return currentBody
-  }
+
 
   /**
    * Updates account with the request body, will only allow changes to editable fields
@@ -77,7 +69,7 @@ class AccountService {
   async updateAccount(user, body) {
     const update = sanitizeBody(body)
     const account = await dbContext.Account.findOneAndUpdate(
-      { _id: user.id },
+      { _id: user },
       { $set: update },
       { runValidators: true, setDefaultsOnInsert: true, new: true }
     )
