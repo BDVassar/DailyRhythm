@@ -46,8 +46,7 @@ export default {
 @import "./assets/scss/main.scss";
 
 .bgImage {
-    // height: 100vh;
-    min-height: 100%;
+    height: 100vh;
     background-position: center;
     background-size: cover;
     padding: 0px;
