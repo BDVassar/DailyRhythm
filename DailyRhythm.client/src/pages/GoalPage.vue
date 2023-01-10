@@ -12,9 +12,9 @@
         </h1>
       </router-link>
     </div>
-    <div class="row">
-      <div v-for="g in goals" class="col-3">
-        <GoalCard :goal = "g"/>
+    <div class="row justify-content-evenly">
+      <div v-for="g in goals" class="col-4">
+        <GoalCard :goal="g" />
       </div>
     </div>
 

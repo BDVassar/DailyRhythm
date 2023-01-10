@@ -1,7 +1,13 @@
 <template>
-  <div class="row card opacity-75" style="background-color: {{ goal.color }};">
-<p>{{ goal.name }}</p>
-  </div>
+  <section class="row card opacity-75 text-center" :style="{ backgroundColor: `${goal.color}` }">
+    <h1><span class="mdi" :class="goal.icon"></span>{{ goal.name }}</h1>
+    <div class="col-12 text-center">
+      <h5>Rhythms</h5>
+    </div>
+    <div class="col-12 text-center">
+      <h5>Beats</h5>
+    </div>
+  </section>
 </template>
 
 
