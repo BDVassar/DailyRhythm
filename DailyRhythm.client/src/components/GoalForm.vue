@@ -12,6 +12,12 @@
                 <label for="name">New Goal Name</label>
             </div>
 
+            <div class="form-floating mb-3 elevation-5">
+                <textarea v-model="editable.description" class="form-control" placeholder="Description"
+                    id="description"></textarea>
+                <label for="description">Description</label>
+            </div>
+
             <!-- <p>Now break this goal down into daily rhythms and one time beats.</p> -->
 
             <!-- <div>Daily Rhythms</div>
@@ -31,7 +37,7 @@
                 <label for="title">New Rhythm</label>
             </div> -->
 
-            <!-- <div class="dropdown me-1">
+            <div class="dropdown me-1">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false" data-bs-offset="10,20">
                     Icon
@@ -39,7 +45,17 @@
                 <ul class="dropdown-menu row" style="height: 200px; overflow:scroll">
                     <li v-for="icon in iconArray" :class="`dropdown-item mdi ${icon}`"></li>
                 </ul>
-            </div> -->
+            </div>
+
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option selected>Open this select menu</option>
+                    <option v-for="icon in iconArray" class="`mdi ${icon}`" value="`mdi ${icon}`"><i
+                            class="`mdi ${icon}`"></i></option>
+                </select>
+                <label for="floatingSelect">Works with selects</label>
+            </div>
+
 
 
             <div class="modal-footer">
