@@ -7,9 +7,9 @@
         <form @submit.prevent="createGoal()">
 
             <div class="form-floating mb-3 elevation-5">
-                <input v-model="editable.title" type="text" required class="form-control" id="title"
+                <input v-model="editable.name" type="text" required class="form-control" id="name"
                     placeholder="New Goal Name">
-                <label for="title">New Goal Name</label>
+                <label for="name">New Goal Name</label>
             </div>
 
             <!-- <p>Now break this goal down into daily rhythms and one time beats.</p> -->
@@ -41,11 +41,12 @@
                 </ul>
             </div> -->
 
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Create Goal</button>
+            </div>
         </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Create Goal</button>
     </div>
 </template>
 
@@ -67,10 +68,11 @@ export default {
             iconArray,
             async createGoal() {
                 try {
-                    await goalService.createGoal(editable.value)
+                    const goal = await goalService.createGoal(editable.value)
+                    Pop.success('Successfully created goal')
                     editable.value = {}
                     Modal.getOrCreateInstance('#goalModal').hide()
-                    router.push({ name: 'GoalPage' })
+                    router.push({ name: 'GoalDetails', params: { goalId: goal.id } })
                 } catch (error) {
                     logger.error(error)
                     Pop.error(error.message)
