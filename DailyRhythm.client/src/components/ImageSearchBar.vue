@@ -1,9 +1,9 @@
 <template>
-  <h5 class=" mt-5 text-white text-shadow">Search Background Theme:</h5>
+  <h5 class="mt-5 text-white text-shadow">Search Background Theme:</h5>
   <form action="" class="input-group" @submit.prevent="searchImage">
     <input type="text" placeholder="e.g. beach" name="search" class="form-control search p-1 rounded fs-5"
       v-model="search.query">
-    <button class="btn btn-info w-25" type="submit" title="Search"><i class="mdi mdi-image-search"></i></button>
+    <button class="btn btn-danger w-25" type="submit" title="Search"><i class="mdi mdi-image-search"></i></button>
   </form>
 </template>
 
