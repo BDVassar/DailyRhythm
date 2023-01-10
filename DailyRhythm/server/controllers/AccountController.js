@@ -14,6 +14,7 @@ export class AccountController extends BaseController {
       .get('/goals', this.getMyGoals)
       .get('/rhythms', this.getMyRhythms)
       .get('/beats', this.getMyBeats)
+      .put('/:id', this.editAccount)
   }
 
   async getUserAccount(req, res, next) {
@@ -47,6 +48,15 @@ export class AccountController extends BaseController {
     try {
       const beats = await beatService.getMyBeats(req.userInfo.id)
       return res.send(beats)
+    } catch (error) {
+      next(error)
+    }
+  }
+  //FIXME - Almost working
+
+  async editAccount(req, res, next) {
+    try {
+      const editAccount = await accountService.editAccount(req.params.id)
     } catch (error) {
       next(error)
     }
