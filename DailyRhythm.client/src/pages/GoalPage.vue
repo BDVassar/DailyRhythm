@@ -13,7 +13,9 @@
       </router-link>
     </div>
     <div class="row">
-      
+      <div v-for="g in goals" class="col-3">
+        <GoalCard :goal = "g"/>
+      </div>
     </div>
 
   </div>
@@ -23,9 +25,28 @@
 <script>
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted, ref } from 'vue';
+import Pop from "../utils/Pop.js";
+import { logger } from "../utils/Logger.js";
+import { goalService } from "../services/GoalService.js";
 export default {
   setup() {
-    return {}
+
+    onMounted(() => {
+      getGoals();
+    });
+
+    async function getGoals() {
+      try {
+        await goalService.getGoals()
+      } catch (error) {
+        Pop.error(error)
+        logger.log(error.message)
+      }
+    }
+
+    return {
+      goals: computed(() => AppState.Goals)
+    }
   }
 };
 </script>
