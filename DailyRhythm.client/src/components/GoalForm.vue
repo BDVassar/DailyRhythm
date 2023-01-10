@@ -12,14 +12,24 @@
                 <label for="title">New Goal Name</label>
             </div>
 
-            <p>Now break this goal down into daily rhythms and one time beats.</p>
+            <!-- <p>Now break this goal down into daily rhythms and one time beats.</p> -->
 
-            <div>Daily Rhythms</div>
+            <!-- <div>Daily Rhythms</div>
             <div><button class="btn"><i class="mdi mdi-plus"></i></button>
+            </div>
+            <div class="form-floating mb-3 elevation-5">
+                <input v-model="editable.title" type="text" required class="form-control" id="title"
+                    placeholder="New Goal Name">
+                <label for="title">New Rhythm</label>
             </div>
 
             <div>Beats</div>
             <div><button class="btn"><i class="mdi mdi-plus"></i></button></div>
+            <div class="form-floating mb-3 elevation-5">
+                <input v-model="editable.title" type="text" required class="form-control" id="title"
+                    placeholder="New Goal Name">
+                <label for="title">New Rhythm</label>
+            </div> -->
 
             <div class="dropdown me-1">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
@@ -27,7 +37,7 @@
                     Icon
                 </button>
                 <ul class="dropdown-menu row">
-                    <li><a class="dropdown-item mdi mdi-weight-lifter" href="#"></a></li>
+                    <li><a class="dropdown-item mdi mdi-weight-lifter" href=""></a></li>
                     <li><a class="dropdown-item mdi mdi-leaf" href="#"></a></li>
                     <li><a class="dropdown-item mdi mdi-book-open-page-variant" href="#"></a></li>
                     <li><a class="dropdown-item mdi mdi-food-apple" href="#"></a></li>
