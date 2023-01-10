@@ -1,44 +1,28 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row justify-content-center align-items-center">
       <router-link class="navbar-brand" :to="{ name: 'Home' }">
         <h1 class="col-3 d-flex justify-content-start text-white" title="Home"><i
             class="mdi mdi-home-circle-outline"></i>
         </h1>
       </router-link>
     </div>
-    <div class="about text-center text-white">
+    <section class="row justify-content-center about text-center text-white text-shadow">
       <h1>Welcome {{ account.name }}</h1>
       <br>
       <img class="rounded-circle" :src="account.picture" alt="" />
       <br>
-      <p class="p-2 mt-2">{{ account.email }}</p>
-      <form class="input-group p-3 justify-content-center" @submit.prevent="editProfile(formData)">
-        <div class="">
-          <div class="d-flex flex-column profile-form">
-            <label for="email">Account email</label>
-            <input type="text" name="email" placeholder="email..." />
-            <label class="mt-2" for="name">Change username</label>
-            <input class="mt-2" type="text" name="name" placeholder="new username..." v-model="account.name" />
-            <label class="mt-2" for="picture">URL for profile picture
-            </label>
-            <input class="mt-2" type="url" name="picture" placeholder="https://something.jpg"
-              v-model="account.picture" />
-            <!--SECTION PROFILE PICTURE-->
-         
-          </div>
-          <div class="mt-2">
-            <button type="submit" class="btn btn-info selectable">Submit</button>
-          </div>
-        </div>
-      </form>
-
-
-      <div class="text-danger selectable" @click="logout">
+      <p class="p-2">{{ account.email }}</p>
+      <!--SECTION edit account -->
+      <div class="col-4 justify-content-center">
+        <AccountForm />
+      </div>
+      <!--SECTION LOGOUT -->
+      <div class="logout selectable fs-5 mt-2" @click="logout">
         <i class="mdi mdi-logout"></i>
         logout
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -78,5 +62,9 @@ export default {
 
 img {
   max-width: 100px;
+}
+
+.logout {
+  color: white;
 }
 </style>
