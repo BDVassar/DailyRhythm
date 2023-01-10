@@ -62,10 +62,14 @@ class AccountService {
 //FIXME - Still not functioning
   async editAccount(user, body) {
     const currentBody = await this.getAccount(user)
-    currentBody.email = body.email ? body.email : currentBody?.email
+    // @ts-ignore
+    currentBody.email = body.email ? body.email : currentBody.email
+    // @ts-ignore
     currentBody.name = body.name ? body.name : currentBody.name
+    // @ts-ignore
     currentBody.picture = body.picture ? body.picture : currentBody.picture
-    await currentBody?.save()
+    // @ts-ignore
+    await currentBody.save()
     return currentBody
   }
 

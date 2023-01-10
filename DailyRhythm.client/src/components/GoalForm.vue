@@ -31,7 +31,7 @@
                 <label for="title">New Rhythm</label>
             </div> -->
 
-            <div class="dropdown me-1">
+            <!-- <div class="dropdown me-1">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false" data-bs-offset="10,20">
                     Icon
@@ -39,7 +39,8 @@
                 <ul class="dropdown-menu row" style="height: 200px; overflow:scroll">
                     <li v-for="icon in iconArray" :class="`dropdown-item mdi ${icon}`"></li>
                 </ul>
-            </div>
+            </div> -->
+
         </form>
     </div>
     <div class="modal-footer">
@@ -53,16 +54,23 @@ import { ref } from "vue";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { goalService } from "../services/GoalService.js"
+import { Modal } from "bootstrap";
+import { useRouter } from "vue-router";
+
 export default {
     setup() {
         const editable = ref({})
+        const router = useRouter()
         const iconArray = ['mdi-weight-lifter', 'mdi-leaf', 'mdi-book-open-page-variant', 'mdi-food-apple', 'mdi-heart', 'mdi-lead-pencil', 'mdi-music-clef-treble', 'mdi-music', 'mdi-music-note', 'mdi-palette', 'mdi-paw', 'mdi-currency-usd', 'mdi-home', 'mdi-comment-text-outline', 'mdi-plus-thick', 'mdi-silverware', 'mdi-meditation', 'mdi-beach', 'mdi-power-sleep', 'mdi-star', 'mdi-cup-water', 'mdi-laptop', 'mdi-flower-tulip']
         return {
             editable,
             iconArray,
             async createGoal() {
                 try {
-                    const goal = await goalService.createGoal(editable.value)
+                    await goalService.createGoal(editable.value)
+                    editable.value = {}
+                    Modal.getOrCreateInstance('#goalModal').hide()
+                    router.push({ name: 'GoalPage' })
                 } catch (error) {
                     logger.error(error)
                     Pop.error(error.message)
