@@ -32,6 +32,15 @@ export const WeatherApi = Axios.create({
   }
 })
 
+// Might need for geocoding weather
+// export const GeoWeatherApi = Axios.create({
+//   baseURL: 'http://api.openweathermap.org/geo/1.0/direct',
+//   timeout: 8000,
+//   params: {
+//     appid: appid
+//   }
+// })
+
 export const DadJokesApi = new axios.create({
   baseURL: 'https://icanhazdadjoke.com/',
   timeout: 8000,

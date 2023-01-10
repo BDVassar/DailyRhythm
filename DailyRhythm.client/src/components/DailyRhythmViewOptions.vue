@@ -6,10 +6,11 @@
                 <button class="btn col-2 text-white"><i class="mdi mdi-calendar-range" title="Calendar"
                         style="font-size: 40px">Calendar</i>
                 </button>
-
-                <button class="btn col-2 text-white"><i class="mdi mdi-bullseye-arrow" title="Goals"
-                        style="font-size: 40px">Goals</i>
-                </button>
+                <router-link :to="{ name: 'GoalPage' }">
+                    <button class="btn col-2 text-white"><i class="mdi mdi-bullseye-arrow" title="Goals"
+                            style="font-size: 40px">Goals</i>
+                    </button>
+                </router-link>
 
                 <button class="btn col-2 text-white"><i class="mdi mdi-music" title="Rhythms"
                         style="font-size: 40px">Rhythms</i>

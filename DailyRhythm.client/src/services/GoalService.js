@@ -6,7 +6,7 @@ class GoalService {
     async createGoal(body) {
         const res = await api.post('api/goals', body)
         logger.log(res.data)
-        AppState.goals.push(res.data)
+        return res.data
     }
 }
 export const goalService = new GoalService()

@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <router-link class="navbar-brand" :to="{ name: 'Home' }">
+      <router-link class="" :to="{ name: 'Home' }">
         <h1 class="col-3 d-flex justify-content-start text-white" title="Home"><i
             class="mdi mdi-home-circle-outline"></i>
         </h1>
@@ -20,3 +20,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

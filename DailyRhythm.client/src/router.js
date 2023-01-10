@@ -24,7 +24,7 @@ const routes = [
   },
 
   {
-    path: '/DailyRhythmPage',
+    path: '/DailyRhythm',
     name: 'DailyRhythmPage',
     component: loadPage('DailyRhythmPage'),
     beforeEnter: authGuard
@@ -34,7 +34,19 @@ const routes = [
     name: 'Settings',
     component: loadPage('SettingsPage'),
     beforeEnter: authGuard
-  }
+  },
+  {
+    path: '/Goal',
+    name: 'GoalPage',
+    component: loadPage('GoalPage'),
+    beforeEnter: authGuard
+  },
+  {
+    path: '/GoalDetails/:goalId',
+    name: 'GoalDetails',
+    component: loadPage('GoalDetailsPage'),
+    beforeEnter: authGuard
+  },
 ]
 
 export const router = createRouter({
