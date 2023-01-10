@@ -41,6 +41,12 @@ const routes = [
     component: loadPage('GoalPage'),
     beforeEnter: authGuard
   },
+  {
+    path: '/GoalDetails/:goalId',
+    name: 'GoalDetails',
+    component: loadPage('GoalDetailsPage'),
+    beforeEnter: authGuard
+  },
 ]
 
 export const router = createRouter({
