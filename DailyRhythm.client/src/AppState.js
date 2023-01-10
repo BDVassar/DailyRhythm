@@ -17,5 +17,6 @@ export const AppState = reactive({
   /** @type {import('./models/Poem.js').Poem{}} */
   Poem: {},
   Goals: [],
-  imageSearch: {}
+  imageSearch: {},
+  weatherSearch: {}
 })

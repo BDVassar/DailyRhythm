@@ -25,7 +25,7 @@ export const PoetryApi = Axios.create({
 })
 
 export const WeatherApi = Axios.create({
-  baseURL: 'https://api.openweathermap.org/data/2.5/weather?q=boise,id,us',
+  baseURL: 'https://api.openweathermap.org/data/2.5/',
   timeout: 8000,
   params: {
     appid: appid
