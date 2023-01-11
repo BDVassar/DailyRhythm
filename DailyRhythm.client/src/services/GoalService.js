@@ -10,7 +10,7 @@ class GoalService {
         return res.data
     }
 
-    async getGoals() {
+    async getMyGoals() {
         const res = await api.get('account/goals')
         logger.log(res.data)
         AppState.Goals = res.data
