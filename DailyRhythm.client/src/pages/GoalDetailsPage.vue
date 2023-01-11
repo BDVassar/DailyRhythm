@@ -13,21 +13,7 @@
             </router-link>
         </div>
 
-        <div class="container">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h3 class="mdi" :class="goal.icon">{{ goal.name }}</h3>
-                    <p v-if="goal.description">{{ goal.description }}</p>
-                </div>
 
-                <div class="card-body">
-                    <div class="d-flex justify-content-around mb-0" style="height: 200px;">
-                        <div class="card col-5">card for rythms</div>
-                        <div class="card col-5">card for beats</div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 </template>

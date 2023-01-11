@@ -19,5 +19,6 @@ export const AppState = reactive({
   Goals: [],
   activeGoal: null,
   imageSearch: {},
-  weatherSearch: {}
+  weatherSearch: {},
+  settings: {}
 })
