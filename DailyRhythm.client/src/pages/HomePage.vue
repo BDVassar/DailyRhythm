@@ -48,8 +48,8 @@
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-8">
+    <div class="row justify-content-center pb-5">
+        <div class="col-4">
             <NavBar />
         </div>
     </div>
