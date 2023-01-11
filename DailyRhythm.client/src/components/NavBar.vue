@@ -2,19 +2,8 @@
     <div class="container-fluid option-position ">
         <div class="row text-center">
             <div class="text-white selectable">
-                <h1>
-                    <button class="mdi mdi-chevron-up-circle-outline text-white text-shadow selectable"
-                        title="See Options" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
-                        aria-controls="offcanvasBottom"></button>
-                </h1>
-                <div class="offcanvas offcanvas-bottom" style="width: 40vw; left: 30%; height:13vh;"
-                    data-bs-backdrop="static" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-                    <div class="offcanvas-header pb-0" style="background-color: #ffaf87;">
-                        <h5 class="offcanvas-title text-white" id="offcanvasBottomLabel">
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body small pt-0" style="background-color: #ffaf87">
+                <div class="">
+                    <div class="" style="background-color: #ffaf87">
                         <div class="row justify-content-evenly">
                             <!-- <button class="btn col-1"><i class="mdi mdi-calendar text-white" title="Calendar"
                                     style="font-size: 40px"></i>
