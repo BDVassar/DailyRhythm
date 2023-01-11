@@ -17,7 +17,6 @@
                 <GoalCard :goal="g" />
             </div>
         </div>
-
     </div>
 </template>
 
