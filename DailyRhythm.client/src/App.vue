@@ -1,6 +1,7 @@
 <template>
     <main>
-        <div class="container-fluid bgImage" v-if="BgImage" :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
+        <div class="container-fluid d-flex justify-content-between align-items-between flex-column bgImage"
+            v-if="BgImage" :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
             <router-view />
         </div>
         <div class="col-5 d-flex opaqueBG p-1 m-2">
