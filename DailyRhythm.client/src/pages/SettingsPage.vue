@@ -13,8 +13,8 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-8 text-white" id="opaqueBG">
-                <h5 class="mt-5">Toggle Homepage Components:</h5>
+            <div class="col-8 text-white light-shadow" id="opaqueBG">
+                <h5 class="mt-5">Home Page:</h5>
                 <div class="form-check form-switch">
                     <input @click="changeSetting('clock')" class="form-check-input" type="checkbox" role="switch"
                         id="clock" checked>
@@ -45,7 +45,7 @@
 
                 <ImageSearchBar />
 
-                <h5 class="mt-5 text-white text-shadow">Select Positive Words:</h5>
+                <h5 class="mt-5 text-white text-shadow">Quote Type:</h5>
                 <div class="form-check">
                     <input @click="changeSetting('inspiration')" class="form-check-input" type="radio" name="Quote"
                         id="inspiration" checked>
@@ -72,8 +72,10 @@
 
                 <div class="d-flex justify-content-center mt-5 pt-5">
                     <router-link :to="{ name: 'Account' }">
-                        <button type="button" class="btn btn-outline mini-shadow" title="Edit Account">Edit
-                            Account</button>
+                        <button type="button" class="btn btn-outline mini-shadow account-button selectable"
+                            title="Edit Account">
+                            Edit Account
+                        </button>
                     </router-link>
                 </div>
             </div>
@@ -157,7 +159,7 @@ export default {
     text-shadow: 2px 2px 4px #000000;
 }
 
-.mini-shadow {
+.light-shadow {
     text-shadow: 2px 2px 2px #2a2a2a;
 }
 
@@ -171,10 +173,24 @@ export default {
     font-size: 1.4rem;
     // border-radius: 50px;
     color: whitesmoke;
-    background-color: #ffaf8788;
+    background-color: rgba(82, 82, 82, 0.338);
 }
 
 .search {
     background-color: white;
+}
+
+.account-button {
+    color: white;
+}
+
+.account-button:hover {
+    color: rgb(215, 212, 212);
+    /* text color on hover */
+}
+
+.account-button:active {
+    color: rgb(146, 146, 146);
+    /* text color on click */
 }
 </style>

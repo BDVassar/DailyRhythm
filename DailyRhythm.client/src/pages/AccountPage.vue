@@ -1,27 +1,39 @@
 <template>
   <div class="container-fluid">
-    <div class="row justify-content-center align-items-center">
-      <router-link class="navbar-brand" :to="{ name: 'Home' }">
-        <h1 class="col-3 d-flex justify-content-start text-white" title="Home"><i
-            class="mdi mdi-home-circle-outline"></i>
-        </h1>
+
+    <!--SECTION Home Navigation-->
+    <section class="row">
+      <router-link class="navbar-brand justify-content-start col-1" :to="{ name: 'Home' }">
+        <div class="col-6 d-flex text-white text-center fs-1" title="Home"><i class="mdi mdi-home-circle-outline"></i>
+        </div>
       </router-link>
-    </div>
+    </section>
+
+    <!--SECTION Account Body - all below-->
+
+    <!--SECTION Account Greeting-->
     <section class="row justify-content-center about text-center text-white text-shadow">
-      <h1>Welcome {{ account.name }}</h1>
+      <h1>Welcome, {{ account.name }}</h1>
       <br>
       <img class="rounded-circle" :src="account.picture" alt="" />
       <br>
-      <p class="p-2">{{ account.email }}</p>
-      <!--SECTION edit account -->
-      <div class="col-4 justify-content-center">
+      <p class="p-2 fs-4">{{ account.email }}</p>
+
+      <!--SECTION Edit Account -->
+      <section class="row justify-content-center">
         <AccountForm />
-      </div>
-      <!--SECTION LOGOUT -->
-      <div class="logout selectable fs-5 mt-2" @click="logout">
-        <i class="mdi mdi-logout"></i>
-        logout
-      </div>
+      </section>
+
+      <!--SECTION Logout -->
+      <div class="logout logout-style fs-5 mt-2" @click="logout">
+        <button class="col-md-2 col-sm-6 text-white selectable fs-5 rounded border">
+          <i class="mdi mdi-logout"></i>
+          logout
+        </button>
+        </div>
+
+      <!--SECTION End of Sections -->
+
     </section>
   </div>
 </template>
@@ -61,10 +73,16 @@ export default {
 }
 
 img {
-  max-width: 100px;
+  max-width: 25vh;
+  padding: 1vh;
 }
 
 .logout {
   color: white;
+}
+
+.logout-style{
+  text-shadow: 2px 2px 1px #9a9a9a;
+  padding: .5%;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="text-white elevation-1 rounded selectable text-shadow">
         <div class="clock">
-            <div class="display text-shadow">
+            <div class="display text-white text-shadow fs-4">
                 <input type="number" v-model="hours" min="0" max="23" />:
                 <input type="number" v-model="minutes" min="0" max="59" />:
                 <input type="number" v-model="seconds" min="0" max="59" />
@@ -97,7 +97,9 @@ export default {
     text-align: center;
     border: none;
     background: transparent;
-    color: rgba(215, 208, 208, 0.918);
+    color: rgb(216, 216, 216);
+    background-color: #2f2f2f5d;
+    scroll-behavior: none;
 }
 
 .controls {
@@ -107,7 +109,7 @@ export default {
 button {
     border: none;
     padding: 0.5em 1em;
-    background: rgb(186, 186, 186);
+    background: rgba(103, 103, 103, 0.119);
     color: white;
     font-size: 1em;
     cursor: pointer;

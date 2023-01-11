@@ -7,7 +7,7 @@
 
     <!--SECTION Timer-->
     <div class="row">
-        <div class="col-2 mx-2 text-light justify-content-start text-shadow">
+        <div class="col-2 mx-2 text-white justify-content-start text-shadow">
             <Timer />
         </div>
     </div>
@@ -123,7 +123,7 @@ export default {
     font-size: 1.5rem;
     border-radius: 50px;
     color: whitesmoke;
-    background-color: #ffaf8788;
+    background-color: rgba(82, 82, 82, 0.338);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -155,7 +155,7 @@ a {
 }
 
 .text-shadow {
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #484848;
 }
 
 .option-position {

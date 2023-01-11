@@ -61,7 +61,7 @@ export default {
     font-size: 1.5rem;
     border-radius: 50px;
     color: whitesmoke;
-    background-color: #ffaf8788;
+    background-color: rgba(82, 82, 82, 0.338);
     position: fixed;
     bottom: 0;
     left: 0;
