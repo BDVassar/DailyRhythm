@@ -1,9 +1,9 @@
 <template>
-  <div class="col-4 weather-card rounded elevation-5 me-3" title="See local weather">
+  <div class="col-4 weather-card rounded elevation-5 me-3 mt-2" title="See local weather">
     <p>
       <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
         aria-controls="collapseExample">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-2">
           <h4 class="col-6 d-flex justify-content-center align-items-center mb-0"> {{ weather.tempF }} <i
               class="mdi mdi-temperature-fahrenheit"></i>
           </h4>
@@ -78,8 +78,7 @@ export default {
 
 <style lang="scss" scoped>
 .weather-card {
-  outline: 3px solid #99c2ac;
-  background-color: #99c2ac83;
+  background-color: rgba(82, 82, 82, 0.338);
   width: fit-content;
   height: fit-content;
 }
