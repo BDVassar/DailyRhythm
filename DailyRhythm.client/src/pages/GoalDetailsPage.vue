@@ -12,20 +12,40 @@
                 </h1>
             </router-link>
         </div>
-        <div class="row justify-content-evenly">
-            <div v-for="g in goals" class="col-4 p-3">
-                <GoalCard :goal="g" />
-            </div>
+        <div v-if="goal" class="card mb-3">
+            {{ goal }}
         </div>
 
     </div>
 </template>
 
 <script>
+import { onMounted, computed, ref } from "vue";
+import { AppState } from "../AppState.js";
+import { goalService } from "../services/GoalService.js"
+import { useRoute } from "vue-router";
+import { logger } from "../utils/Logger";
+import Pop from "../utils/Pop";
+
 export default {
     setup() {
-
-        return {}
+        const editable = ref({})
+        const route = useRoute();
+        async function getOneGoal() {
+            try {
+                await goalService.getOneGoal(route.params.goalId);
+            } catch (error) {
+                Pop.error(error.message);
+                logger.error(error);
+            }
+        }
+        onMounted(() => {
+            getOneGoal();
+        })
+        return {
+            editable,
+            goal: computed(() => AppState.activeGoal),
+        }
     }
 }
 </script>
