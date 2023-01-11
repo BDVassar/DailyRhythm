@@ -16,7 +16,8 @@
     <section class="row my-51">
       <WeeklyCalendarView />
     </section>
-    <section class="row justify-content-evenly">
+    <section class="row justify-content-evenly text-center">
+      <h1 class="text-white text-shadow">Goals</h1>
       <div v-for="g in goals" class="col-4 p-3">
         <GoalCard :goal="g" />
       </div>
@@ -68,5 +69,9 @@ export default {
 <style lang="scss" scoped>
 .opaque-bg {
   background-color: rgba(82, 82, 82, 0.338);
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px #484848;
 }
 </style>
