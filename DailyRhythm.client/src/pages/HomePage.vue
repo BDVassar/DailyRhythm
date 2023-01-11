@@ -49,7 +49,7 @@
     </div>
 
     <div>
-        <OptionOffCanvas />
+        <NavBar />
     </div>
 </template>
 
