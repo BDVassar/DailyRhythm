@@ -22,5 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.opaque-bg {
+  background-color: rgba(82, 82, 82, 0.338);
+}
 </style>

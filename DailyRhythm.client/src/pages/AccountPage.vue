@@ -30,7 +30,7 @@
           <i class="mdi mdi-logout"></i>
           logout
         </button>
-        </div>
+      </div>
 
       <!--SECTION End of Sections -->
 
@@ -68,8 +68,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.opaque-bg {
+  background-color: rgba(82, 82, 82, 0.338);
+}
+
 .text-shadow {
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 2px 2px 4px #2c2c2c;
 }
 
 img {
@@ -81,7 +85,7 @@ img {
   color: white;
 }
 
-.logout-style{
+.logout-style {
   text-shadow: 2px 2px 1px #9a9a9a;
   padding: .5%;
 }

@@ -117,6 +117,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.opaque-bg {
+    background-color: rgba(82, 82, 82, 0.338);
+}
+
 .opaqueBG {
     height: fit-content;
     width: fit-content;

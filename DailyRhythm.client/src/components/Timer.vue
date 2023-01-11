@@ -1,5 +1,5 @@
 <template>
-    <div class="text-white elevation-1 rounded selectable text-shadow">
+    <div class="text-white opaque-bg rounded selectable text-shadow p-2">
         <div class="clock">
             <div class="display text-white text-shadow fs-4">
                 <input type="number" v-model="hours" min="0" max="23" />:
@@ -77,6 +77,10 @@ export default {
 </script>
   
 <style scoped lang-="scss">
+.opaque-bg {
+    background-color: rgba(82, 82, 82, 0.338);
+}
+
 .clock {
     display: flex;
     flex-direction: column;
