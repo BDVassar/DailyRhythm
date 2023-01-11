@@ -15,5 +15,11 @@ class GoalService {
         logger.log(res.data)
         AppState.Goals = res.data
     }
+
+    async getOneGoal(goalId) {
+        const res = await api.get('api/goals/' + goalId)
+        logger.log('[Get goal by goal Id]', res.data)
+        AppState.activeGoal = res.data
+    }
 }
 export const goalService = new GoalService()
