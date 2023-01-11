@@ -15,7 +15,7 @@
 <script>
 import { computed, onMounted } from 'vue';
 import { AppState } from './AppState';
-import OptionOffCanvas from "./components/OptionOffCanvas.vue";
+import NavBar from "./components/NavBar.vue";
 import { bgImageService } from "./services/BgImageService";
 import { logger } from "./utils/Logger";
 import Pop from "./utils/Pop";
@@ -39,7 +39,7 @@ export default {
             BgImage: computed(() => AppState.BgImage),
         };
     },
-    components: { OptionOffCanvas }
+    components: { NavBar }
 }
 </script>
 <style lang="scss">
