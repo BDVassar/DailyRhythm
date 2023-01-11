@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid opacity-75">
+  <div class="container-fluid">
     <section class="row justify-content-between">
       <router-link class="col-2 navbar-brand d-flex justify-content-start" :to="{ name: 'Home' }">
         <h1 class="text-white" title="Home"><i class="mdi mdi-home-circle-outline"></i>
@@ -13,9 +13,12 @@
       </div>
     </section>
 
-    <section class="row my-51">
-      <WeeklyCalendarView />
+    <section class="row">
+      <div class="col-12">
+        <WeeklyCalendarView />
+      </div>
     </section>
+
     <section class="row justify-content-evenly text-center">
       <h1 class="text-white text-shadow">Goals</h1>
       <div v-for="g in goals" class="col-4 p-3">
