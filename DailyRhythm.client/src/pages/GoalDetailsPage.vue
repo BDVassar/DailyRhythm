@@ -12,9 +12,8 @@
                 </h1>
             </router-link>
         </div>
-        <div v-if="goal" class="card mb-3">
-            {{ goal }}
-        </div>
+
+
 
     </div>
 </template>

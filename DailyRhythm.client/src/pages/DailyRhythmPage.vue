@@ -1,28 +1,34 @@
 <template>
-    <div class="container-fluid opacity-75">
-        <div class="row justify-content-between">
-            <router-link class="col-2 navbar-brand d-flex justify-content-start" :to="{ name: 'Home' }">
-                <h1 class="text-white" title="Home"><i class="mdi mdi-home-circle-outline"></i>
-                </h1>
-            </router-link>
-            <div class="col-2 d-flex justify-content-end">
+  <div class="container-fluid">
+    <section class="row justify-content-between">
+      <router-link class="col-2 navbar-brand d-flex justify-content-start" :to="{ name: 'Home' }">
+        <h1 class="text-white" title="Home"><i class="mdi mdi-home-circle-outline"></i>
+        </h1>
+      </router-link>
+      <div class="col-2 d-flex justify-content-end">
 
-                <h1 class=" text-white" title="Add New Goal"><button data-bs-toggle="modal"
-                        data-bs-target="#goalModal"><i class="mdi mdi-plus-circle-outline"></i></button>
-                </h1>
-            </div>
-        </div>
+        <h1 class=" text-white" title="Add New Goal"><button data-bs-toggle="modal" data-bs-target="#goalModal"><i
+              class="mdi mdi-plus-circle-outline"></i></button>
+        </h1>
+      </div>
+    </section>
 
-        <div class="row my-51">
-            <WeeklyCalendarView />
-        </div>
-        <div class="row my-5">
-            <DailyRhythmViewOptions />
-        </div>
-    </div>
-    <ModalComponent id="goalModal">
-        <GoalForm />
-    </ModalComponent>
+    <section class="row">
+      <div class="col-12">
+        <WeeklyCalendarView />
+      </div>
+    </section>
+
+    <section class="row justify-content-evenly text-center">
+      <h1 class="text-white text-shadow">Goals</h1>
+      <div v-for="g in goals" class="col-4 p-3">
+        <GoalCard :goal="g" />
+      </div>
+    </section>
+  </div>
+  <ModalComponent id="goalModal">
+    <GoalForm />
+  </ModalComponent>
 
 </template>
 
@@ -34,17 +40,41 @@ import WeeklyCalendarView from "../components/WeeklyCalendarView.vue";
 import DailyRhythmViewOptions from "../components/DailyRhythmViewOptions.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import GoalForm from "../components/GoalForm.vue";
+import GoalCard from "../components/GoalCard.vue";
+import Pop from "../utils/Pop.js";
+import { logger } from "../utils/Logger.js";
+import { goalService } from "../services/GoalService.js";
 export default {
-    setup() {
-        return {};
-    },
-    components: { WeeklyCalendarView, DailyRhythmViewOptions, ModalComponent, GoalForm }
+  setup() {
+
+    onMounted(() => {
+      getMyGoals();
+    });
+
+    async function getMyGoals() {
+      try {
+        await goalService.getMyGoals()
+      } catch (error) {
+        Pop.error(error)
+        logger.log(error.message)
+      }
+    }
+
+    return {
+      goals: computed(() => AppState.Goals)
+    }
+  },
+  components: { WeeklyCalendarView, ModalComponent, GoalForm }
 };
 </script>
 
 
 <style lang="scss" scoped>
 .opaque-bg {
-    background-color: rgba(82, 82, 82, 0.338);
+  background-color: rgba(82, 82, 82, 0.338);
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px #484848;
 }
 </style>
