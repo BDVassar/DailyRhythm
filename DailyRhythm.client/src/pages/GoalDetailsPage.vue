@@ -13,7 +13,12 @@
             </router-link>
         </div>
 
-
+        <section v-if="goal" class="row p-3 justify-content-evenly opaque-bg">
+            <div class="col-10 text-white text-center">
+                <h3><span class="mdi" :class="goal.icon"></span>{{ goal.name }}</h3>
+                <p v-if="goal.description">{{ goal.description }}</p>
+            </div>
+        </section>
 
     </div>
 </template>
