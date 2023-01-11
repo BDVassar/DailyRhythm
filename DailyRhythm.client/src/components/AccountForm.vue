@@ -15,7 +15,7 @@
                     <div class="">
                         <div class="d-flex flex-column profile-form">
                             <label class="mt-2" for="name">Change username</label>
-                            <input class="mt-2 col-9 form-input" type="text" name="name" placeholder="new username..."
+                            <input class="mt-2 col-12 form-input" type="text" name="name" placeholder="new username..."
                                 v-model="editing.name" />
                             <label class="mt-2" for="picture">URL for profile picture
                             </label>

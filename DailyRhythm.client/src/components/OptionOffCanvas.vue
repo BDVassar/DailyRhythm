@@ -19,12 +19,7 @@
                             <!-- <button class="btn col-1"><i class="mdi mdi-calendar text-white" title="Calendar"
                                     style="font-size: 40px"></i>
                             </button> -->
-                            <router-link class="col-1" :to="{ name: 'DailyRhythmPage' }">
-                                <button class="btn" data-bs-dismiss="offcanvas"><i
-                                        class="mdi mdi-bullseye-arrow text-white" title="Daily Rhythm Page"
-                                        style="font-size: 40px"></i>
-                                </button>
-                            </router-link>
+
                             <!-- <button class="btn col-1"><i class="mdi mdi-clock-time-nine-outline text-white"
                                     title="Clock" style="font-size: 40px"></i>
                             </button> -->
@@ -34,6 +29,12 @@
                             <router-link class="col-1" :to="{ name: 'About' }">
                                 <button class="btn" data-bs-dismiss="offcanvas"><i
                                         class="mdi mdi-information-outline text-white" title="About Daily Rhythms"
+                                        style="font-size: 40px"></i>
+                                </button>
+                            </router-link>
+                            <router-link class="col-1" :to="{ name: 'DailyRhythmPage' }">
+                                <button class="btn" data-bs-dismiss="offcanvas"><i
+                                        class="mdi mdi-bullseye-arrow text-white" title="Daily Rhythm Page"
                                         style="font-size: 40px"></i>
                                 </button>
                             </router-link>

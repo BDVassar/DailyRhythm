@@ -26,7 +26,7 @@
 
       <!--SECTION Logout -->
       <div class="logout logout-style fs-5 mt-2" @click="logout">
-        <button class="col-md-2 col-sm-6 text-white selectable fs-5 rounded border">
+        <button class="col-md-1 col-sm-6 text-white selectable fs-5 rounded border">
           <i class="mdi mdi-logout"></i>
           logout
         </button>
