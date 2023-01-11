@@ -156,7 +156,7 @@ export default {
 
 <style scoped lang="scss">
 .text-shadow {
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #222222;
 }
 
 .light-shadow {

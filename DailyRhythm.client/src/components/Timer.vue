@@ -1,5 +1,5 @@
 <template>
-    <div class="text-white opaque-bg rounded selectable text-shadow p-2">
+    <div class="text-white opaque-bg rounded text-shadow p-2">
         <div class="clock">
             <div class="display text-white text-shadow fs-4">
                 <input type="number" v-model="hours" min="0" max="23" />:
@@ -8,19 +8,19 @@
             </div>
             <div class="controls">
                 <span v-if="!isPaused">
-                    <button @click="startTimer" title="Start Timer">
+                    <button @click="startTimer" title="Start Timer" class="selectable">
                         <i class="mdi mdi-play"></i>
                     </button>
                 </span>
                 <span v-else="isPaused">
-                    <button @click="togglePause" title="Start Timer">
+                    <button @click="togglePause" title="Start Timer" class="selectable">
                         <i class="mdi mdi-play"></i>
                     </button>
                 </span>
-                <button @click="pauseTimer" title="Pause Timer">
+                <button @click="pauseTimer" title="Pause Timer" class="selectable">
                     <i class="mdi mdi-pause"></i>
                 </button>
-                <button @click="resetTimer" title="Reset Timer">Reset</button>
+                <button @click="resetTimer" title="Reset Timer" class="selectable">Reset</button>
             </div>
         </div>
     </div>
@@ -90,6 +90,7 @@ export default {
 .display {
     font-size: 2em;
     font-weight: bold;
+    overflow: hidden;
 }
 
 .text-shadow {
@@ -97,13 +98,16 @@ export default {
 }
 
 .display input[type="number"] {
-    width: 2em;
+    width: 6vh;
+    height: 6vh;
     text-align: center;
     border: none;
     background: transparent;
     color: rgb(216, 216, 216);
-    background-color: #2f2f2f5d;
-    scroll-behavior: none;
+    background-color: #43434337;
+    margin: 1vh;
+    overflow: hidden;
+    text-overflow: hidden;
 }
 
 .controls {
