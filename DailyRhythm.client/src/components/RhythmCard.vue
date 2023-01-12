@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12">
+    <div class="row">
         <div class="fs-6 text-center">
             <span class="mdi" :class="rhythm.icon"></span> {{ rhythm.name }}
         </div>
