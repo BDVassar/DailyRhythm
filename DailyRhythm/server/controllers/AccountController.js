@@ -4,6 +4,7 @@ import { beatService } from "../services/BeatService.js"
 import { goalService } from "../services/GoalService.js"
 import { rhythmService } from "../services/RhythmService.js"
 import BaseController from '../utils/BaseController'
+import { logger } from "../utils/Logger.js"
 
 export class AccountController extends BaseController {
   constructor() {
@@ -56,6 +57,7 @@ export class AccountController extends BaseController {
 
   async updateAccount(req, res, next) {
     try {
+      logger.log(req.body)
       const updateAccount = await accountService.updateAccount(req.userInfo.id, req.body)
       return res.send(updateAccount)
     } catch (error) {
