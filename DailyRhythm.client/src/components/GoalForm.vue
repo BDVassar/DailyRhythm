@@ -18,25 +18,6 @@
                 <label for="description">Description</label>
             </div>
 
-            <!-- <p>Now break this goal down into daily rhythms and one time beats.</p> -->
-
-            <!-- <div>Daily Rhythms</div>
-            <div><button class="btn"><i class="mdi mdi-plus"></i></button>
-            </div>
-            <div class="form-floating mb-3 elevation-5">
-                <input v-model="editable.title" type="text" required class="form-control" id="title"
-                    placeholder="New Goal Name">
-                <label for="title">New Rhythm</label>
-            </div>
-
-            <div>Beats</div>
-            <div><button class="btn"><i class="mdi mdi-plus"></i></button></div>
-            <div class="form-floating mb-3 elevation-5">
-                <input v-model="editable.title" type="text" required class="form-control" id="title"
-                    placeholder="New Goal Name">
-                <label for="title">New Rhythm</label>
-            </div> -->
-
             <div class="dropdown me-1">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false" data-bs-offset="10,20">
@@ -48,18 +29,6 @@
                 </ul>
                 <i v-if="editable.icon" class="mdi" :class="editable.icon"></i>
             </div>
-
-            <!-- <div class="form-floating">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
-                    v-model="editable.icon">
-                    <option selected>Open this select menu</option>
-                    <option v-for="icon in iconArray" :value="icon"><i class="text-dark mdi" :class="icon"></i>Test
-                    </option>
-                </select>
-                <label for="floatingSelect">Works with selects</label>
-            </div> -->
-
-
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
