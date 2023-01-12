@@ -14,13 +14,6 @@ class RhythmService {
         AppState.rhythmsByGoalId = res.data
         return res.data
     }
-
-import { AppState } from "../AppState"
-import { logger } from "../utils/Logger"
-import { api } from "./AxiosService"
-
-
-class RhythmService {
     async getMyRhythms() {
         const res = await api.get('account/rhythms')
         logger.log(res.data)
@@ -33,3 +26,4 @@ class RhythmService {
         AppState.activeRhythm = res.data
     }
 }
+export const rhythmService = new RhythmService()
