@@ -46,7 +46,7 @@ import WeeklyCalendarView from "../components/WeeklyCalendarView.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import GoalForm from "../components/GoalForm.vue";
 import GoalCard from "../components/GoalCard.vue";
-import RhythmCard from '../components/RhythmCard.vue';
+import RhythmCard from '../components/RhythmCardWHYYY.vue';
 import Pop from "../utils/Pop.js";
 import { logger } from "../utils/Logger.js";
 import { goalService } from "../services/GoalService.js";
