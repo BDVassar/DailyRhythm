@@ -21,5 +21,5 @@ export const AppState = reactive({
   imageSearch: {},
   weatherSearch: {},
   settings: {},
-  rhythmsByGoalId: [],
+  rhythmsByGoalId: {},
 })

@@ -1,5 +1,5 @@
 import { api } from "./AxiosService";
-import { AppState } from "../AppState";
+import { AppState } from "../AppState.js";
 import { logger } from "../utils/Logger";
 class RhythmService {
     async getRhythmsByGoalId(goalId) {
