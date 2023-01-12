@@ -47,7 +47,8 @@ import ModalComponent from "../components/ModalComponent.vue";
 import GoalForm from "../components/GoalForm.vue";
 import GoalCard from "../components/GoalCard.vue";
 import RhythmCard from '../components/RhythmCard.vue';
-import Pop from "../utils/Pop.js";
+import BeatCard from '../components/BeatCard.vue';
+import Pop from "../utils/Pop";
 import { logger } from "../utils/Logger.js";
 import { goalService } from "../services/GoalService.js";
 import { rhythmService } from "../services/RhythmService.js"
@@ -70,7 +71,6 @@ export default {
 
     return {
       goals: computed(() => AppState.Goals),
-
     }
   },
   components: { WeeklyCalendarView, ModalComponent, GoalForm }
