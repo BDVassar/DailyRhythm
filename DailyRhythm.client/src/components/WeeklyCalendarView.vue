@@ -6,30 +6,36 @@
                     day
                 }}</div>
             </section>
+
             <!--SECTION Today's Rhythms and Beats-->
             <section class="row p-3 justify-content-evenly opaque-bg text-shadow">
-                <div class="col-5 text-white text-center">
-                    <h5>
-                        Today's Rhythms
-                    </h5>
-                </div>
-                <div class="col-5 text-white text-center">
-                    <h5>
-                        Today's Beats
-                    </h5>
-                </div>
 
                 <!--SECTION Today's Rhythms-->
                 <div class="col-5 text-white text-center">
-                    <div v-for="r in rhythms" class="col-12 col-md-5 p-3">
-                        <RhythmCard :rhythm="r" />
+                    <h4>
+                        Today's Rhythms
+                    </h4>
+                    <div class="row">
+                        <div class="col-12 text-white text-center" v-for="r in rhythms">
+                            <RhythmCard :rhythm="r" />
+                        </div>
                     </div>
                 </div>
 
                 <!--SECTION Today's Beats-->
                 <div class="col-5 text-white text-center">
-                    card for beats
+                    <h4>
+                        Today's Beats
+                    </h4>
+                    <div class="row">
+                        <div class="col-5 text-white text-center">
+                            Beats Card here // v-for goes in div above
+                        </div>
+                    </div>
                 </div>
+
+
+
             </section>
         </div>
     </section>
