@@ -32,6 +32,12 @@
 
             <div class="col-5 text-center">
                 <h5>Beats</h5>
+
+                <div class="col d-flex justify-content-end">
+                    <h3 class=" text-white" title="Add New Beat"><button data-bs-toggle="modal"
+                            data-bs-target="#BeatModal"><i class="mdi mdi-plus-circle-outline"></i></button>
+                    </h3>
+                </div>
             </div>
 
         </section>
