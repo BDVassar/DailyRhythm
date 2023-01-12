@@ -18,20 +18,20 @@
             <form class="input-group" @submit.prevent="updateAccount(account.id)">
                 <div class="">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="clock" checked
-                            v-model="editing.clockOn">
+                        <input class="form-check-input" type="checkbox" role="switch" id="clock"
+                            v-model="editing.clockOn" :checked="settings.clockOn">
                         <label class="form-check-label" for="clock">Clock</label>
                     </div>
 
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="weather" checked
-                            v-model="editing.weatherOn">
+                        <input class="form-check-input" type="checkbox" role="switch" id="weather"
+                            v-model="editing.weatherOn" :checked="settings.weatherOn">
                         <label class="form-check-label" for="weather">Weather</label>
                     </div>
 
                     <div class="form-check form-switch">
-                        <input class="form-check-input" style="" type="checkbox" role="switch" id="timer" checked
-                            v-model="editing.timerOn">
+                        <input class="form-check-input" style="" type="checkbox" role="switch" id="timer"
+                            v-model="editing.timerOn" :checked="settings.timerOn">
                         <label class="form-check-label" for="timer">Timer</label>
                     </div>
 
