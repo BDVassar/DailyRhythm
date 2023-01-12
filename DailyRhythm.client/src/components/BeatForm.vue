@@ -43,6 +43,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
+import { beatService } from "../services.BeatService.js"
 
 export default {
     setup() {
@@ -54,7 +55,11 @@ export default {
             iconArray,
             async createBeat() {
                 try {
-
+                    editable.value.goalId = route.params.goalId
+                    await beatService.createBeat(editable.value)
+                    Pop.success('Successfully created beat')
+                    editable.value = {}
+                    Modal.getOrCreateInstance('#BeatModal').hide()
                 } catch (error) {
                     Pop.error(error.message)
                     logger.error(error)
