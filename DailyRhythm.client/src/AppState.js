@@ -20,11 +20,11 @@ export const AppState = reactive({
   activeGoal: null,
   Rhythms: [],
   activeRhythm: null,
+  rhythmsByGoalId: {},
   Beats: [],
   activeBeat: null,
   imageSearch: {},
   weatherSearch: {},
   settings: {},
-  rhythmsByGoalId: {},
-  rhythms: {},
+  // rhythms: {},
 })

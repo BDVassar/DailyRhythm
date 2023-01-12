@@ -16,8 +16,9 @@ class RhythmService {
     }
     async getMyRhythms() {
         const res = await api.get('account/rhythms')
-        logger.log(res.data)
+        logger.log('getting my rhythms', res.data)
         AppState.Rhythms = res.data
+        return res.data
     }
 
     async getOneRhythm(rhythmId) {

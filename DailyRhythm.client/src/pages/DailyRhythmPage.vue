@@ -19,7 +19,6 @@
     <section class="row">
       <div class="col-12">
         <WeeklyCalendarView />
-        <DailyRhythm />
       </div>
     </section>
 
@@ -47,7 +46,7 @@ import WeeklyCalendarView from "../components/WeeklyCalendarView.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import GoalForm from "../components/GoalForm.vue";
 import GoalCard from "../components/GoalCard.vue";
-import DailyRhythm from '../components/DailyRhythm.vue';
+import RhythmCard from '../components/RhythmCard.vue';
 import Pop from "../utils/Pop.js";
 import { logger } from "../utils/Logger.js";
 import { goalService } from "../services/GoalService.js";
@@ -58,7 +57,6 @@ export default {
 
     onMounted(() => {
       getMyGoals();
-      getMyRhythms();
     });
 
     async function getMyGoals() {
@@ -70,21 +68,12 @@ export default {
       }
     }
 
-    async function getMyRhythms() {
-      try {
-        await rhythmService.getMyRhythms()
-      } catch (error) {
-        Pop.error(error)
-        logger.log(error.message)
-      }
-    }
-
     return {
       goals: computed(() => AppState.Goals),
-      rhythms: computed(() => AppState.Rhythms),
+
     }
   },
-  components: { WeeklyCalendarView, ModalComponent, GoalForm, DailyRhythm, }
+  components: { WeeklyCalendarView, ModalComponent, GoalForm }
 };
 </script>
 

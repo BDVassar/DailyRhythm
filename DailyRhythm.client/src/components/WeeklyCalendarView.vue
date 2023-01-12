@@ -22,7 +22,7 @@
                 <!--SECTION Today's Rhythms-->
                 <div class="col-5 text-white text-center">
                     <div v-for="r in rhythms" class="col-12 col-md-5 p-3">
-                        <DailyRhythm :rhythm="r" />
+                        <RhythmCard :rhythm="r" />
                     </div>
                 </div>
 
@@ -36,8 +36,9 @@
 </template>
 
 <script>
-import { onMounted } from 'vue';
-import { rhythmService } from '../services/RhythmService';
+import { onMounted, computed } from 'vue';
+import { rhythmService } from '../services/RhythmService.js';
+import { AppState } from '../AppState';
 
 export default {
     setup() {
@@ -52,19 +53,19 @@ export default {
                 logger.log(error.message)
             }
         }
-    },
-    methods: {
-        getCurrentWeek() {
-            let currWeek = []
-            let curr = new Date
-            let first = curr.getDate() - curr.getDay()
-            for (let i = 0; i <= 6; i++) {
-                currWeek.push(new Date(curr.setDate(first + i)).toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' }))
-            }
-            return currWeek
+        return {
+            rhythms: computed(() => AppState.Rhythms),
+            getCurrentWeek() {
+                let currWeek = []
+                let curr = new Date
+                let first = curr.getDate() - curr.getDay()
+                for (let i = 0; i <= 6; i++) {
+                    currWeek.push(new Date(curr.setDate(first + i)).toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' }))
+                }
+                return currWeek
+            },
         }
-    }
-
+    },
 }
 </script>
 
