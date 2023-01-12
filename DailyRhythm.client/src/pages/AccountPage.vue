@@ -46,19 +46,10 @@ import { AuthService } from '../services/AuthService'
 import Pop from '../utils/Pop'
 export default {
   setup() {
-    const editing = ref({})
     return {
-      editing,
       user: computed(() => AppState.user),
       account: computed(() => AppState.account),
-      async editProfile() {
-        try {
-          await accountService.editAccount(AppState.account);
-          Pop.toast("Profile modified", "success")
-        } catch (error) {
-          Pop.toast("error", "error")
-        }
-      },
+
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })
       }

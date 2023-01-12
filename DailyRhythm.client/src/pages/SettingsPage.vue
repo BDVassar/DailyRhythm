@@ -103,22 +103,34 @@ import { onMounted, computed, ref, watchEffect } from "vue";
 import { AppState } from "../AppState.js";
 import { accountService } from "../services/AccountService.js";
 import Pop from "../utils/Pop.js";
+import { settingsService } from "../services/SettingsService.js"
 
 export default {
     setup() {
         const editing = ref({})
-        watchEffect(() => {
-            if (AppState.account.id) {
-                editing.value = { ...AppState.account }
+        // watchEffect(() => {
+        //     if (AppState.account.id) {
+        //         editing.value = { ...AppState.account }
+        //     }
+        // })
+
+        onMounted(() => getSettings())
+
+        async function getSettings() {
+            try {
+                await settingsService.getSettings()
+            } catch (error) {
+                logger.error(error)
+                Pop.error(error.message)
             }
-        })
+        }
 
         return {
             editing,
             account: computed(() => AppState.account),
             async updateAccount() {
                 try {
-                    await accountService.updateAccount(editing.value)
+                    await settingsService.updateAccount(editing.value)
                     Pop.toast("Settings updated", "success")
                 } catch (error) {
                     logger.error(error)
