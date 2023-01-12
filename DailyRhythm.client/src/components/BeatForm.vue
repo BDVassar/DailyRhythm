@@ -43,7 +43,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
-import { beatService } from "../services.BeatService.js"
+import { beatService } from "../services/BeatService.js"
 
 export default {
     setup() {
