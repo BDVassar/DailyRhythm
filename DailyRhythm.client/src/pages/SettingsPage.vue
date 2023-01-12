@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="timer" checked
+                            <input class="form-check-input" style="" type="checkbox" role="switch" id="timer" checked
                                 v-model="editing.timerOn">
                             <label class="form-check-label" for="timer">Timer</label>
                         </div>
@@ -46,8 +46,18 @@
                                             <input class="form-check-input" type="checkbox" role="switch" id="appointments" checked>
                                             <label class="form-check-label" for="appointments">Today's Appointments</label>
                                         </div> -->
-
-                        <ImageSearchBar />
+                        <!-- SECTION Image Search Bar -->
+                        <div>
+                            <h5 class="mt-5">Search Background Theme:</h5>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control  search p-1 rounded fs-5" placeholder="e.g. beach" name="search"
+                                    aria-label="Search Image" aria-describedby="button-addon2"  v-model="search.query">
+                                <button class="btn btn-outline-secondary" type="button"
+                                    id="button-addon2" title="Search" @click="searchImage"><i
+                                    class="mdi mdi-image-search text-danger"></i></button>
+                            </div>
+                            <div class="fs-6 text-center">Current theme: {{ search.query }} </div>
+                        </div>
                         <h5 class="mt-5 text-white text-shadow">Quote Type:</h5>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="Quote" id="inspiration" checked
@@ -100,15 +110,18 @@
 
 <script>
 import { logger } from "../utils/Logger";
-import { onMounted, computed, ref, watchEffect } from "vue";
+import { onMounted, computed, ref, watchEffect, reactive } from "vue";
 import { AppState } from "../AppState.js";
-import { accountService } from "../services/AccountService.js";
 import Pop from "../utils/Pop.js";
 import { settingsService } from "../services/SettingsService.js"
+import { bgImageService } from "../services/BgImageService.js";
 
 export default {
     setup() {
         const editing = ref({})
+        const search = reactive({
+            query: ''
+        })
         // watchEffect(() => {
         //     if (AppState.account.id) {
         //         editing.value = { ...AppState.account }
@@ -128,6 +141,7 @@ export default {
 
         return {
             editing,
+            search,
             account: computed(() => AppState.account),
             async updateAccount() {
                 try {
@@ -137,7 +151,16 @@ export default {
                     logger.error(error)
                     Pop.error(error.message)
                 }
-            }
+            },
+
+            async searchImage() {
+                try {
+                    await bgImageService.searchImage(search)
+                } catch (error) {
+                    logger.error(error)
+                    Pop.error(error.message)
+                }
+            },
         }
 
     }
