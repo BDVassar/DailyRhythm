@@ -28,8 +28,8 @@
                         Today's Beats
                     </h4>
                     <div class="row">
-                        <div class="col-5 text-white text-center">
-                            Beats Card here // v-for goes in div above
+                        <div class="col-12 text-white text-center" v-for="b in beats">
+                            <BeatCard :beat="b" />
                         </div>
                     </div>
                 </div>
@@ -45,11 +45,14 @@
 import { onMounted, computed } from 'vue';
 import { rhythmService } from '../services/RhythmService.js';
 import { AppState } from '../AppState';
+import { beatService } from '../services/BeatService.js';
+import Pop from '../utils/Pop';
 
 export default {
     setup() {
         onMounted(() => {
             getMyRhythms()
+            getMyBeats()
         });
         async function getMyRhythms() {
             try {
@@ -58,9 +61,19 @@ export default {
                 Pop.error(error)
                 logger.log(error.message)
             }
+        };
+        async function getMyBeats() {
+            try {
+                await beatService.getMyBeats()
+            } catch (error) {
+                Pop.error(error)
+                logger.log(error.message)
+            }
         }
+
         return {
             rhythms: computed(() => AppState.Rhythms),
+            beats: computed(() => AppState.Beats),
             getCurrentWeek() {
                 let currWeek = []
                 let curr = new Date
