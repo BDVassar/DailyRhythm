@@ -6,20 +6,27 @@
                     day
                 }}</div>
             </section>
-            <section class="row p-3 justify-content-evenly opaque-bg">
+            <!--SECTION Today's Rhythms and Beats-->
+            <section class="row p-3 justify-content-evenly opaque-bg text-shadow">
                 <div class="col-5 text-white text-center">
                     <h5>
-                        Todays Rhythms
+                        Today's Rhythms
                     </h5>
                 </div>
                 <div class="col-5 text-white text-center">
                     <h5>
-                        Todays Beats
+                        Today's Beats
                     </h5>
                 </div>
+
+                <!--SECTION Today's Rhythms-->
                 <div class="col-5 text-white text-center">
-                    card for rhythms
+                    <div v-for="r in rhythms" class="col-12 col-md-5 p-3">
+                        <DailyRhythm :rhythm="r" />
+                    </div>
                 </div>
+
+                <!--SECTION Today's Beats-->
                 <div class="col-5 text-white text-center">
                     card for beats
                 </div>
@@ -29,10 +36,22 @@
 </template>
 
 <script>
+import { onMounted } from 'vue';
+import { rhythmService } from '../services/RhythmService';
 
 export default {
     setup() {
-
+        onMounted(() => {
+            getMyRhythms()
+        });
+        async function getMyRhythms() {
+            try {
+                await rhythmService.getMyRhythms()
+            } catch (error) {
+                Pop.error(error)
+                logger.log(error.message)
+            }
+        }
     },
     methods: {
         getCurrentWeek() {
@@ -45,6 +64,7 @@ export default {
             return currWeek
         }
     }
+
 }
 </script>
 

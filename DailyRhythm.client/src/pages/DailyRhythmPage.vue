@@ -1,5 +1,7 @@
 <template>
   <div class="container-fluid">
+
+    <!--SECTION Home ~ Rop Row-->
     <section class="row justify-content-between">
       <router-link class="col-2 navbar-brand d-flex justify-content-start" :to="{ name: 'Home' }">
         <h1 class="text-white" title="Home"><i class="mdi mdi-home-circle-outline"></i>
@@ -13,12 +15,15 @@
       </div>
     </section>
 
+    <!--SECTION Weekly Calender, Rhythms, and Beats-->
     <section class="row">
       <div class="col-12">
         <WeeklyCalendarView />
+        <DailyRhythm />
       </div>
     </section>
 
+    <!--SECTION Goals + Goal Card-->
     <section class="row justify-content-evenly text-center">
       <h1 class="text-white text-shadow">Goals</h1>
       <div v-for="g in goals" class="col-4 p-3">
@@ -26,6 +31,8 @@
       </div>
     </section>
   </div>
+
+  <!--SECTION Modal Component-->
   <ModalComponent id="goalModal">
     <GoalForm />
   </ModalComponent>
@@ -37,18 +44,21 @@
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted } from 'vue';
 import WeeklyCalendarView from "../components/WeeklyCalendarView.vue";
-import DailyRhythmViewOptions from "../components/DailyRhythmViewOptions.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import GoalForm from "../components/GoalForm.vue";
 import GoalCard from "../components/GoalCard.vue";
+import DailyRhythm from '../components/DailyRhythm.vue';
 import Pop from "../utils/Pop.js";
 import { logger } from "../utils/Logger.js";
 import { goalService } from "../services/GoalService.js";
+import { rhythmService } from "../services/RhythmService.js"
+import DailyRhythmViewOptions from '../components/DailyRhythmViewOptions.vue';
 export default {
   setup() {
 
     onMounted(() => {
       getMyGoals();
+      getMyRhythms();
     });
 
     async function getMyGoals() {
@@ -60,11 +70,21 @@ export default {
       }
     }
 
+    async function getMyRhythms() {
+      try {
+        await rhythmService.getMyRhythms()
+      } catch (error) {
+        Pop.error(error)
+        logger.log(error.message)
+      }
+    }
+
     return {
-      goals: computed(() => AppState.Goals)
+      goals: computed(() => AppState.Goals),
+      rhythms: computed(() => AppState.Rhythms),
     }
   },
-  components: { WeeklyCalendarView, ModalComponent, GoalForm }
+  components: { WeeklyCalendarView, ModalComponent, GoalForm, DailyRhythm, }
 };
 </script>
 

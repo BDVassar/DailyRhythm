@@ -18,6 +18,10 @@ export const AppState = reactive({
   Poem: {},
   Goals: [],
   activeGoal: null,
+  Rhythms: [],
+  activeRhythm: null,
+  Beats: [],
+  activeBeat: null,
   imageSearch: {},
   weatherSearch: {},
   settings: {}
