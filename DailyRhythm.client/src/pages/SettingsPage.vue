@@ -1,42 +1,41 @@
 <template>
-    <div class="container-fluid">
-        <div class="row mb-0">
-            <router-link class="navbar-brand" :to="{ name: 'Home' }">
-                <h1 class="col-3 d-flex justify-content-start text-white" title="Home"><i
-                        class="mdi mdi-home-circle-outline"></i>
-                </h1>
-            </router-link>
-        </div>
+    <section class="row mb-0">
+        <router-link class="navbar-brand" :to="{ name: 'Home' }">
+            <h1 class="col-3 d-flex justify-content-start text-white" title="Home"><i
+                    class="mdi mdi-home-circle-outline"></i>
+            </h1>
+        </router-link>
+    </section>
 
-        <div class="row">
+    <section class="row justify-content-center">
+        <div class="col-12">
             <h1 class="text-center text-white text-shadow text-underline mb-3">My Settings</h1>
         </div>
 
-        <div class="row justify-content-center">
-            <!-- SECTION Update Settings -->
-            <div class="col-6 rounded text-white light-shadow" id="opaqueBG">
-                <h5 class="mt-4">Home Page:</h5>
-                <form class="input-group" @submit.prevent="updateAccount(account.id)">
-                    <div class="">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="clock" checked
-                                v-model="editing.clockOn">
-                            <label class="form-check-label" for="clock">Clock</label>
-                        </div>
+        <!-- SECTION Update Settings -->
+        <div class="col-7 rounded text-white light-shadow opaqueBG">
+            <h5 class="mt-4">Home Page:</h5>
+            <form class="input-group" @submit.prevent="updateAccount(account.id)">
+                <div class="">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="clock" checked
+                            v-model="editing.clockOn">
+                        <label class="form-check-label" for="clock">Clock</label>
+                    </div>
 
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="weather" checked
-                                v-model="editing.weatherOn">
-                            <label class="form-check-label" for="weather">Weather</label>
-                        </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="weather" checked
+                            v-model="editing.weatherOn">
+                        <label class="form-check-label" for="weather">Weather</label>
+                    </div>
 
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="timer" checked
-                                v-model="editing.timerOn">
-                            <label class="form-check-label" for="timer">Timer</label>
-                        </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" style="" type="checkbox" role="switch" id="timer" checked
+                            v-model="editing.timerOn">
+                        <label class="form-check-label" for="timer">Timer</label>
+                    </div>
 
-                        <!-- 
+                    <!-- 
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" role="switch" id="tasks" checked>
                                             <label class="form-check-label" for="tasks">My Tasks</label>
@@ -46,69 +45,79 @@
                                             <input class="form-check-input" type="checkbox" role="switch" id="appointments" checked>
                                             <label class="form-check-label" for="appointments">Today's Appointments</label>
                                         </div> -->
-
-                        <ImageSearchBar />
-                        <h5 class="mt-5 text-white text-shadow">Quote Type:</h5>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Quote" id="inspiration" checked
-                                v-model="editing.quoteType">
-                            <label class="form-check-label" for="inspiration">
-                                Inspiration
-                            </label>
+                    <!-- SECTION Image Search Bar -->
+                    <div>
+                        <h5 class="mt-5">Search Background Theme:</h5>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control  search p-1 rounded fs-5" placeholder="e.g. beach"
+                                name="search" aria-label="Search Image" aria-describedby="button-addon2"
+                                v-model="search.query">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" title="Search"
+                                @click="searchImage"><i class="mdi mdi-image-search text-shadow fs-5 "></i></button>
                         </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Quote" id="dadJokes"
-                                v-model="editing.quoteType">
-                            <label class="form-check-label" for="dadJokes">
-                                Dad Jokes
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Quote" id="poetry"
-                                v-model="editing.quoteType">
-                            <label class="form-check-label" for="poetry">
-                                Poetry
-                            </label>
-                        </div>
-
-                        <div class="d-flex justify-content-center mt-3 pt-3">
-                            <button type="submit" class="btn btn-outline mini-shadow account-button selectable"
-                                title="Update Settings">
-                                Update Settings
-                            </button>
-                        </div>
+                        <div class="fs-6 text-center">Current theme: {{ search.query }} </div>
                     </div>
-                </form>
+                    <h5 class="mt-5 text-white text-shadow">Quote Type:</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Quote" id="inspiration" checked
+                            v-model="editing.quoteType">
+                        <label class="form-check-label" for="inspiration">
+                            Inspiration
+                        </label>
+                    </div>
 
-                <div class="d-flex justify-content-center">
-                    <router-link :to="{ name: 'Account' }">
-                        <button type="button" class="btn btn-outline mini-shadow account-button selectable"
-                            title="Edit Account">
-                            Edit Account
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Quote" id="dadJokes"
+                            v-model="editing.quoteType">
+                        <label class="form-check-label" for="dadJokes">
+                            Dad Jokes
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Quote" id="poetry"
+                            v-model="editing.quoteType">
+                        <label class="form-check-label" for="poetry">
+                            Poetry
+                        </label>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3 pt-3">
+                        <button type="submit" class="btn btn-outline mini-shadow account-button selectable"
+                            title="Update Settings">
+                            Update Settings
                         </button>
-                    </router-link>
+                    </div>
                 </div>
+            </form>
 
-
+            <div class="d-flex justify-content-center">
+                <router-link :to="{ name: 'Account' }">
+                    <button type="button" class="btn btn-outline mini-shadow account-button selectable"
+                        title="Edit Account">
+                        Edit Account
+                    </button>
+                </router-link>
             </div>
         </div>
-    </div>
+    </section>
 
 </template>
 
 <script>
 import { logger } from "../utils/Logger";
-import { onMounted, computed, ref, watchEffect } from "vue";
+import { onMounted, computed, ref, watchEffect, reactive } from "vue";
 import { AppState } from "../AppState.js";
-import { accountService } from "../services/AccountService.js";
 import Pop from "../utils/Pop.js";
 import { settingsService } from "../services/SettingsService.js"
+import { bgImageService } from "../services/BgImageService.js";
 
 export default {
     setup() {
         const editing = ref({})
+        const search = reactive({
+            query: ''
+        })
         // watchEffect(() => {
         //     if (AppState.account.id) {
         //         editing.value = { ...AppState.account }
@@ -128,6 +137,7 @@ export default {
 
         return {
             editing,
+            search,
             account: computed(() => AppState.account),
             async updateAccount() {
                 try {
@@ -137,7 +147,16 @@ export default {
                     logger.error(error)
                     Pop.error(error.message)
                 }
-            }
+            },
+
+            async searchImage() {
+                try {
+                    await bgImageService.searchImage(search)
+                } catch (error) {
+                    logger.error(error)
+                    Pop.error(error.message)
+                }
+            },
         }
 
     }
@@ -195,11 +214,10 @@ export default {
     text-decoration: underline;
 }
 
-#opaqueBG {
+.opaqueBG {
     height: fit-content;
     width: fit-content;
     font-size: 1.4rem;
-    // border-radius: 50px;
     color: whitesmoke;
     background-color: rgba(82, 82, 82, 0.338);
 }
@@ -210,6 +228,10 @@ export default {
 
 .account-button {
     color: white;
+}
+
+.search-button {
+    color: #0d6efd
 }
 
 .account-button:hover {

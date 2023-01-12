@@ -1,13 +1,16 @@
 <template>
     <main>
-        <div class="container-fluid d-flex justify-content-between align-items-between flex-column bgImage"
-            v-if="BgImage" :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
+        <div class="container-fluid bgImage d-flex flex-column justify-content-between" v-if="BgImage"
+            :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
             <router-view />
-        </div>
-        <div class="col-5 d-flex opaqueBG p-1 m-2">
-            <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer" class="">&COPY{{
-                BgImage.author
-            }}</a>
+            <section class="row">
+                <div class="col-5 author-style p-1 m-2">
+                    <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer"
+                        class="">&COPY{{
+    BgImage.author
+                        }}</a>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -56,7 +59,7 @@ export default {
     // overflow: hidden;
 }
 
-.opaqueBG {
+.author-style {
     height: fit-content;
     width: fit-content;
     font-size: 1.5rem;
