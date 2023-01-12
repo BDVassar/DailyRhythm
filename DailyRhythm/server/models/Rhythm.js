@@ -9,7 +9,7 @@ export const RhythmSchema = new Schema({
     start: { type: Date, required: true, default: new Date},
     end: { type: Date, required: false, },
     completedDate: { type: Date, required: false },
-    priority: { type: String, required: false, enum: ['high', 'medium', 'low',], default: '', lowercase: true },
+    priority: { type: String, required: false, enum: ['high', 'medium', 'low',], default: 'low', lowercase: true },
     accomplished: { type: Boolean, required: true, default: false },
     archived: { type: Boolean, required: true, default: false },
     color: { type: String, default: '#99c2ac' },

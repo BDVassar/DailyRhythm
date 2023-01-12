@@ -22,4 +22,5 @@ export const AppState = reactive({
   weatherSearch: {},
   settings: {},
   rhythmsByGoalId: {},
+  rhythms: {},
 })

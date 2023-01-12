@@ -45,11 +45,11 @@ import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { rhythmService } from "../services/RhythmService.js"
 import { Modal } from "bootstrap";
-import { useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 export default {
     setup() {
         const editable = ref({})
-        const router = useRouter()
+        const route = useRoute()
         const iconArray = ['mdi-weight-lifter', 'mdi-leaf', 'mdi-book-open-page-variant', 'mdi-food-apple', 'mdi-heart', 'mdi-lead-pencil', 'mdi-music-clef-treble', 'mdi-music', 'mdi-music-note', 'mdi-palette', 'mdi-paw', 'mdi-currency-usd', 'mdi-home', 'mdi-comment-text-outline', 'mdi-plus-thick', 'mdi-silverware', 'mdi-meditation', 'mdi-beach', 'mdi-power-sleep', 'mdi-star', 'mdi-cup-water', 'mdi-laptop', 'mdi-flower-tulip']
 
         return {
@@ -58,7 +58,7 @@ export default {
             async createRhythm() {
                 try {
                     editable.value.goalId = route.params.goalId
-                    const rhythm = await rhythmService.createRhythm(editable.value)
+                    await rhythmService.createRhythm(editable.value)
                     Pop.success('Successfully created rhythm')
                     editable.value = {}
                     Modal.getOrCreateInstance('#RhythmModal').hide()

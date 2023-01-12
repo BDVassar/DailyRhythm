@@ -19,8 +19,8 @@ class RhythmService {
     }
 
     async createRhythm(body) {
-        const goal = await goalService.getOneGoal(body.goalId)
-        if (!goal) throw new BadRequest ('Goal does not exist')
+        // const goal = await goalService.getOneGoal(body.goalId)
+        // if (!goal) throw new BadRequest ('Goal does not exist')
         const rhythm = await dbContext.Rhythms.create(body)
         return rhythm
     }
