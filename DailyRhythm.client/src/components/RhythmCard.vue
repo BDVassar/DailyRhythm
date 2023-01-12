@@ -4,11 +4,8 @@
             <span class="mdi" :class="rhythm.icon"></span> {{ rhythm.name }}
         </div>
         <div class="fs-6 text-center fw-light">
-
             {{ rhythm.description }}
         </div>
-
-
     </div>
 </template>
 
