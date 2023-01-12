@@ -10,7 +10,7 @@ class BgImageService {
       this.searchImage(search)
     } else {
       const res = await UnsplashApi.get('?query=beach sunset')
-      logger.log('[GETTING RANDOM IMAGE]', res.data.results)
+      // logger.log('[GETTING RANDOM IMAGE]', res.data.results)
       res.data.results.sort((a, b) => 0.5 - Math.random())
       AppState.BgImage = new BgImage(res.data.results[0])
     }
@@ -19,7 +19,7 @@ class BgImageService {
   async searchImage(search) {
     AppState.imageSearch = search
     const res = await UnsplashApi.get('', { params: search })
-    logger.log('[Search Images]', res.data.results)
+    // logger.log('[Search Images]', res.data.results)
     res.data.results.sort((a, b) => 0.5 - Math.random())
     AppState.BgImage = new BgImage(res.data.results[0])
   }

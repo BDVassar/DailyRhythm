@@ -10,7 +10,7 @@ class WeatherService {
             this.searchWeather(city)
         } else {
             const res = await WeatherApi.get('weather?q=boise')
-            logger.log('Getting local weather', res.data)
+            // logger.log('Getting local weather', res.data)
             AppState.weather = new Weather(res.data)
         }
     }
