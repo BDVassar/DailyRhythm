@@ -44,6 +44,7 @@ import { useRoute } from "vue-router";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { beatService } from "../services/BeatService.js"
+import { Modal } from "bootstrap";
 
 export default {
     setup() {
