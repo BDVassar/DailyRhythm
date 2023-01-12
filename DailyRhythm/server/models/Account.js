@@ -8,7 +8,7 @@ export const AccountSchema = new Schema(
     name: { type: String, required: true },
     picture: { type: String },
     // NOTE If you wish to add additional properties do so here
-    bgImage: { type: String, required: true, default: 'beach sunset', maxLength: 50 },
+    bgImage: { type: Object, required: true, default: { query: 'forest river' }, maxLength: 50 },
     weatherLocation: { type: String, required: true, default: 'boise' },
     weatherOn: { type: Boolean, required: true, default: true },
     clockOn: { type: Boolean, required: true, default: true },

@@ -59,7 +59,7 @@
                     </div>
                     <h5 class="mt-5 text-white text-shadow">Quote Type:</h5>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Quote" id="inspiration" checked
+                        <input class="form-check-input" type="radio" name="Quote" id="inspiration" value="inspiration"
                             v-model="editing.quoteType">
                         <label class="form-check-label" for="inspiration">
                             Inspiration
@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Quote" id="dadJokes"
+                        <input class="form-check-input" type="radio" name="Quote" id="dadJokes" value="dadJokes"
                             v-model="editing.quoteType">
                         <label class="form-check-label" for="dadJokes">
                             Dad Jokes
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Quote" id="poetry"
+                        <input class="form-check-input" type="radio" name="Quote" id="poetry" value="poetry"
                             v-model="editing.quoteType">
                         <label class="form-check-label" for="poetry">
                             Poetry
@@ -124,7 +124,6 @@ export default {
         //     }
         // })
 
-        onMounted(() => getSettings())
 
         async function getSettings() {
             try {
@@ -135,13 +134,17 @@ export default {
             }
         }
 
+        onMounted(() => getSettings())
+
         return {
             editing,
             search,
             account: computed(() => AppState.account),
+            settings: computed(() => AppState.settings),
+
             async updateAccount() {
                 try {
-                    await settingsService.updateAccount(editing.value)
+                    await settingsService.updateAccount(search, editing.value)
                     Pop.toast("Settings updated", "success")
                 } catch (error) {
                     logger.error(error)

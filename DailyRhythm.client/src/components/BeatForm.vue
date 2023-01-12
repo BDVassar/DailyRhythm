@@ -32,7 +32,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Create Goal</button>
+                <button type="submit" class="btn btn-primary">Create Beat</button>
             </div>
         </form>
     </div>
@@ -40,21 +40,26 @@
 
 <script>
 import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
+import { beatService } from "../services/BeatService.js"
 
 export default {
     setup() {
         const editable = ref({})
-        const router = useRouter()
+        const route = useRoute()
         const iconArray = ['mdi-weight-lifter', 'mdi-leaf', 'mdi-book-open-page-variant', 'mdi-food-apple', 'mdi-heart', 'mdi-lead-pencil', 'mdi-music-clef-treble', 'mdi-music', 'mdi-music-note', 'mdi-palette', 'mdi-paw', 'mdi-currency-usd', 'mdi-home', 'mdi-comment-text-outline', 'mdi-plus-thick', 'mdi-silverware', 'mdi-meditation', 'mdi-beach', 'mdi-power-sleep', 'mdi-star', 'mdi-cup-water', 'mdi-laptop', 'mdi-flower-tulip']
         return {
             editable,
             iconArray,
             async createBeat() {
                 try {
-
+                    editable.value.goalId = route.params.goalId
+                    await beatService.createBeat(editable.value)
+                    Pop.success('Successfully created beat')
+                    editable.value = {}
+                    Modal.getOrCreateInstance('#BeatModal').hide()
                 } catch (error) {
                     Pop.error(error.message)
                     logger.error(error)

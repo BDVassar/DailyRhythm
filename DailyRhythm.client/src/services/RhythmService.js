@@ -5,7 +5,7 @@ class RhythmService {
     async createRhythm(body) {
         const res = await api.post('api/rhythms', body)
         logger.log(res.data)
-        AppState.rhythm = res.data
+        AppState.Rhythms = res.data
         return res.data
     }
     async getRhythmsByGoalId(goalId) {

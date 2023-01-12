@@ -45,6 +45,11 @@
 
 
     </div>
+    <ModalComponent id="BeatModal">
+        <BeatForm />
+    </ModalComponent>
+
+
     <ModalComponent id="RhythmModal">
         <RhythmForm />
     </ModalComponent>
@@ -59,6 +64,7 @@ import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { rhythmService } from "../services/RhythmService.js";
 import RhythmForm from "../components/RhythmForm.vue";
+import BeatForm from "../components/BeatForm.vue";
 
 export default {
     setup() {
@@ -92,7 +98,7 @@ export default {
             getRhythmsByGoalId: computed(() => AppState.rhythmsByGoalId),
         };
     },
-    components: { RhythmForm }
+    components: { RhythmForm, BeatForm }
 }
 </script>
 

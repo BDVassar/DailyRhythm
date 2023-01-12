@@ -9,20 +9,20 @@ import { Poem } from "../models/Poem.js";
 class QuoteService {
   async getRandomQuote() {
     const res = await TypeFitApi.get()
-    logger.log('[GETTING RANDOM QUOTE]', res.data)
+    // logger.log('[GETTING RANDOM QUOTE]', res.data)
     res.data.sort((a, b) => 0.5 - Math.random())
     AppState.Quote = new Quote(res.data[0])
   }
 
   async getRandomDadJoke() {
     const res = await DadJokesApi.get()
-    logger.log(['Getting Dad Joke'], res.data)
+    // logger.log(['Getting Dad Joke'], res.data)
     AppState.dadJoke = new DadJoke(res.data)
   }
 
   async getRandomPoem() {
     const res = await PoetryApi.get()
-    logger.log(['Getting Poem'], res.data)
+    // logger.log(['Getting Poem'], res.data)
     // res.data.sort((a, b) => 0.5 - Math.random())
     AppState.Poem = new Poem(res.data)
   }
