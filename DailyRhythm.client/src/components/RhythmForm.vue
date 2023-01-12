@@ -1,6 +1,6 @@
 <template>
     <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a Goal</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a Rhythm</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
@@ -32,7 +32,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Create Goal</button>
+                <button type="submit" class="btn btn-primary">Create Rhythm</button>
             </div>
         </form>
     </div>
@@ -43,7 +43,7 @@
 import { ref } from "vue";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
-import { goalService } from "../services/GoalService.js"
+import { rhythmService } from "../services/RhythmService.js"
 import { Modal } from "bootstrap";
 import { useRouter } from "vue-router";
 export default {
@@ -55,6 +55,18 @@ export default {
         return {
             editable,
             iconArray,
+            async createRhythm() {
+                try {
+                    editable.value.goalId = route.params.goalId
+                    const rhythm = await rhythmService.createRhythm(editable.value)
+                    Pop.success('Successfully created rhythm')
+                    editable.value = {}
+                    Modal.getOrCreateInstance('#RhythmModal').hide()
+                } catch (error) {
+                    logger.error(error)
+                    Pop.error(error.message)
+                }
+            }
         }
     }
 }
