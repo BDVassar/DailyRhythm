@@ -21,16 +21,19 @@ import { computed, onMounted } from 'vue';
 import { AppState } from './AppState';
 import NavBar from "./components/NavBar.vue";
 import { bgImageService } from "./services/BgImageService";
+import { settingsService } from "./services/SettingsService.js";
 import { logger } from "./utils/Logger";
 import Pop from "./utils/Pop";
 
 export default {
     setup() {
-        onMounted(() => getRandomPicture(AppState.BgImage));
+        onMounted(() => {
+            getRandomPicture(AppState.BgImage)
+        });
 
-        async function getRandomPicture(BgImage) {
+        async function getRandomPicture(Background) {
             try {
-                await bgImageService.getRandomPicture(BgImage);
+                await bgImageService.getRandomPicture(Background);
             }
             catch (error) {
                 logger.error(error);
@@ -38,6 +41,7 @@ export default {
             }
             ;
         }
+
         return {
             appState: computed(() => AppState),
             BgImage: computed(() => AppState.BgImage),

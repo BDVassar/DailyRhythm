@@ -4,7 +4,7 @@ import { UnsplashApi } from "./AxiosService.js"
 import { logger } from "../utils/Logger.js"
 
 class BgImageService {
-  async getRandomPicture(BgImage) {
+  async getRandomPicture(Background) {
     if (AppState.searchImage) {
       const search = AppState.searchImage
       this.searchImage(search)
