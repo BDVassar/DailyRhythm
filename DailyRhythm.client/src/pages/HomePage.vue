@@ -27,15 +27,14 @@
 
     <!-- SECTION Quote and author -->
 
-    <div v-if="quoteType.inspiration && !quoteType.dadJoke"
-        class="row my-5 py-5 text-white justify-content-center text-shadow">
+    <div class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h3 class="text-center quote-content">{{ Quote.text }}</h3>
             <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
         </div>
     </div>
 
-    <div v-if="quoteType.dadJoke" class="row my-5 py-5 text-white justify-content-center text-shadow">
+    <div class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
         </div>
