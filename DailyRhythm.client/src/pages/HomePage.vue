@@ -72,7 +72,7 @@ export default {
         onMounted(() => {
             getRandomQuote();
             getRandomDadJoke();
-            getRandomPoem();
+            // getRandomPoem();
         });
 
         async function getRandomQuote() {
