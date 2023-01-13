@@ -27,18 +27,20 @@
 
     <!-- SECTION Quote and author -->
 
-    <div class="row my-5 py-5 text-white justify-content-center text-shadow">
+    <div v-if="quoteType === 'dadJokes'" class="row my-5 py-5 text-white justify-content-center text-shadow">
+        <div class="col-10">
+            <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
+        </div>
+    </div>
+
+    <div v-else class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h3 class="text-center quote-content">{{ Quote.text }}</h3>
             <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
         </div>
     </div>
 
-    <div class="row my-5 py-5 text-white justify-content-center text-shadow">
-        <div class="col-10">
-            <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
-        </div>
-    </div>
+
 
     <!-- <div v-if="poetrySetting" class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
