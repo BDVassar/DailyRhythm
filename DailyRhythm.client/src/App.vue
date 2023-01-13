@@ -17,31 +17,13 @@
 </template>
 
 <script>
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { AppState } from './AppState';
 import NavBar from "./components/NavBar.vue";
-import { bgImageService } from "./services/BgImageService";
-import { settingsService } from "./services/SettingsService.js";
-import { logger } from "./utils/Logger";
-import Pop from "./utils/Pop";
+
 
 export default {
     setup() {
-        onMounted(() => {
-            getRandomPicture()
-        });
-
-        async function getRandomPicture() {
-            try {
-                await bgImageService.getRandomPicture();
-            }
-            catch (error) {
-                logger.error(error);
-                Pop.error(error);
-            }
-            ;
-        }
-
         return {
             appState: computed(() => AppState),
             BgImage: computed(() => AppState.BgImage),
