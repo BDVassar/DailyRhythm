@@ -63,7 +63,7 @@
                     <h5 class="mt-5 text-white text-shadow">Quote Type:</h5>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="Quote" id="inspiration" value="inspiration"
-                            v-model="editing.quoteType">
+                            v-model="editing.quoteType" :checked="settings.quoteType == 'inspiration'">
                         <label class="form-check-label" for="inspiration">
                             Inspiration
                         </label>
@@ -71,7 +71,7 @@
 
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="Quote" id="dadJokes" value="dadJokes"
-                            v-model="editing.quoteType">
+                            v-model="editing.quoteType" :checked="settings.quoteType == 'dadJokes'">
                         <label class="form-check-label" for="dadJokes">
                             Dad Jokes
                         </label>
