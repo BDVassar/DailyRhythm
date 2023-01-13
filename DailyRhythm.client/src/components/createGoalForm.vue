@@ -30,6 +30,9 @@
                 <i v-if="editable.icon" class="mdi" :class="editable.icon"></i>
             </div>
 
+            <label for="date">Goal Date</label>
+            <input type="date" id="goalDate" />
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Create Goal</button>
@@ -60,7 +63,7 @@ export default {
                     logger.log(goal.id)
                     Pop.success('Successfully created goal')
                     editable.value = {}
-                    Modal.getOrCreateInstance('#goalModal').hide()
+                    Modal.getOrCreateInstance('#createGoalModal').hide()
                     router.push({ name: 'GoalDetails', params: { goalId: goal.id } })
                 } catch (error) {
                     logger.error(error)
