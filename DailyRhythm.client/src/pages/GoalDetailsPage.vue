@@ -11,9 +11,16 @@
                         class="mdi mdi-bullseye-arrow"></i>
                 </h1>
             </router-link>
+            <div class="col d-flex justify-content-end">
+
+                <h1 class=" text-white" title="Edit Goal"><button data-bs-toggle="modal"
+                        data-bs-target="#editGoalModal"><i class="mdi mdi-pencil-circle-outline"></i></button>
+                </h1>
+            </div>
         </div>
 
         <section v-if="goal" class="row p-3 justify-content-evenly text-white text-shadow opaque-bg">
+
             <div class="col-10 text-center">
                 <h3><span class="mdi" :class="goal.icon"></span>{{ goal.name }}</h3>
                 <p v-if="goal.description">{{ goal.description }}</p>
