@@ -27,7 +27,7 @@
 
     <!-- SECTION Quote and author -->
 
-    <div v-if="quoteType === 'dadJokes'" class="row my-5 py-5 text-white justify-content-center text-shadow">
+    <div v-if="settings.quoteType === 'dadJokes'" class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
         </div>
