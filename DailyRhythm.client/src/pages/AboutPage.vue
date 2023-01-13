@@ -85,10 +85,14 @@
       <div class="collapse" id="collapseContactUs">
         <div class="row justify-content-center">
           <div class="col-12 d-flex flex-column justify-content-center text-white text-shadow fs-5">
-            <h5>Bryan <i class="mdi mdi-github"></i> <i class="mdi mdi-linkedin"></i></h5>
-            <h5>Jordan <i class="mdi mdi-github"></i> <i class="mdi mdi-linkedin"></i></h5>
-            <h5>Kayla <i class="mdi mdi-github"></i> <i class="mdi mdi-linkedin"></i></h5>
-            <h5>Rachel <i class="mdi mdi-github"></i> <i class="mdi mdi-linkedin"></i></h5>
+            <h5>Bryan <a class="mdi mdi-github" :href="bryanGitHub" target="_blank"></a> <a class="mdi mdi-linkedin"
+                :href="bryanLinkedIn" target="_blank"></a></h5>
+            <h5>Jordan <a class="mdi mdi-github" :href="jordanGitHub" target="_blank"></a> <a class="mdi mdi-linkedin"
+                :href="jordanLinkedIn" target="_blank"></a></h5>
+            <h5>Kayla <a class="mdi mdi-github" :href="kaylaGitHub" target="_blank"></a> <a class="mdi mdi-linkedin"
+                :href="kaylaLinkedIn" target="_blank"></a></h5>
+            <h5>Rachel <a class="mdi mdi-github" :href="rachelGitHub" target="_blank"></a> <a class="mdi mdi-linkedin"
+                :href="rachelLinkedIn" target="_blank"></a></h5>
           </div>
         </div>
       </div>
@@ -104,6 +108,10 @@
         <div class="row justify-content-center">
           <div class="col-12 d-flex justify-content-center text-white text-shadow fs-5">
             <p>Daily Rhythm uses the following API's:</p>
+            <p>Unsplash</p>
+            <p>TypeFit</p>
+            <p>Open Weather Map</p>
+            <p>Dad Jokes</p>
           </div>
         </div>
       </div>
@@ -118,7 +126,14 @@
 export default {
   setup() {
     return {
-
+      bryanGitHub: 'https://github.com/BDVassar',
+      bryanLinkedIn: 'https://www.linkedin.com/in/bryanvassar/',
+      jordanGitHub: 'https://github.com/JordanLDiaz',
+      jordanLinkedIn: 'https://www.linkedin.com/in/jordan-diaz-005b0466/',
+      kaylaGitHub: 'https://github.com/kaylacammack',
+      kaylaLinkedIn: 'https://www.linkedin.com/in/kayla-cammack-15b46954/',
+      rachelGitHub: 'https://github.com/rachel-gamble',
+      rachelLinkedIn: 'https://www.linkedin.com/in/rachel-l-gamble/',
     }
   }
 }
