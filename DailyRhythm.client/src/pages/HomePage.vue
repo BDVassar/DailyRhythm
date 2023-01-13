@@ -1,23 +1,17 @@
 <template>
-    <!-- SECTION Time -->
-    <div class="row p-3 justify-content-between text-white text-shadow">
-        <div v-if="account.clockOn" class="col-6">
+    <!--SECTION Weather, Clock, Timer component-->
+    <section class="row justify-content-between text-white text-shadow">
+        <div class="col-2 d-flex justify-content-center" v-if="account.weatherOn">
+            <Weather />
+        </div>
+        <div class="col-2 d-flex justify-content-center" v-if="account.clockOn">
             <Clock />
         </div>
-        <!-- SECTION Weather -->
-
-        <span v-if="account.weatherOn" class="col-6">
-            <Weather />
-        </span>
-    </div>
-
-    <!--SECTION Timer-->
-    <div class="row">
-        <div class="col-2 mx-2 text-white justify-content-start text-shadow" v-if="account.timerOn">
+        <div class="col-2" v-if="account.timerOn">
             <Timer />
         </div>
-    </div>
 
+    </section>
 
     <!-- SECTION Greeting -->
     <div class="row text-white text-shadow">
@@ -127,6 +121,18 @@ export default {
 <style scoped lang="scss">
 .opaque-bg {
     background-color: rgba(82, 82, 82, 0.338);
+}
+
+.timer-position {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.clock-position {
+    position: fixed;
+    top: 0;
+    right: 475px
 }
 
 .opaqueBG {
