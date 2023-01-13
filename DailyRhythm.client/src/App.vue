@@ -28,12 +28,12 @@ import Pop from "./utils/Pop";
 export default {
     setup() {
         onMounted(() => {
-            getRandomPicture(AppState.BgImage)
+            getRandomPicture()
         });
 
-        async function getRandomPicture(Background) {
+        async function getRandomPicture() {
             try {
-                await bgImageService.getRandomPicture(Background);
+                await bgImageService.getRandomPicture();
             }
             catch (error) {
                 logger.error(error);
