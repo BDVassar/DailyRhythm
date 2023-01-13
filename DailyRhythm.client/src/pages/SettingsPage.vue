@@ -123,11 +123,6 @@ export default {
             getSettings()
         })
 
-        // watchEffect(() => {
-        //     if (AppState.account.id) {
-        //         editing.value = { ...AppState.account }
-        //     }
-        // })
         async function getSettings() {
             try {
                 await settingsService.getSettings()
