@@ -1,41 +1,37 @@
 <template>
-  <div class="container-fluid">
-
-    <!--SECTION Home Navigation-->
-    <section class="row">
-      <router-link class="navbar-brand justify-content-start col-1" :to="{ name: 'Home' }">
-        <div class="col-6 d-flex text-white text-center fs-1" title="Home"><i class="mdi mdi-home-circle-outline"></i>
-        </div>
-      </router-link>
-    </section>
-
-    <!--SECTION Account Body - all below-->
-
-    <!--SECTION Account Greeting-->
-    <section class="row justify-content-center about text-center text-white text-shadow">
-      <h1>Welcome, {{ account.name }}</h1>
-      <br>
-      <img class="rounded-circle" :src="account.picture" alt="" />
-      <br>
-      <p class="p-2 fs-4">{{ account.email }}</p>
-
-      <!--SECTION Edit Account -->
-      <section class="row justify-content-center">
-        <AccountForm />
-      </section>
-
-      <!--SECTION Logout -->
-      <div class="logout logout-style fs-5 mt-2" @click="logout">
-        <button class="col-md-1 col-sm-6 text-white selectable fs-5 rounded border">
-          <i class="mdi mdi-logout"></i>
-          logout
-        </button>
+  <!--SECTION Home Navigation-->
+  <section class="row">
+    <router-link class="navbar-brand justify-content-start col-1" :to="{ name: 'Home' }">
+      <div class="col-6 d-flex text-white text-center fs-1" title="Home"><i class="mdi mdi-home-circle-outline"></i>
       </div>
+    </router-link>
+  </section>
 
-      <!--SECTION End of Sections -->
+  <!--SECTION Account Body - all below-->
 
+  <!--SECTION Account Greeting-->
+  <section class="row justify-content-center about text-center text-white text-shadow">
+    <h1>Welcome, {{ account.name }}</h1>
+    <br>
+    <img class="rounded-circle" :src="account.picture" alt="" />
+    <br>
+    <p class="p-2 fs-4">{{ account.email }}</p>
+
+    <!--SECTION Edit Account -->
+    <section class="row justify-content-center">
+      <AccountForm />
     </section>
-  </div>
+
+    <!--SECTION Logout -->
+    <div class="logout logout-style fs-5 mt-2" @click="logout">
+      <button class="col-md-1 col-sm-6 text-white selectable fs-5 rounded border">
+        <i class="mdi mdi-logout"></i>
+        logout
+      </button>
+    </div>
+    <!--SECTION End of Sections -->
+  </section>
+
 </template>
 
 <script>

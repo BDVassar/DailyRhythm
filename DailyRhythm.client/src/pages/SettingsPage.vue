@@ -1,6 +1,6 @@
 <template>
     <section class="row mb-0">
-        <router-link class="navbar-brand" :to="{ name: 'Home' }">
+        <router-link class="text-shadow" :to="{ name: 'Home' }">
             <h1 class="col-3 d-flex justify-content-start text-white" title="Home"><i
                     class="mdi mdi-home-circle-outline"></i>
             </h1>
@@ -55,7 +55,7 @@
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2" title="Search"
                                 @click="searchImage"><i class="mdi mdi-image-search text-shadow fs-5 "></i></button>
                         </div>
-                        <div class="fs-6 text-center">Current theme: {{ settings.bgImage.query }} </div>
+                        <div class="fs-6 text-center">Current theme: {{ settings.bgImage }} </div>
                     </div>
                     <h5 class="mt-5 text-white text-shadow">Quote Type:</h5>
                     <div class="form-check">
