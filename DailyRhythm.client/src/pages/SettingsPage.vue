@@ -74,13 +74,13 @@
                         </label>
                     </div>
 
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                         <input class="form-check-input" type="radio" name="Quote" id="poetry" value="poetry"
                             v-model="editing.quoteType">
                         <label class="form-check-label" for="poetry">
                             Poetry
                         </label>
-                    </div>
+                    </div> -->
 
                     <div class="d-flex justify-content-center mt-3 pt-3">
                         <button type="submit" class="btn btn-outline mini-shadow account-button selectable"

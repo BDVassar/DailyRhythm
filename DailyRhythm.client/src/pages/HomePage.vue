@@ -40,13 +40,13 @@
         </div>
     </div>
 
-    <div v-if="poetrySetting" class="row my-5 py-5 text-white justify-content-center text-shadow">
+    <!-- <div v-if="poetrySetting" class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h5 class="text-center quote-author p-1">-{{ Poem.title }}</h5>
             <h3 class="text-center quote-content">{{ Poem.lines }}</h3>
             <h5 class="text-center quote-author p-1">-{{ Poem.author }}</h5>
         </div>
-    </div>
+    </div> -->
 
     <div class="row justify-content-center pb-5">
         <div class="col-4">
