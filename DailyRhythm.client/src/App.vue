@@ -5,10 +5,16 @@
             <router-view />
             <section class="row">
                 <div class="col-5 author-style p-1 m-2">
-                    <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer"
-                        class="">&COPY{{
+                    <p class="fs-6">
+                        Photo by
+                        <a v-if="BgImage.imgLink" :href="BgImage.imgLink" target="_blank" title="photographer"
+                            class="">{{
     BgImage.author
-                        }}</a>
+                            }}
+                            <a href="https://unsplash.com/?utm_source=daily_rhythm&utm_medium=referral"
+                                target="_blank">Unsplash</a></a>
+                    </p>
+
                 </div>
             </section>
         </div>
