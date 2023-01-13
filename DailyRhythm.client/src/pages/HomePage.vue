@@ -73,7 +73,6 @@ export default {
         onMounted(() => {
             getRandomQuote();
             getRandomDadJoke();
-            getSettings();
             // getRandomPoem();
         });
 
@@ -93,15 +92,6 @@ export default {
             } catch (error) {
                 Pop.error(error)
                 logger.error(error)
-            }
-        }
-
-        async function getSettings() {
-            try {
-                await settingsService.getSettings()
-            } catch (error) {
-                logger.error(error)
-                Pop.error(error.message)
             }
         }
 
