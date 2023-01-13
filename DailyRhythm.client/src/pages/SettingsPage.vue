@@ -55,7 +55,7 @@
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2" title="Search"
                                 @click="searchImage"><i class="mdi mdi-image-search text-shadow fs-5 "></i></button>
                         </div>
-                        <div class="fs-6 text-center">Current theme: {{ settings.bgImage.query }} </div>
+                        <div class="fs-6 text-center">Current theme: {{ settings.bgImage?.query }} </div>
                     </div>
                     <h5 class="mt-5 text-white text-shadow">Quote Type:</h5>
                     <div class="form-check">
@@ -118,8 +118,11 @@ export default {
         const search = reactive({
             query: ''
         })
-        
-        onMounted(() => getSettings())
+
+        onMounted(() => {
+            getSettings()
+        })
+
         // watchEffect(() => {
         //     if (AppState.account.id) {
         //         editing.value = { ...AppState.account }
