@@ -30,8 +30,11 @@
                 <i v-if="editable.icon" class="mdi" :class="editable.icon"></i>
             </div>
 
-            <label for="date">Goal Date</label>
-            <input type="date" id="goalDate" />
+            <div class="form-floating mb-3 elevation-5">
+                <input v-model="editable.goalDate" type="date" class="form-control" id="goalDate"
+                    placeholder="goalDate" />
+                <label for="goalDate" />
+            </div>
 
 
 
