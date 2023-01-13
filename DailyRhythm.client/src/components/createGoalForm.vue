@@ -33,6 +33,8 @@
             <label for="date">Goal Date</label>
             <input type="date" id="goalDate" />
 
+
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Create Goal</button>
