@@ -10,7 +10,7 @@
             <div class="col-2 d-flex justify-content-end">
 
                 <h1 class=" text-white" title="Add New Goal"><button data-bs-toggle="modal"
-                        data-bs-target="#goalModal"><i class="mdi mdi-plus-circle-outline"></i></button>
+                        data-bs-target="#createGoalModal"><i class="mdi mdi-plus-circle-outline"></i></button>
                 </h1>
             </div>
         </section>
