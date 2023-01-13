@@ -1,13 +1,19 @@
 <template>
-    <!-- SECTION Time and Weather -->
+    <!-- SECTION Time -->
     <div class="row p-3 justify-content-between text-white text-shadow">
-        <Clock />
-        <Weather />
+        <div v-if="account.clockOn" class="col-6">
+            <Clock />
+        </div>
+        <!-- SECTION Weather -->
+
+        <span v-if="account.weatherOn" class="col-6">
+            <Weather />
+        </span>
     </div>
 
     <!--SECTION Timer-->
     <div class="row">
-        <div class="col-2 mx-2 text-white justify-content-start text-shadow">
+        <div class="col-2 mx-2 text-white justify-content-start text-shadow" v-if="account.timerOn">
             <Timer />
         </div>
     </div>

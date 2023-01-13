@@ -16,6 +16,7 @@ class SettingsService {
       const res = await api.put('/account', editing)
       logger.log('update settings', res.data)
       AppState.settings = res.data
+      AppState.account = res.data
     } catch (error) {
       logger.error('Failed to update settings', error)
     }

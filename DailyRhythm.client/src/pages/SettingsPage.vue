@@ -120,7 +120,6 @@ export default {
         })
 
         onMounted(() => {
-            getSettings()
         })
 
         // watchEffect(() => {
@@ -130,14 +129,7 @@ export default {
         // })
 
 
-        async function getSettings() {
-            try {
-                await settingsService.getSettings()
-            } catch (error) {
-                logger.error(error)
-                Pop.error(error.message)
-            }
-        }
+
 
 
         return {
