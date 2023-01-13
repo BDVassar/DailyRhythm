@@ -1,13 +1,13 @@
 <template>
     <!--SECTION Weather, Clock, Timer component-->
     <section class="row justify-content-between text-white text-shadow">
-        <div class="col-2 d-flex justify-content-center" v-if="account.weatherOn">
+        <div class="col-2 d-flex justify-content-center" v-if="settings.weatherOn">
             <Weather />
         </div>
-        <div class="col-2 d-flex justify-content-center" v-if="account.clockOn">
+        <div class="col-2 d-flex justify-content-center" v-if="settings.clockOn">
             <Clock />
         </div>
-        <div class="col-2" v-if="account.timerOn">
+        <div class="col-2" v-if="settings.timerOn">
             <Timer />
         </div>
 
@@ -109,10 +109,8 @@ export default {
         return {
             BgImage: computed(() => AppState.BgImage),
             Quote: computed(() => AppState.Quote),
-            quoteSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes')) ? false : true),
             account: computed(() => AppState.account),
             dadJoke: computed(() => AppState.dadJoke),
-            dadJokesSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes'))),
             settings: computed(() => AppState.settings),
             // Poem: computed(() => AppState.Poem),
             // poetrySetting: computed(() => JSON.parse(window.localStorage.getItem('Poem'))),

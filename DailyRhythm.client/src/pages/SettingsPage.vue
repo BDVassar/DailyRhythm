@@ -51,11 +51,11 @@
                         <div class="input-group mb-3">
                             <input type="text" class="form-control  search p-1 rounded fs-5" placeholder="e.g. beach"
                                 name="search" aria-label="Search Image" aria-describedby="button-addon2"
-                                v-model="search.query">
+                                v-model="editing.bgImage">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2" title="Search"
                                 @click="searchImage"><i class="mdi mdi-image-search text-shadow fs-5 "></i></button>
                         </div>
-                        <div class="fs-6 text-center">Current theme: {{ settings.bgImage?.query }} </div>
+                        <div class="fs-6 text-center">Current theme: {{ settings.bgImage }} </div>
                     </div>
 
                     <!--SECTION Quote/Joke-->
@@ -119,7 +119,13 @@ export default {
     setup() {
         const editing = ref({})
         const search = reactive({
-            query: ''
+
+        })
+
+        watchEffect(() => {
+            if (AppState.BgImage) {
+                search.query = AppState.settings.bgImage
+            }
         })
 
         onMounted(() => {
@@ -146,7 +152,7 @@ export default {
 
             async updateAccount() {
                 try {
-                    await settingsService.updateAccount(search, editing.value)
+                    await settingsService.updateAccount(editing.value)
                     Pop.toast("Settings updated", "success")
                 } catch (error) {
                     logger.error(error)
@@ -156,7 +162,7 @@ export default {
 
             async searchImage() {
                 try {
-                    await bgImageService.searchImage(search)
+                    await bgImageService.searchImage({ query: editing.value.bgImage })
                 } catch (error) {
                     logger.error(error)
                     Pop.error(error.message)

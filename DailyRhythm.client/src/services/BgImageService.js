@@ -7,7 +7,7 @@ class BgImageService {
   async getRandomPicture() {
     if (AppState.settings.bgImage) {
       const search = AppState.settings.bgImage
-      const res = await UnsplashApi.get('', { params: search })
+      const res = await UnsplashApi.get('', { params: { query: search } })
       // logger.log('[GETTING RANDOM IMAGE]', res.data.results)
       res.data.results.sort((a, b) => 0.5 - Math.random())
       AppState.BgImage = new BgImage(res.data.results[0])

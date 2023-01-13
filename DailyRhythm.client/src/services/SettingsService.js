@@ -9,9 +9,8 @@ class SettingsService {
     AppState.settings = res.data
   }
 
-  async updateAccount(search, editing) {
+  async updateAccount(editing) {
     try {
-      editing.bgImage = search
       logger.log('current editing', editing)
       const res = await api.put('/account', editing)
       logger.log('update settings', res.data)
