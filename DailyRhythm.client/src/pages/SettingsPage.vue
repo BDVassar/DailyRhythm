@@ -13,7 +13,7 @@
         </div>
 
         <!-- SECTION Update Settings -->
-        <div class="col-7 rounded text-white light-shadow opaqueBG">
+        <div v-if="settings" class="col-7 rounded text-white light-shadow opaqueBG">
             <h5 class="mt-4">Home Page:</h5>
             <form class="input-group" @submit.prevent="updateAccount(account.id)">
                 <div class="">
@@ -120,6 +120,7 @@ export default {
         })
 
         onMounted(() => {
+            getSettings()
         })
 
         // watchEffect(() => {
@@ -127,7 +128,14 @@ export default {
         //         editing.value = { ...AppState.account }
         //     }
         // })
-
+        async function getSettings() {
+            try {
+                await settingsService.getSettings()
+            } catch (error) {
+                logger.error(error)
+                Pop.error(error.message)
+            }
+        }
 
 
 
