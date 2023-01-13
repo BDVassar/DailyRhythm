@@ -94,14 +94,14 @@ export default {
             }
         }
 
-        async function getRandomPoem() {
-            try {
-                await quoteService.getRandomPoem()
-            } catch (error) {
-                Pop.error(error)
-                logger.error(error)
-            }
-        }
+        // async function getRandomPoem() {
+        //     try {
+        //         await quoteService.getRandomPoem()
+        //     } catch (error) {
+        //         Pop.error(error)
+        //         logger.error(error)
+        //     }
+        // }
         return {
             BgImage: computed(() => AppState.BgImage),
             Quote: computed(() => AppState.Quote),
@@ -109,8 +109,8 @@ export default {
             account: computed(() => AppState.account),
             dadJoke: computed(() => AppState.dadJoke),
             dadJokesSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes'))),
-            Poem: computed(() => AppState.Poem),
-            poetrySetting: computed(() => JSON.parse(window.localStorage.getItem('Poem'))),
+            // Poem: computed(() => AppState.Poem),
+            // poetrySetting: computed(() => JSON.parse(window.localStorage.getItem('Poem'))),
 
         };
     },
