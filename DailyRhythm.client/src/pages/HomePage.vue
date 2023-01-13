@@ -27,14 +27,15 @@
 
     <!-- SECTION Quote and author -->
 
-    <div v-if="quoteSetting && !dadJokesSetting" class="row my-5 py-5 text-white justify-content-center text-shadow">
+    <div v-if="quoteType.inspiration && !quoteType.dadJoke"
+        class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h3 class="text-center quote-content">{{ Quote.text }}</h3>
             <h5 class="text-center quote-author p-1">-{{ Quote.author }}</h5>
         </div>
     </div>
 
-    <div v-if="dadJokesSetting" class="row my-5 py-5 text-white justify-content-center text-shadow">
+    <div v-if="quoteType.dadJoke" class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h3 class="text-center quote-content">{{ dadJoke.joke }}</h3>
         </div>
@@ -65,6 +66,7 @@ import { Quote } from "../models/Quote.js";
 import Clock from "../components/Clock.vue";
 import { Weather } from "../models/Weather.js";
 import { Poem } from "../models/Poem.js";
+import { settingsService } from "../services/SettingsService.js";
 
 
 export default {
@@ -72,6 +74,7 @@ export default {
         onMounted(() => {
             getRandomQuote();
             getRandomDadJoke();
+            getSettings();
             // getRandomPoem();
         });
 
@@ -94,6 +97,16 @@ export default {
             }
         }
 
+        async function getSettings() {
+            try {
+                await settingsService.getSettings()
+            } catch (error) {
+                logger.error(error)
+                Pop.error(error.message)
+            }
+        }
+
+
         // async function getRandomPoem() {
         //     try {
         //         await quoteService.getRandomPoem()
@@ -109,6 +122,7 @@ export default {
             account: computed(() => AppState.account),
             dadJoke: computed(() => AppState.dadJoke),
             dadJokesSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes'))),
+            settings: computed(() => AppState.settings),
             // Poem: computed(() => AppState.Poem),
             // poetrySetting: computed(() => JSON.parse(window.localStorage.getItem('Poem'))),
 

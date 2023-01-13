@@ -2,8 +2,12 @@ import { initialize } from '@bcwdev/auth0provider-client'
 import { AppState } from '../AppState'
 import { audience, clientId, domain } from '../env'
 import { router } from '../router'
+import { logger } from "../utils/Logger.js"
+import Pop from "../utils/Pop.js"
 import { accountService } from './AccountService'
 import { api } from './AxiosService'
+import { bgImageService } from "./BgImageService.js"
+import { settingsService } from "./SettingsService.js"
 import { socketService } from './SocketService'
 
 export const AuthService = initialize({
@@ -20,13 +24,15 @@ export const AuthService = initialize({
   }
 })
 
-AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function() {
+AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function () {
   api.defaults.headers.authorization = AuthService.bearer
   api.interceptors.request.use(refreshAuthToken)
   AppState.user = AuthService.user
   await accountService.getAccount()
   socketService.authenticate(AuthService.bearer)
   // NOTE if there is something you want to do once the user is authenticated, place that here
+  await settingsService.getSettings()
+  await bgImageService.getRandomPicture();
 })
 
 async function refreshAuthToken(config) {
