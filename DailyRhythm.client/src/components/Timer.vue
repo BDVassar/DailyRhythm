@@ -1,7 +1,7 @@
 <template>
-    <div class="text-white opaque-bg rounded text-shadow p-2">
+    <div class="text-white opaque-bg rounded text-shadow p-1">
         <div class="clock">
-            <div class="display text-white text-shadow fs-4">
+            <div class="display text-white text-shadow fs-5">
                 <input type="number" v-model="hours" min="0" max="23" />:
                 <input type="number" v-model="minutes" min="0" max="59" />:
                 <input type="number" v-model="seconds" min="0" max="59" />
@@ -88,20 +88,21 @@ export default {
 }
 
 .display {
-    font-size: 2em;
+    font-size: 1em;
     font-weight: bold;
     overflow: hidden;
 }
 
 .text-shadow {
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #1f1f1f;
 }
 
 .display input[type="number"] {
-    width: 6vh;
-    height: 6vh;
+    width: 5vh;
+    height: 5vh;
     text-align: center;
     border: none;
+    position: center;
     background: transparent;
     color: rgb(216, 216, 216);
     background-color: #43434337;
@@ -111,12 +112,12 @@ export default {
 }
 
 .controls {
-    margin-top: 1em;
+    margin-top: .5em;
 }
 
 button {
     border: none;
-    padding: 0.5em 1em;
+    padding: 0.5em .5em;
     background: rgba(103, 103, 103, 0.119);
     color: white;
     font-size: 1em;

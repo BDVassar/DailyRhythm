@@ -1,23 +1,17 @@
 <template>
-    <!-- SECTION Time -->
-    <div class="row p-3 justify-content-between text-white text-shadow">
-        <div v-if="account.clockOn" class="col-6">
+    <!--SECTION Weather, Clock, Timer component-->
+    <section class="row justify-content-between text-white text-shadow">
+        <div class="col-2 d-flex justify-content-center" v-if="account.weatherOn">
+            <Weather />
+        </div>
+        <div class="col-2 d-flex justify-content-center" v-if="account.clockOn">
             <Clock />
         </div>
-        <!-- SECTION Weather -->
-
-        <span v-if="account.weatherOn" class="col-6">
-            <Weather />
-        </span>
-    </div>
-
-    <!--SECTION Timer-->
-    <div class="row">
-        <div class="col-2 mx-2 text-white justify-content-start text-shadow" v-if="account.timerOn">
+        <div class="col-2" v-if="account.timerOn">
             <Timer />
         </div>
-    </div>
 
+    </section>
 
     <!-- SECTION Greeting -->
     <div class="row text-white text-shadow">
@@ -46,13 +40,13 @@
         </div>
     </div>
 
-    <div v-if="poetrySetting" class="row my-5 py-5 text-white justify-content-center text-shadow">
+    <!-- <div v-if="poetrySetting" class="row my-5 py-5 text-white justify-content-center text-shadow">
         <div class="col-10">
             <h5 class="text-center quote-author p-1">-{{ Poem.title }}</h5>
             <h3 class="text-center quote-content">{{ Poem.lines }}</h3>
             <h5 class="text-center quote-author p-1">-{{ Poem.author }}</h5>
         </div>
-    </div>
+    </div> -->
 
     <div class="row justify-content-center pb-5">
         <div class="col-4">
@@ -78,7 +72,7 @@ export default {
         onMounted(() => {
             getRandomQuote();
             getRandomDadJoke();
-            getRandomPoem();
+            // getRandomPoem();
         });
 
         async function getRandomQuote() {
@@ -100,14 +94,14 @@ export default {
             }
         }
 
-        async function getRandomPoem() {
-            try {
-                await quoteService.getRandomPoem()
-            } catch (error) {
-                Pop.error(error)
-                logger.error(error)
-            }
-        }
+        // async function getRandomPoem() {
+        //     try {
+        //         await quoteService.getRandomPoem()
+        //     } catch (error) {
+        //         Pop.error(error)
+        //         logger.error(error)
+        //     }
+        // }
         return {
             BgImage: computed(() => AppState.BgImage),
             Quote: computed(() => AppState.Quote),
@@ -115,8 +109,8 @@ export default {
             account: computed(() => AppState.account),
             dadJoke: computed(() => AppState.dadJoke),
             dadJokesSetting: computed(() => JSON.parse(window.localStorage.getItem('dadJokes'))),
-            Poem: computed(() => AppState.Poem),
-            poetrySetting: computed(() => JSON.parse(window.localStorage.getItem('Poem'))),
+            // Poem: computed(() => AppState.Poem),
+            // poetrySetting: computed(() => JSON.parse(window.localStorage.getItem('Poem'))),
 
         };
     },
@@ -127,6 +121,18 @@ export default {
 <style scoped lang="scss">
 .opaque-bg {
     background-color: rgba(82, 82, 82, 0.338);
+}
+
+.timer-position {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.clock-position {
+    position: fixed;
+    top: 0;
+    right: 475px
 }
 
 .opaqueBG {

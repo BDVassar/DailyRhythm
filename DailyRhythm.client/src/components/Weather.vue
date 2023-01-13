@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4 weather-card rounded elevation-5 me-3 mt-2" title="See local weather">
+  <div class="col-2 weather-card rounded elevation-5 me-3 mt-2 p-1 m-2 mt-3" title="See local weather">
     <p>
       <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
         aria-controls="collapseExample">
