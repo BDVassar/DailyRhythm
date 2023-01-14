@@ -49,6 +49,9 @@
 
         </section>
 
+        <ModalComponent id="editGoalModal">
+            <EditGoalForm />
+        </ModalComponent>
 
 
     </div>
@@ -72,6 +75,7 @@ import Pop from "../utils/Pop";
 import { rhythmService } from "../services/RhythmService.js";
 import RhythmForm from "../components/RhythmForm.vue";
 import BeatForm from "../components/BeatForm.vue";
+import EditGoalForm from "../components/editGoalForm.vue";
 
 export default {
     setup() {
@@ -105,7 +109,7 @@ export default {
             getRhythmsByGoalId: computed(() => AppState.rhythmsByGoalId),
         };
     },
-    components: { RhythmForm, BeatForm }
+    components: { RhythmForm, BeatForm, EditGoalForm }
 }
 </script>
 
