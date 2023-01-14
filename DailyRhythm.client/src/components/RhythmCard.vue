@@ -1,5 +1,5 @@
 <template>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center text-center">
         <div class="col-6 text-start">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
@@ -7,11 +7,6 @@
                 <label class="form-check-label" for="flexCheckDefault"><span class="mdi" :class="rhythm.icon"></span> {{
                     rhythm.name
                 }}</label>
-            </div>
-        </div>
-        <div class="col-6 text-start">
-            <div class="fs-6 text-center fw-light">
-                {{ rhythm.description }}
             </div>
         </div>
     </div>
