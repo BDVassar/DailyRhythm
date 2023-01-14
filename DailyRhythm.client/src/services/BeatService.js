@@ -12,7 +12,7 @@ class BeatService {
     async getBeatsByGoalId(goalId) {
         const res = await api.get('api/goals/' + goalId + '/beats')
         logger.log('[Getting beats by goal Id.]', res.data)
-        AppState.getBeatsByGoalId = res.data
+        AppState.beatsByGoalId = res.data
         return res.data
     }
     async getMyBeats() {

@@ -27,24 +27,39 @@
             </div>
 
             <div class="col-5 text-center">
-                <h5>Rhythms</h5>
+                <section class="row justify-content-end">
+                    <div class="col-9">
+                        <h5>Rhythms</h5>
+                    </div>
+                    <div class="col-2">
+                        <button data-bs-toggle="modal" data-bs-target="#RhythmModal">
+                            <span class="mdi mdi-plus-circle-outline fs-4"></span></button>
+                    </div>
+                </section>
 
-
-                <div class="col d-flex justify-content-end">
-                    <h3 class=" text-white" title="Add New Rhythm"><button data-bs-toggle="modal"
-                            data-bs-target="#RhythmModal"><i class="mdi mdi-plus-circle-outline"></i></button>
-                    </h3>
-                </div>
+                <section class="row">
+                    <div class="col-12 text-white text-center" v-for="r in rhythms">
+                        <RhythmCard :rhythm="r" />
+                    </div>
+                </section>
             </div>
 
             <div class="col-5 text-center">
-                <h5>Beats</h5>
+                <section class="row justify-content-end">
+                    <div class="col-9">
+                        <h5>Beats</h5>
+                    </div>
+                    <div class="col-2">
+                        <button data-bs-toggle="modal" data-bs-target="#BeatModal"><i
+                                class="mdi mdi-plus-circle-outline fs-4"></i></button>
+                    </div>
+                </section>
 
-                <div class="col d-flex justify-content-end">
-                    <h3 class=" text-white" title="Add New Beat"><button data-bs-toggle="modal"
-                            data-bs-target="#BeatModal"><i class="mdi mdi-plus-circle-outline"></i></button>
-                    </h3>
-                </div>
+                <section class="row">
+                    <div class="col-12 text-white text-center" v-for="b in beats">
+                        <BeatCard :beat="b" />
+                    </div>
+                </section>
             </div>
 
         </section>
@@ -76,6 +91,7 @@ import { rhythmService } from "../services/RhythmService.js";
 import RhythmForm from "../components/RhythmForm.vue";
 import BeatForm from "../components/BeatForm.vue";
 import EditGoalForm from "../components/editGoalForm.vue";
+import { beatService } from "../services/BeatService.js";
 
 export default {
     setup() {
@@ -99,14 +115,25 @@ export default {
                 logger.error(error);
             }
         }
+        async function getBeatsByGoalId() {
+            try {
+                await beatService.getBeatsByGoalId(route.params.goalId);
+            }
+            catch (error) {
+                Pop.error(error.message);
+                logger.error(error);
+            }
+        }
         onMounted(() => {
             getOneGoal();
             getRhythmsByGoalId();
+            getBeatsByGoalId();
         });
         return {
             editable,
             goal: computed(() => AppState.activeGoal),
-            getRhythmsByGoalId: computed(() => AppState.rhythmsByGoalId),
+            rhythms: computed(() => AppState.rhythmsByGoalId),
+            beats: computed(() => AppState.beatsByGoalId)
         };
     },
     components: { RhythmForm, BeatForm, EditGoalForm }
