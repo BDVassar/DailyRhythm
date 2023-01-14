@@ -1,10 +1,21 @@
 <template>
-    <div class="row">
-        <div class="fs-6 text-center">
-            <span class="mdi" :class="rhythm.icon"></span> {{ rhythm.name }}
+    <div class="row just">
+        <div class="col-1">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" :checked="rhythm.accomplished">
+                <label class="form-check-label" for="flexCheckDefault">
+                </label>
+            </div>
         </div>
-        <div class="fs-6 text-center fw-light">
-            {{ rhythm.description }}
+        <div class="col-3">
+            <div class="fs-5 text-center">
+                <span class="mdi" :class="rhythm.icon"></span> {{ rhythm.name }}
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="fs-6 text-center fw-light">
+                {{ rhythm.description }}
+            </div>
         </div>
     </div>
 </template>
