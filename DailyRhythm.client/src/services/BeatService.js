@@ -25,6 +25,14 @@ class BeatService {
         const res = await api.get('api/beats/' + beatId)
         logger.log('[Get Beat by beat Id]', res.data)
         AppState.activeBeat = res.data
+        return res.data
+    }
+
+    async accomplishBeat(beatId) {
+        const currentBeat = await this.getOneBeat(beatId)
+        currentBeat.accomplished = !currentBeat.accomplished
+        const res = await api.put('api/beats/' + beatId, currentBeat)
+        logger.log('[beat accomplished]', res.data)
     }
 }
 export const beatService = new BeatService()

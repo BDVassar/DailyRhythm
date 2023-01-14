@@ -24,6 +24,15 @@ class RhythmService {
         const res = await api.get('api/rhythms/' + rhythmId)
         logger.log('[Get rhythm by rhythm Id]', res.data)
         AppState.activeRhythm = res.data
+        return res.data
+    }
+
+    async accomplishRhythm(rhythmId) {
+        const currentRhythm = await this.getOneRhythm(rhythmId)
+        currentRhythm.accomplished = !currentRhythm.accomplished
+        const res = await api.put('api/rhythms/' + rhythmId, currentRhythm)
+        logger.log('[rhythm accomplished]', res.data)
+
     }
 }
 export const rhythmService = new RhythmService()

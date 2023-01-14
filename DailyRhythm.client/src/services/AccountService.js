@@ -10,7 +10,7 @@ class AccountService {
       AppState.account = res.data
     } catch (error) {
 
-      logger.error('HAVE YOU STARTED YOUR SERVER YET???', err)
+      logger.error('HAVE YOU STARTED YOUR SERVER YET???', error)
     }
   }
 

@@ -1,9 +1,9 @@
 <template>
     <div class="row justify-content-center text-center">
-        <div class="col-6 text-start">
+        <div class="col-12 text-start">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
-                    :checked="rhythm.accomplished">
+                <input v-if="rhythm" @click="accomplishRhythm(rhythm._id)" class="form-check-input" type="checkbox"
+                    value="" id="flexCheckDefault" :checked="rhythm.accomplished">
                 <label class="form-check-label" for="flexCheckDefault"><span class="mdi" :class="rhythm.icon"></span> {{
                     rhythm.name
                 }}</label>
@@ -15,12 +15,24 @@
 <script>
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted } from 'vue';
+import { logger } from "../utils/Logger.js";
+import Pop from "../utils/Pop.js";
+import { rhythmService } from "../services/RhythmService.js";
 export default {
     props: {
         rhythm: { type: Object, required: true }
     },
     setup() {
-        return {};
+        return {
+            async accomplishRhythm(rhythmId) {
+                try {
+                    await rhythmService.accomplishRhythm(rhythmId)
+                } catch (error) {
+                    logger.error(error)
+                    Pop.error(error)
+                }
+            }
+        };
     }
 }
 </script>
