@@ -24,7 +24,7 @@ class GoalService {
 
     async updateGoal(goalData) {
         logger.log(goalData)
-        const res = await api.put('api/goals' + goalId, goalData)
+        const res = await api.put('api/goals/' + goalData.goalId, goalData)
         logger.log('[Edit goal]', res.data)
     }
 }
