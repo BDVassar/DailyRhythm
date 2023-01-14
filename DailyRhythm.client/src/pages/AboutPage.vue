@@ -28,12 +28,9 @@
       <div class="collapse" id="collapseWhatIsRhythm">
         <div class="row justify-content-center">
           <div class="col-10 d-flex justify-content-center text-white text-shadow fs-5">
-            <p>Blurb about why starting small is important? Lorem ipsum dolor sit amet
-              consectetur
-              adipisicing elit. Ipsam
-              voluptates, veritatis eligendi cum odio, incidunt natus earum neque possimus quibusdam quam odit animi
-              fugiat a
-              recusandae sint necessitatibus accusamus deserunt.</p>
+            <p>Building solid habits requires finding a rhythm of small routines that can easily build up to help your
+              achieve your larger goals. For this reason, think of your rhythms as your small habits. Getting those
+              rhythms to stick requires consistency until they become second nature.</p>
           </div>
         </div>
       </div>
@@ -48,10 +45,8 @@
       <div class="collapse" id="collapseWhatIsBeat">
         <div class="row justify-content-center">
           <div class="col-10 d-flex justify-content-center text-white text-shadow fs-5">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              voluptates, veritatis eligendi cum odio, incidunt natus earum neque possimus quibusdam quam odit animi
-              fugiat a
-              recusandae sint necessitatibus accusamus deserunt.</p>
+            <p>When you assign tasks to yourself or others, sometimes the word task feels daunting and/or boring. For
+              this reason, here at Daily Rhythm we like to think of our one-off tasks as beats instead.</p>
           </div>
         </div>
       </div>
@@ -66,12 +61,25 @@
       <div class="collapse" id="collapseHowTo">
         <div class="row justify-content-center">
           <div class="col-12 d-flex justify-content-center text-white text-shadow fs-5">
-            <p>Blurb about why starting small is important? Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Ipsam
-              voluptates, veritatis eligendi cum odio, incidunt natus earum neque possimus quibusdam quam odit animi
-              fugiat a
-              recusandae sint necessitatibus accusamus deserunt.</p>
+            <p>Goal setting is an important part of self improvement, but sometimes we set goals that feel so big and
+              overwhelming, that it prevents us from working towards the goal in a way that is maintainable. Instead of
+              focusing on one large goal, it's best to break that goal into smaller chunks. These smaller chunks are
+              your rhythms and beats. Together, accomplishing these rhythms and beats will help you attain those long
+              term goals.</p>
           </div>
+
+          <div clas="col-12 d-flex justify-content-center fs-5">
+            <p class=" text-white text-shadow ">To use Daily Rhythm, do the following: </p>
+            <p class=" text-white text-shadow "> 1. Go to your Daily Rhythm Page <i class="mdi mdi-bullseye-arrow"></i>.
+              Here you will find a calendar
+              where your daily rhythms and beats will live. To add a goal, click the <i
+                class="mdi mdi-plus-circle-outline"></i> and fill in the goal details. From here, you will be directed
+              to the goal details page for that specific goal. Add your rhythms (reocurring habits) and beats (one-time
+              tasks) that will help you accomplish your overall goal. We recommend identifying small, simple rhythms to
+              make achieving your goal as easy and attainable as possible. Don't be afraid to add as many rhythms and
+              beats as you need!</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -107,11 +115,13 @@
       <div class="collapse" id="collapseLegal">
         <div class="row justify-content-center">
           <div class="col-12 d-flex justify-content-center text-white text-shadow fs-5">
-            <p>Daily Rhythm uses the following API's:</p>
-            <p>Unsplash</p>
-            <p>TypeFit</p>
-            <p>Open Weather Map</p>
-            <p>Dad Jokes</p>
+            <div>
+              <p>Daily Rhythm uses the following API's:</p>
+              <p>Unsplash</p>
+              <p>TypeFit</p>
+              <p>Open Weather Map</p>
+              <p>Dad Jokes</p>
+            </div>
           </div>
         </div>
       </div>
