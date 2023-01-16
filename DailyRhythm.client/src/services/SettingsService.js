@@ -5,7 +5,7 @@ import { api } from "./AxiosService.js"
 class SettingsService {
   async getSettings() {
     const res = await api.get('account')
-    logger.log('Getting Settings', res.data)
+    // logger.log('Getting Settings', res.data)
     AppState.settings = res.data
   }
 

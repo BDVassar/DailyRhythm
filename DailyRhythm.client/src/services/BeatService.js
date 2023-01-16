@@ -11,13 +11,13 @@ class BeatService {
 
     async getBeatsByGoalId(goalId) {
         const res = await api.get('api/goals/' + goalId + '/beats')
-        logger.log('[Getting beats by goal Id.]', res.data)
+        // logger.log('[Getting beats by goal Id.]', res.data)
         AppState.beatsByGoalId = res.data
         return res.data
     }
     async getMyBeats() {
         const res = await api.get('account/beats')
-        logger.log('Getting my beats.', res.data)
+        // logger.log('Getting my beats.', res.data)
         AppState.Beats = res.data
         return res.data
     }

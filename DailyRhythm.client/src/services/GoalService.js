@@ -12,13 +12,13 @@ class GoalService {
 
     async getMyGoals() {
         const res = await api.get('account/goals')
-        logger.log('[Getting my goals.]', res.data)
+        // logger.log('[Getting my goals.]', res.data)
         AppState.Goals = res.data
     }
 
     async getOneGoal(goalId) {
         const res = await api.get('api/goals/' + goalId)
-        logger.log('[Get goal by goal Id]', res.data)
+        // logger.log('[Get goal by goal Id]', res.data)
         AppState.activeGoal = res.data
     }
 

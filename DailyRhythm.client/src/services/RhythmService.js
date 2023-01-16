@@ -10,13 +10,13 @@ class RhythmService {
     }
     async getRhythmsByGoalId(goalId) {
         const res = await api.get('api/goals/' + goalId + '/rhythms')
-        logger.log('[Rhythms by GoalId]', res.data)
+        // logger.log('[Rhythms by GoalId]', res.data)
         AppState.rhythmsByGoalId = res.data
         return res.data
     }
     async getMyRhythms() {
         const res = await api.get('account/rhythms')
-        logger.log('getting my rhythms', res.data)
+        // logger.log('getting my rhythms', res.data)
         AppState.Rhythms = res.data
         return res.data
     }
