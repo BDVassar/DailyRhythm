@@ -20,7 +20,6 @@ import { computed, reactive, onMounted } from 'vue';
 
 export default {
   setup() {
-    // console.log(new Date)
     return {
       account: computed(() => AppState.account),
       hour: new Date().getHours()
