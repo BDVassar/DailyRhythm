@@ -11,7 +11,8 @@ class GoalService {
 
     async getMyGoals(creatorId) {
         const goals = await dbContext.Goals.find({ creatorId })
-        return goals
+        const filteredGoals = goals.filter(g => !g.archived)
+        return filteredGoals;
     }
 
     async getOneGoal(id) {
