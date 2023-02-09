@@ -1,6 +1,22 @@
 <template>
     <main>
-        <div class="container-fluid bgImage d-flex flex-column justify-content-between" v-if="BgImage"
+        <div v-if="!user.isAuthenticated" class="container-fluid bgImage d-flex flex-column justify-content-between"
+            :style="{ backgroundImage: `url('https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')` }">
+            <router-view />
+            <section class="row">
+                <div class="col-5 author-style p-1 m-2">
+                    <p class="fs-6">
+                        Photo by
+                        <a href="https://unsplash.com/photos/2Hzmz15wGik" target="_blank" title="photographer" class="">
+                            Pine Watt
+                            <a href="https://unsplash.com/?utm_source=daily_rhythm&utm_medium=referral"
+                                target="_blank">Unsplash</a></a>
+                    </p>
+
+                </div>
+            </section>
+        </div>
+        <div v-else="BgImage" class="container-fluid bgImage d-flex flex-column justify-content-between"
             :style="{ backgroundImage: `url('${BgImage.imgUrl}')` }">
             <router-view />
             <section class="row">
@@ -33,6 +49,7 @@ export default {
         return {
             appState: computed(() => AppState),
             BgImage: computed(() => AppState.BgImage),
+            user: computed(() => AppState.user)
         };
     },
     components: { NavBar }
