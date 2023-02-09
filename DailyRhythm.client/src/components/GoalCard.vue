@@ -35,6 +35,10 @@ export default {
             router,
             async deleteGoal(goalId) {
                 try {
+                    const confirm = await Pop.confirm('Are you sure you want to delete this goal?',)
+                    if (!confirm) {
+                        return
+                    }
                     await goalService.deleteGoal(goalId)
                 } catch (error) {
                     logger.error(error);
