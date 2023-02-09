@@ -74,7 +74,7 @@
               Here you will find a calendar
               where your daily rhythms and beats will live. To add a goal, click the <i
                 class="mdi mdi-plus-circle-outline"></i> and fill in the goal details. From here, you will be directed
-              to the goal details page for that specific goal. Add your rhythms (reocurring habits) and beats (one-time
+              to the goal details page for that specific goal. Add your rhythms (reoccurring habits) and beats (one-time
               tasks) that will help you accomplish your overall goal. We recommend identifying small, simple rhythms to
               make achieving your goal as easy and attainable as possible. Don't be afraid to add as many rhythms and
               beats as you need!</p>
@@ -139,7 +139,7 @@ export default {
       bryanGitHub: 'https://github.com/BDVassar',
       bryanLinkedIn: 'https://www.linkedin.com/in/bryanvassar/',
       jordanGitHub: 'https://github.com/JordanLDiaz',
-      jordanLinkedIn: 'https://www.linkedin.com/in/jordan-diaz-005b0466/',
+      jordanLinkedIn: 'https://www.linkedin.com/in/jordanldiaz/',
       kaylaGitHub: 'https://github.com/kaylacammack',
       kaylaLinkedIn: 'https://www.linkedin.com/in/kayla-cammack-15b46954/',
       rachelGitHub: 'https://github.com/rachel-gamble',
