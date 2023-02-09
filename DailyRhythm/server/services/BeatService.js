@@ -27,7 +27,7 @@ class BeatService {
     currentBeat.description = body.description ? body.description : currentBeat.description
     currentBeat.completedDate = body.completedDate ? body.completedDate : currentBeat.completedDate
     currentBeat.priority = body.priority ? body.priority : currentBeat.priority
-    currentBeat.accomplished = body.accomplished ? body.accomplished : currentBeat.accomplished
+    currentBeat.accomplished = body.accomplished
     currentBeat.archived = body.archived ? body.archived : currentBeat.archived
     currentBeat.color = body.color ? body.color : currentBeat.color
     currentBeat.icon = body.icon ? body.icon : currentBeat.icon

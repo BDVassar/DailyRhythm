@@ -34,7 +34,7 @@ class RhythmService {
         currentRhythm.end = body.end ? body.end : currentRhythm.end
         currentRhythm.completedDate = body.completedDate ? body.completedDate : currentRhythm.completedDate
         currentRhythm.priority = body.priority ? body.priority : currentRhythm.priority
-        currentRhythm.accomplished = body.accomplished ? body.accomplished : currentRhythm.accomplished
+        currentRhythm.accomplished = body.accomplished
         currentRhythm.color = body.color ? body.color : currentRhythm.color
         currentRhythm.icon = body.icon ? body.icon : currentRhythm.icon
         await currentRhythm.save()

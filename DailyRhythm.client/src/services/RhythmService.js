@@ -32,7 +32,7 @@ class RhythmService {
         currentRhythm.accomplished = !currentRhythm.accomplished
         const res = await api.put('api/rhythms/' + rhythmId, currentRhythm)
         logger.log('[rhythm accomplished]', res.data)
-
+        AppState.activeRhythm = res.data
     }
 }
 export const rhythmService = new RhythmService()
