@@ -1,6 +1,6 @@
 <template>
 
-    <section @click.stop="router.push({ name: 'GoalDetails', params: { goalId: goal.id } })"
+    <section v-if="!goal.archived" @click.stop="router.push({ name: 'GoalDetails', params: { goalId: goal.id } })"
         class="row card text-center p-3 text-white text-shadow opaque-bg selectable">
         <div class="col-12 text-end">
             <button class="btn text-white align-content-end" @click.stop="deleteGoal(goal.id)"><i
