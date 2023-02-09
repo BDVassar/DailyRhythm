@@ -6,7 +6,7 @@ export const BeatSchema = new Schema({
     createdAt: { type: Date, required: true, default: new Date },
     creatorId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
     description: { type: String, required: false, minLength: 2, maxLength: 1000 },
-    completedDate: { type: Date, required: false },
+    dueDate: { type: Date, required: false },
     priority: { type: String, required: false, enum: ['high', 'medium', 'low',], default: 'low', lowercase: true },
     accomplished: { type: Boolean, required: true, default: false },
     archived: { type: Boolean, required: true, default: false },
