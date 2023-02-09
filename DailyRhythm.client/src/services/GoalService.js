@@ -27,5 +27,11 @@ class GoalService {
         const res = await api.put('api/goals/' + goalData.goalId, goalData)
         logger.log('[Edit goal]', res.data)
     }
-}
+    async deleteGoal(goalId) {
+        const res = await api.delete('api/goals/' + goalId)
+        logger.log(res)
+        AppState.Goals = AppState.Goals.filter(g => g.id != goalId)
+    }
+    }
+
 export const goalService = new GoalService()
