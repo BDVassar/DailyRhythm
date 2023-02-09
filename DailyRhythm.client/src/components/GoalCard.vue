@@ -3,7 +3,7 @@
     <section v-if="!goal.archived" @click.stop="router.push({ name: 'GoalDetails', params: { goalId: goal.id } })"
         class="row card text-center p-3 text-white text-shadow opaque-bg selectable">
         <div class="col-12 text-end">
-            <button class="btn text-white align-content-end" @click.stop="deleteGoal(goal.id)"><i
+            <button class="btn text-white align-content-end" title="Delete Goal" @click.stop="deleteGoal(goal.id)"><i
                     class="mdi mdi-trash-can-outline"></i></button>
         </div>
         <h3><span class="mdi" :class="goal.icon"></span>{{ goal.name }}</h3>
