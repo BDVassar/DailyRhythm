@@ -1,5 +1,5 @@
 <template>
-    <div class="text-white opaque-bg rounded text-shadow p-1">
+    <div class="text-white opaque-bg rounded text-shadow m-3 px-5 elevation-5">
         <div class="clock">
             <div class="display text-white text-shadow fs-5">
                 <input type="number" v-model="hours" min="0" max="23" />:
