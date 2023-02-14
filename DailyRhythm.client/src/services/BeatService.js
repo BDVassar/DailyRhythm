@@ -5,7 +5,7 @@ class BeatService {
     async createBeat(body) {
         const res = await api.post('api/beats', body)
         logger.log('[Creating Beat.]', res.data)
-        AppState.Beats = res.data
+        AppState.beatsByGoalId = AppState.beatsByGoalId.push(res.data)
         return res.data
     }
 

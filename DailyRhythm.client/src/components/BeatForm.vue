@@ -18,8 +18,8 @@
                 <label for="description">Description</label>
             </div>
 
-            <div class="dropdown me-1">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+            <div class="dropdown me-1 mb-3">
+                <button type="button" class="btn btn-secondary dropdown-toggle elevation-5" data-bs-toggle="dropdown"
                     aria-expanded="false" data-bs-offset="10,20">
                     Icon
                 </button>
@@ -28,6 +28,11 @@
                     </li>
                 </ul>
                 <i v-if="editable.icon" class="mdi" :class="editable.icon"></i>
+            </div>
+
+            <div class="form-floating mb-3 elevation-5">
+                <input v-model="editable.dueDate" type="date" class="form-control" id="dueDate" placeholder="dueDate" />
+                <label for="dueDate" />
             </div>
 
             <div class="modal-footer">
